@@ -52,16 +52,14 @@ const Hero = () => {
           </a>
         </motion.div>
 
-        <div className="mt-12">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Farmers Bash Promo Video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="rounded-lg shadow-lg"
-          />
+        <div className="mt-12 w-full max-w-4xl mx-auto">
+            <video
+            controls
+            className="rounded-lg shadow-lg w-full md:w-[880px] mx-auto"
+            >
+            <source src="/path/to/your/video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+            </video>
         </div>
       </div>
     </div>
