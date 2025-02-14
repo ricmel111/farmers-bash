@@ -48,22 +48,18 @@ function App() {
       title: 'LINEUP',
       icon: <Calendar className="w-6 h-6" />,
       content: (
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Day 1 - Friday</h3>
-            <ul className="space-y-2">
-              <li>7:00 PM - The Country Stars</li>
-              <li>8:30 PM - Rural Routes</li>
-              <li>10:00 PM - Farm House Band</li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Day 2 - Saturday</h3>
-            <ul className="space-y-2">
-              <li>6:00 PM - Harvest Moon</li>
-              <li>7:30 PM - The Hay Makers</li>
-              <li>9:00 PM - Country Roads</li>
-            </ul>
+        <div className="space-y-8">
+          <div>
+          <img
+              src="/images/Banner-A.png"
+              alt="Farmers Bash Banner"
+              className="w-full h-auto"
+            />
+            <img
+              src="/images/Lineup.png"
+              alt="Farmers Bash Lineup"
+              className="w-full h-auto -mt-16"
+            />
           </div>
         </div>
       ),
@@ -171,7 +167,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen relative">
       <Navbar />
       <Hero />
       
@@ -195,6 +191,17 @@ function App() {
           <NewsletterPopup onClose={() => setShowNewsletter(false)} />
         )}
       </AnimatePresence>
+
+      <img
+        src="/images/top-left.png"
+        alt="Top Left Corner"
+        className="absolute top-0 left-0 w-32 h-32 md:w-64 md:h-64 z-50"
+      />
+      <img
+        src="/images/top-right.png"
+        alt="Top Right Corner"
+        className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 z-50"
+      />
     </div>
   );
 }
