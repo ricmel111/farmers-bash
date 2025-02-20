@@ -191,7 +191,7 @@ function App() {
             key={section.id}
             id={section.id}
             title={section.title}
-            bg={section.bg}
+            bg={section.bg || ''}
             icon={section.icon}
           >
             {section.content}

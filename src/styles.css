@@ -36,3 +36,9 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+html, body {
+  overscroll-behavior: none;
+  height: 100%;
+  overflow-x: hidden;
+}
