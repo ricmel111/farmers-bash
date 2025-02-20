@@ -28,7 +28,7 @@ function App() {
       title: 'TICKETS',
       icon: <Music2 className="w-6 h-6" />,
       content: (
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 backdrop">
           {['Early Bird', 'Regular', 'VIP'].map((type) => (
             <div key={type} className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-bold mb-4">{type}</h3>
