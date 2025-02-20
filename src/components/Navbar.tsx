@@ -41,7 +41,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 md:hidden`}>
+      <div className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-30 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 md:hidden`}>
         <div className="flex flex-col items-center justify-center h-full space-y-8">
           <a href="#tickets" className="text-lg font-semibold text-[#664738]" onClick={toggleMenu}>Tickets</a>
           <a href="#lineup" className="text-lg font-semibold text-[#664738]" onClick={toggleMenu}>Lineup</a>
