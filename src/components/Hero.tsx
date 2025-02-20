@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden hero-bg">
       
       <div className="relative h-[30rem] lg:h-[70rem] flex flex-col items-center justify-center text-white text-center z-10">
         <motion.img

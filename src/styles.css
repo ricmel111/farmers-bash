@@ -29,7 +29,7 @@
   transform: translateZ(-1px) scale(2);
 }
 
-body {
+.hero-bg {
   background-image: url('/images/hero-bg.jpg');
   background-size: cover;
   background-attachment: fixed;
