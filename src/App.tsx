@@ -195,12 +195,12 @@ function App() {
       <img
         src="/images/top-left.png"
         alt="Top Left Corner"
-        className="absolute top-0 left-0 w-32 h-32 md:w-64 md:h-64 z-50"
+        className="absolute top-0 left-0 w-32 h-32 md:w-64 md:h-64 z-20"
       />
       <img
         src="/images/top-right.png"
         alt="Top Right Corner"
-        className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 z-50"
+        className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 z-20"
       />
     </div>
   );
