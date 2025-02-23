@@ -11,6 +11,45 @@ function App() {
   const [showNewsletter, setShowNewsletter] = useState(false);
   const [hasSeenPopup, setHasSeenPopup] = useState(false);
 
+  const artists = [
+    {
+      name: 'The Country Stars',
+      image: 'https://source.unsplash.com/800x800/?country,singer,female&sig=1',
+      website: 'https://example.com/countrystars',
+      genre: 'Modern Country'
+    },
+    {
+      name: 'Rural Routes',
+      image: 'https://source.unsplash.com/800x800/?country,band,guitar&sig=2',
+      website: 'https://example.com/ruralroutes',
+      genre: 'Folk Country'
+    },
+    {
+      name: 'Farm House Band',
+      image: 'https://source.unsplash.com/800x800/?country,musician,stage&sig=3',
+      website: 'https://example.com/farmhouse',
+      genre: 'Traditional'
+    },
+    {
+      name: 'Harvest Moon',
+      image: 'https://source.unsplash.com/800x800/?country,concert,performer&sig=4',
+      website: 'https://example.com/harvestmoon',
+      genre: 'Country Rock'
+    },
+    {
+      name: 'The Hay Makers',
+      image: 'https://source.unsplash.com/800x800/?country,band,festival&sig=5',
+      website: 'https://example.com/haymakers',
+      genre: 'Bluegrass'
+    },
+    {
+      name: 'Country Roads',
+      image: 'https://source.unsplash.com/800x800/?country,singer,male&sig=6',
+      website: 'https://example.com/countryroads',
+      genre: 'Classic Country'
+    }
+  ];
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!hasSeenPopup) {
@@ -73,18 +112,29 @@ function App() {
       title: 'ARTISTS',
       icon: <Users className="w-6 h-6" />,
       content: (
-        <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="relative group">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+          {artists.map((artist) => (
+            <motion.a
+              key={artist.name}
+              href={artist.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative aspect-square group overflow-hidden rounded-xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               <img
-                src={`https://source.unsplash.com/800x600/?country,music,artist&sig=${i}`}
-                alt={`Artist ${i}`}
-                className="rounded-lg shadow-lg transition-transform group-hover:scale-105"
+                src={artist.image}
+                alt={artist.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <h3 className="text-white text-xl font-bold">Artist Name {i}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-white text-xl font-bold mb-1">{artist.name}</h3>
+                  <p className="text-green-400">{artist.genre}</p>
+                </div>
               </div>
-            </div>
+            </motion.a>
           ))}
         </div>
       ),
