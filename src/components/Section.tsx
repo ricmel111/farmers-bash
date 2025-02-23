@@ -5,12 +5,11 @@ import { useInView } from 'react-intersection-observer';
 interface SectionProps {
   id: string;
   title: string;
-  bg: string;
   icon: React.ReactNode;
   children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, bg, icon, children }) => {
+const Section: React.FC<SectionProps> = ({ id, title, icon, children }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -23,7 +22,7 @@ const Section: React.FC<SectionProps> = ({ id, title, bg, icon, children }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
-      className={`py-16 ${bg}`}
+      className="py-16"
     >
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-2 mb-4">
