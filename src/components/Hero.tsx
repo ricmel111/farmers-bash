@@ -1,24 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Music } from 'lucide-react';
 
 const Hero = () => {
   return (
     <div className="relative h-screen md:h-[56.25vw]">
       <div className="absolute inset-0">
+        {/* Desktop Video */}
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="hidden md:block w-full h-full object-cover"
         >
           <source
             src="https://player.vimeo.com/external/517935003.hd.mp4?s=539faad12f040eb5afd8de3160db2d5dfb2a869a&profile_id=175"
             type="video/mp4"
           />
-          Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
+        
+        {/* Mobile Video - shorter, more vertical-friendly content */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="md:hidden w-full h-full object-cover"
+        >
+          <source
+            src="https://player.vimeo.com/external/492834541.hd.mp4?s=1cc65aa6dce0b3aa82a57b04445bac701e622130&profile_id=174"
+            type="video/mp4"
+          />
+        </video>
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
       </div>
       
       <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
@@ -29,20 +45,7 @@ const Hero = () => {
           className="mb-12"
         >
           <div className="flex items-center justify-center mb-6">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-20 h-20 md:w-32 md:h-32"
-            >
-              <path d="M9 18V5l12-2v13" />
-              <circle cx="6" cy="18" r="3" />
-              <circle cx="18" cy="16" r="3" />
-            </svg>
+            <Music className="w-24 h-24 md:w-32 md:h-32" />
           </div>
           
           <motion.h1
