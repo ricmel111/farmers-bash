@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Music } from 'lucide-react';
 
 const Hero = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   return (
     <div className="relative h-screen md:h-[56.25vw]">
-      <div className="absolute inset-0">
+      <div className={`absolute inset-0 ${videoLoaded ? '' : 'bg-cover bg-center'}`} style={{ background: videoLoaded ? 'none' : '#000' }}>
         {/* Desktop Video */}
         <video
           autoPlay
@@ -13,6 +14,7 @@ const Hero = () => {
           loop
           playsInline
           className="hidden md:block w-full h-full object-cover"
+          onLoadedData={() => setVideoLoaded(true)}
         >
           <source
             src="/images/fb-video-desktop.mp4"
@@ -27,6 +29,7 @@ const Hero = () => {
           loop
           playsInline
           className="md:hidden w-full h-full object-cover"
+          onLoadedData={() => setVideoLoaded(true)}
         >
           <source
             src="/images/fb-video-mobile.mp4"
@@ -34,7 +37,7 @@ const Hero = () => {
           />
         </video>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
       </div>
       
       {/* <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
