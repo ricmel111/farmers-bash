@@ -15,7 +15,7 @@ const Hero = () => {
           className="hidden md:block w-full h-full object-cover"
         >
           <source
-            src="https://player.vimeo.com/external/517935003.hd.mp4?s=539faad12f040eb5afd8de3160db2d5dfb2a869a&profile_id=175"
+            src="/images/fb-video-desktop.mp4"
             type="video/mp4"
           />
         </video>
@@ -29,15 +29,15 @@ const Hero = () => {
           className="md:hidden w-full h-full object-cover"
         >
           <source
-            src="https://player.vimeo.com/external/492834541.hd.mp4?s=1cc65aa6dce0b3aa82a57b04445bac701e622130&profile_id=174"
+            src="/images/fb-video-mobile.mp4"
             type="video/mp4"
           />
         </video>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
       </div>
       
-      <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
+      {/* <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -86,7 +86,7 @@ const Hero = () => {
             View Lineup
           </a>
         </motion.div>
-      </div>
+      </div> */}
     </div>
   );
 };

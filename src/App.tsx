@@ -13,40 +13,94 @@ function App() {
 
   const artists = [
     {
-      name: 'The Country Stars',
-      image: 'https://source.unsplash.com/800x800/?country,singer,female&sig=1',
-      website: 'https://example.com/countrystars',
-      genre: 'Modern Country'
+      name: 'Kaiser Chiefs',
+      image: '/images/KaiserChiefs.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'BeWitched',
+      image: '/images/Bewitched.png',
+      website: 'https://example.com/countrystars'
     },
     {
       name: 'Rural Routes',
-      image: 'https://source.unsplash.com/800x800/?country,band,guitar&sig=2',
-      website: 'https://example.com/ruralroutes',
-      genre: 'Folk Country'
+      image: '/images/AllFolk_dUp.jpg',
+      website: 'https://example.com/ruralroutes'
     },
     {
-      name: 'Farm House Band',
-      image: 'https://source.unsplash.com/800x800/?country,musician,stage&sig=3',
-      website: 'https://example.com/farmhouse',
-      genre: 'Traditional'
+      name: 'Allie Sherlock',
+      image: '/images/AllieSherlock.jpeg',
+      website: 'https://example.com/farmhouse'
     },
     {
-      name: 'Harvest Moon',
-      image: 'https://source.unsplash.com/800x800/?country,concert,performer&sig=4',
-      website: 'https://example.com/harvestmoon',
-      genre: 'Country Rock'
+      name: 'Boyzlife',
+      image: '/images/Boyzlife.png',
+      website: 'https://example.com/harvestmoon'
     },
     {
-      name: 'The Hay Makers',
-      image: 'https://source.unsplash.com/800x800/?country,band,festival&sig=5',
-      website: 'https://example.com/haymakers',
-      genre: 'Bluegrass'
+      name: 'Clodagh Lawlor',
+      image: '/images/ClodaghLawlor.jpg',
+      website: 'https://example.com/haymakers'
     },
     {
-      name: 'Country Roads',
-      image: 'https://source.unsplash.com/800x800/?country,singer,male&sig=6',
-      website: 'https://example.com/countryroads',
-      genre: 'Classic Country'
+      name: 'David James',
+      image: '/images/DavidJames.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Derek Ryan',
+      image: '/images/DerekRyan.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Garron Noone',
+      image: '/images/GarronNoone.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Lisa McHugh',
+      image: '/images/LisaMcHugh.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Mike Denver',
+      image: '/images/MikeDenver.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Nathan Carter',
+      image: '/images/NathanCarter.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Olivia Douglas',
+      image: '/images/OliviaDouglas.png',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Robert Mizzell',
+      image: '/images/RobertMizzell.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Shrek The Rave',
+      image: '/images/ShrekTheRave.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'The 2 Johnnies',
+      image: '/images/The2Johnnies.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'The Coronas',
+      image: '/images/TheCoronas.jpg',
+      website: 'https://example.com/countryroads'
+    },
+    {
+      name: 'Tumbling Paddies',
+      image: '/images/TumblingPaddies.jpg',
+      website: 'https://example.com/countryroads'
     }
   ];
 
@@ -112,7 +166,7 @@ function App() {
       title: 'ARTISTS',
       icon: <Users className="w-6 h-6" />,
       content: (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {artists.map((artist) => (
             <motion.a
               key={artist.name}
@@ -131,7 +185,6 @@ function App() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-white text-xl font-bold mb-1">{artist.name}</h3>
-                  <p className="text-green-400">{artist.genre}</p>
                 </div>
               </div>
             </motion.a>
