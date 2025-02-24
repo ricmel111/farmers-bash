@@ -15,92 +15,92 @@ function App() {
     {
       name: 'Kaiser Chiefs',
       image: '/images/KaiserChiefs.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'BeWitched',
-      image: '/images/Bewitched.png',
-      website: 'https://example.com/countrystars'
-    },
-    {
-      name: 'Rural Routes',
-      image: '/images/AllFolk_dUp.jpg',
-      website: 'https://example.com/ruralroutes'
-    },
-    {
-      name: 'Allie Sherlock',
-      image: '/images/AllieSherlock.jpeg',
-      website: 'https://example.com/farmhouse'
-    },
-    {
-      name: 'Boyzlife',
-      image: '/images/Boyzlife.png',
-      website: 'https://example.com/harvestmoon'
-    },
-    {
-      name: 'Clodagh Lawlor',
-      image: '/images/ClodaghLawlor.jpg',
-      website: 'https://example.com/haymakers'
-    },
-    {
-      name: 'David James',
-      image: '/images/DavidJames.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Derek Ryan',
-      image: '/images/DerekRyan.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Garron Noone',
-      image: '/images/GarronNoone.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Lisa McHugh',
-      image: '/images/LisaMcHugh.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Mike Denver',
-      image: '/images/MikeDenver.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Nathan Carter',
-      image: '/images/NathanCarter.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Olivia Douglas',
-      image: '/images/OliviaDouglas.png',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Robert Mizzell',
-      image: '/images/RobertMizzell.jpg',
-      website: 'https://example.com/countryroads'
-    },
-    {
-      name: 'Shrek The Rave',
-      image: '/images/ShrekTheRave.jpg',
-      website: 'https://example.com/countryroads'
+      website: 'https://www.kaiserchiefs.com/'
     },
     {
       name: 'The 2 Johnnies',
       image: '/images/The2Johnnies.jpg',
-      website: 'https://example.com/countryroads'
+      website: 'https://www.the2johnnies.ie/'
     },
     {
       name: 'The Coronas',
       image: '/images/TheCoronas.jpg',
-      website: 'https://example.com/countryroads'
+      website: 'https://thecoronas.net/'
+    },
+    {
+      name: 'Boyzlife',
+      image: '/images/Boyzlife.png',
+      website: 'https://www.facebook.com/BoyzlifeTour'
+    },
+    {
+      name: 'BWitched',
+      image: '/images/BWitched.png',
+      website: 'https://bwitchedofficial.com/'
+    },
+    {
+      name: 'Garron Noone',
+      image: '/images/GarronNoone.jpg',
+      website: 'https://linktr.ee/garronnoone'
     },
     {
       name: 'Tumbling Paddies',
       image: '/images/TumblingPaddies.jpg',
-      website: 'https://example.com/countryroads'
+      website: 'https://thetumblingpaddiesofficial.com/'
+    },
+    {
+      name: 'Rural Routes',
+      image: '/images/AllFolk_dUp.jpg',
+      website: 'https://www.allfolkdup.ie/'
+    },
+    {
+      name: 'Allie Sherlock',
+      image: '/images/AllieSherlock.jpeg',
+      website: 'https://www.alliesherlock.com/'
+    },
+    {
+      name: 'Clodagh Lawlor',
+      image: '/images/ClodaghLawlor.jpg',
+      website: 'https://www.clodaghlawlormusic.com/'
+    },
+    {
+      name: 'David James',
+      image: '/images/DavidJames.jpg',
+      website: 'https://davidjamesmusic.co.uk/'
+    },
+    {
+      name: 'Derek Ryan',
+      image: '/images/DerekRyan.jpg',
+      website: 'https://derekryanmusic.com/'
+    },
+    {
+      name: 'Lisa McHugh',
+      image: '/images/LisaMcHugh.jpg',
+      website: 'https://lisamchughmusic.com/'
+    },
+    {
+      name: 'Mike Denver',
+      image: '/images/MikeDenver.jpg',
+      website: 'https://www.mikedenvermusic.com/'
+    },
+    {
+      name: 'Nathan Carter',
+      image: '/images/NathanCarter.jpg',
+      website: 'https://www.nathancartermusic.com/'
+    },
+    {
+      name: 'Olivia Douglas',
+      image: '/images/OliviaDouglas.png',
+      website: 'https://www.oliviadouglasmusic.com/'
+    },
+    {
+      name: 'Robert Mizzell',
+      image: '/images/RobertMizzell.jpg',
+      website: 'https://robertmizzell.ie/'
+    },
+    {
+      name: 'Shrek Rave',
+      image: '/images/ShrekTheRave.jpg',
+      website: 'https://www.shrekraveofficial.com/'
     }
   ];
 
@@ -157,6 +157,7 @@ function App() {
       useContainer: false,
       content: (
         <div className="relative flex flex-col items-center space-y-4">
+          <img src="/images/Banner-A.png" alt="Farmers Bash Banner" className="max-w-full h-auto" />
           <img src="/images/Lineup.png" alt="Lineup" className="max-w-full h-auto" />
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
         </div>

@@ -2,12 +2,10 @@ import React from 'react';
 
 const Footer = () => {
   const sponsors = [
-    'Farm Equipment Co.',
-    'Country Radio 101.5',
-    'Rural Bank',
-    'Local News Network',
-    'Agricultural Times',
-    'Country Music Channel',
+    { name: 'Downtown Country', image: '/images/sponsors/Media-Partner-DowntownCountry.png' },
+    { name: 'Cool FM', image: '/images/sponsors/Media-Partner-CoolFM.png' },
+    { name: 'Irish News', image: '/images/sponsors/Media-Partner-IrishNews.png' },
+    { name: 'Farm FLIX', image: '/images/sponsors/Media-Partner-FarmFLIX.png' },
   ];
 
   return (
@@ -15,17 +13,19 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-center mb-8">
-            Sponsors & Media Partners
+            Official Media Partners
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {sponsors.map((sponsor) => (
               <div
-                key={sponsor}
-                className="bg-white rounded-lg p-4 flex items-center justify-center"
+                key={sponsor.name}
+                className="bg-transparent rounded-lg p-4 flex items-center justify-center"
               >
-                <span className="text-gray-900 font-semibold text-center">
-                  {sponsor}
-                </span>
+                <img
+                  src={sponsor.image}
+                  alt={sponsor.name}
+                  className="max-h-16"
+                />
               </div>
             ))}
           </div>
