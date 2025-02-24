@@ -157,7 +157,7 @@ function App() {
       useContainer: false,
       content: (
         <div className="relative flex flex-col items-center space-y-4">
-          <img src="/images/Lineup.png" alt="Lineup" className="max-w-[1800px] h-auto" />
+          <img src="/images/Lineup.png" alt="Lineup" className="max-w-full h-auto" />
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
         </div>
       ),
