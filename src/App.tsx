@@ -120,6 +120,13 @@ function App() {
       id: 'tickets',
       title: 'TICKETS',
       icon: <Music2 className="w-6 h-6" />,
+      padding: 'py-16',
+      background: {
+        color: 'bg-red-100',
+        image: 'url(/images/tickets-bg.jpg)',
+        position: 'center center',
+      },
+      useContainer: true,
       content: (
         <div className="grid md:grid-cols-3 gap-8">
           {['Early Bird', 'Regular', 'VIP'].map((type) => (
@@ -140,24 +147,18 @@ function App() {
       id: 'lineup',
       title: 'LINEUP',
       icon: <Calendar className="w-6 h-6" />,
+      padding: 'pt-16',
+      background: {
+        color: 'bg-blue-100',
+        image: 'url(/images/hero-bg.jpg)',
+        position: 'center bottom',
+        backgroundSize: 'cover'
+      },
+      useContainer: false,
       content: (
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Day 1 - Friday</h3>
-            <ul className="space-y-2">
-              <li>7:00 PM - The Country Stars</li>
-              <li>8:30 PM - Rural Routes</li>
-              <li>10:00 PM - Farm House Band</li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold">Day 2 - Saturday</h3>
-            <ul className="space-y-2">
-              <li>6:00 PM - Harvest Moon</li>
-              <li>7:30 PM - The Hay Makers</li>
-              <li>9:00 PM - Country Roads</li>
-            </ul>
-          </div>
+        <div className="relative flex flex-col items-center space-y-4">
+          <img src="/images/Lineup.png" alt="Lineup" className="max-w-full h-auto" />
+          <img src="/images/hero-fg.png" alt="Lineup" className="max-w-full h-auto" />
         </div>
       ),
     },
@@ -165,6 +166,13 @@ function App() {
       id: 'artists',
       title: 'ARTISTS',
       icon: <Users className="w-6 h-6" />,
+      padding: 'py-16',
+      background: {
+        color: 'bg-yellow-100',
+        image: 'url(/images/artists-bg.jpg)',
+        position: 'center center',
+      },
+      useContainer: true,
       content: (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {artists.map((artist) => (
@@ -183,8 +191,8 @@ function App() {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-4 transition-transform duration-300">
                   <h3 className="text-white text-xl font-bold mb-1">{artist.name}</h3>
                 </div>
               </div>
@@ -197,6 +205,13 @@ function App() {
       id: 'info',
       title: 'INFO',
       icon: <Info className="w-6 h-6" />,
+      padding: 'py-16',
+      background: {
+        color: 'bg-green-100',
+        image: 'url(/images/info-bg.jpg)',
+        position: 'center center',
+      },
+      useContainer: true,
       content: (
         <div className="grid md:grid-cols-2 gap-8">
           <div>
@@ -230,6 +245,13 @@ function App() {
       id: 'about',
       title: 'ABOUT',
       icon: <Info className="w-6 h-6" />,
+      padding: 'py-16',
+      background: {
+        color: 'bg-purple-100',
+        image: 'url(/images/about-bg.jpg)',
+        position: 'center center',
+      },
+      useContainer: true,
       content: (
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg leading-relaxed">
@@ -244,6 +266,13 @@ function App() {
       id: 'contact',
       title: 'GET IN TOUCH',
       icon: <Mail className="w-6 h-6" />,
+      padding: 'py-16',
+      background: {
+        color: 'bg-pink-100',
+        image: 'url(/images/contact-bg.jpg)',
+        position: 'center center',
+      },
+      useContainer: true,
       content: (
         <div className="max-w-2xl mx-auto">
           <form className="space-y-4">
@@ -279,18 +308,29 @@ function App() {
       <Navbar />
       <Hero />
       
-      <div className="container mx-auto px-4 py-12 space-y-24">
-        {sections.map((section) => (
-          <Section
-            key={section.id}
-            id={section.id}
-            title={section.title}
-            icon={section.icon}
-          >
-            {section.content}
-          </Section>
-        ))}
-      </div>
+      {sections.map((section) => (
+        <div key={section.id} className={`${section.background.color} ${section.padding}`} style={{ backgroundImage: section.background.image, backgroundPosition: section.background.position, backgroundSize: section.background.backgroundSize }}>
+          {section.useContainer ? (
+            <div className="container mx-auto px-4">
+              <Section
+                id={section.id}
+                title={section.title}
+                icon={section.icon}
+              >
+                {section.content}
+              </Section>
+            </div>
+          ) : (
+            <Section
+              id={section.id}
+              title={section.title}
+              icon={section.icon}
+            >
+              {section.content}
+            </Section>
+          )}
+        </div>
+      ))}
 
       <Footer />
 

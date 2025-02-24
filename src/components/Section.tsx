@@ -22,7 +22,6 @@ const Section: React.FC<SectionProps> = ({ id, title, icon, children }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
-      className="py-16"
     >
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-2 mb-4">
