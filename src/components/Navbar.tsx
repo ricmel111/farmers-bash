@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Music } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
+
+      const sections = document.querySelectorAll('section');
+      let currentSection = '';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 60;
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -18,25 +29,20 @@ const Navbar = () => {
   const menuItems = ['TICKETS', 'LINEUP', 'ARTISTS', 'INFO', 'ABOUT', 'GET IN TOUCH'];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'
-    }`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <a 
             href="#" 
-            className={`flex items-center gap-2 transition-all duration-300 ${
-              scrolled ? 'text-green-600 scale-90' : 'text-white scale-100'
-            }`}
+            className={`flex items-center gap-2 transition-all duration-300 ${scrolled ? 'scale-90' : 'scale-100'}`}
           >
-            <Music className={`transition-all duration-300 ${
-              scrolled ? 'w-8 h-8' : 'w-10 h-10'
-            }`} />
-            <span className={`font-bold transition-all duration-300 ${
-              scrolled ? 'text-xl' : 'text-2xl'
-            }`}>
-              FARMERS BASH
-            </span>
+            <div className={`transition-all duration-300 ${scrolled ? 'bg-white rounded-full' : ''}`}>
+              <img 
+                src={scrolled ? "/images/farmers-bash-logo-sm.svg" : "/images/farmers-bash-logo.svg"} 
+                alt="Farmers Bash Logo" 
+                className={`transition-all duration-300 ${scrolled ? 'w-24' : 'w-40'}`} 
+              />
+            </div>
           </a>
 
           {/* Desktop Menu */}
@@ -45,11 +51,7 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                className={`transition-colors ${
-                  scrolled 
-                    ? 'text-gray-600 hover:text-green-600' 
-                    : 'text-white hover:text-green-400'
-                }`}
+                className={`transition-colors ${scrolled ? 'text-gray-600 hover:text-green-600' : 'text-white hover:text-green-400'} ${activeSection === item.toLowerCase().replace(/\s+/g, '') ? 'text-green-600' : ''}`}
               >
                 {item}
               </a>
@@ -58,12 +60,10 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden transition-colors ${
-              scrolled ? 'text-gray-600' : 'text-white'
-            }`}
+            className={`md:hidden transition-colors ${scrolled ? 'text-gray-600' : 'text-white'}`}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X /> : <Menu />}
+            {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
       </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                className="block px-3 py-2 text-gray-600 hover:text-green-600 transition-colors"
+                className={`block px-3 py-2 text-gray-600 hover:text-green-600 transition-colors ${activeSection === item.toLowerCase().replace(/\s+/g, '') ? 'text-green-600' : ''}`}
                 onClick={() => setIsOpen(false)}
               >
                 {item}
