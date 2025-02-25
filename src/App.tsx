@@ -120,13 +120,12 @@ function App() {
       id: 'tickets',
       title: 'TICKETS',
       icon: <Music2 className="w-6 h-6" />,
-      padding: 'py-16',
+      padding: 'pt-4 pb-48',
       background: {
         color: 'bg-red-100',
-        image: 'url(/images/farmers-bash-bg4.jpg)',
-        position: 'center bottom',
-        backgroundSize: 'cover',
-        attachment: 'fixed'
+        image: 'url(/images/farmers-bash-bg5.jpg)',
+        position: 'center center',
+        backgroundSize: 'cover'
       },
       useContainer: true,
       content: (
@@ -149,7 +148,7 @@ function App() {
       id: 'lineup',
       title: 'LINEUP',
       icon: <Calendar className="w-6 h-6" />,
-      padding: 'pt-16',
+      padding: 'pt-4',
       background: {
         color: 'bg-blue-100',
         image: 'url(/images/hero-bg.jpg)',
@@ -170,7 +169,7 @@ function App() {
             id: 'artists',
             title: 'ARTISTS',
             icon: <Users className="w-6 h-6" />,
-            padding: 'py-16',
+            padding: 'pt-4 pb-48',
             background: {
         color: 'bg-yellow-100',
         image: 'url(/images/farmers-bash-bg0.jpg)',
@@ -211,11 +210,12 @@ function App() {
       id: 'info',
       title: 'INFO',
       icon: <Info className="w-6 h-6" />,
-      padding: 'py-16',
+      padding: 'pt-4 pb-48',
       background: {
         color: 'bg-green-100',
-        image: 'url(/images/info-bg.jpg)',
+        image: 'url(/images/farmers-bash-bg5.jpg)',
         position: 'center center',
+        backgroundSize: 'cover'
       },
       useContainer: true,
       content: (
@@ -251,7 +251,7 @@ function App() {
       id: 'about',
       title: 'ABOUT',
       icon: <Info className="w-6 h-6" />,
-      padding: 'py-16',
+      padding: 'pt-4 pb-48',
       background: {
         color: 'bg-purple-100',
         image: 'url(/images/about-bg.jpg)',
@@ -272,7 +272,7 @@ function App() {
       id: 'contact',
       title: 'GET IN TOUCH',
       icon: <Mail className="w-6 h-6" />,
-      padding: 'py-16',
+      padding: 'pt-4 pb-48',
       background: {
         color: 'bg-white-100',
         image: 'url(/images/farmers-bash-bg1.jpg)',
