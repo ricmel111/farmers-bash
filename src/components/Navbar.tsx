@@ -40,7 +40,7 @@ const Navbar = () => {
               <img 
                 src={scrolled ? "/images/farmers-bash-logo-sm.svg" : "/images/farmers-bash-logo.svg"} 
                 alt="Farmers Bash Logo" 
-                className={`transition-all duration-300 ${scrolled ? 'w-24' : 'w-40'}`} 
+                className={`transition-all duration-300 ${scrolled ? 'w-24' : 'w-40 my-shadow'}`} 
               />
             </div>
           </a>
@@ -51,7 +51,7 @@ const Navbar = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                className={`transition-colors ${scrolled ? 'text-gray-600 hover:text-green-600' : 'text-white hover:text-green-400'} ${activeSection === item.toLowerCase().replace(/\s+/g, '') ? 'text-green-600' : ''}`}
+                className={`transition-colors ${scrolled ? 'text-gray-600 hover:text-green-600' : 'text-white hover:text-green-400 my-shadow'} ${activeSection === item.toLowerCase().replace(/\s+/g, '') ? 'text-green-600' : ''}`}
               >
                 {item}
               </a>

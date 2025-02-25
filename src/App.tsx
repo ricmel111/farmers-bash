@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Music2, Calendar, Users, Info, Mail, MapPin } from 'lucide-react';
 import NewsletterPopup from './components/NewsletterPopup';
@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 function App() {
   const [showNewsletter, setShowNewsletter] = useState(false);
   const [hasSeenPopup, setHasSeenPopup] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   const artists = [
     {
@@ -105,14 +106,18 @@ function App() {
   ];
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (!hasSeenPopup) {
-        setShowNewsletter(true);
-        setHasSeenPopup(true);
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const heroBottom = heroRef.current.getBoundingClientRect().bottom + window.scrollY;
+        if (window.scrollY > heroBottom && !hasSeenPopup) {
+          setShowNewsletter(true);
+          setHasSeenPopup(true);
+        }
       }
-    }, 3000);
+    };
 
-    return () => clearTimeout(timer);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [hasSeenPopup]);
 
   const sections = [
@@ -122,10 +127,10 @@ function App() {
       icon: <Music2 className="w-6 h-6" />,
       padding: 'pt-4 pb-48',
       background: {
-        color: 'bg-red-100',
-        image: 'url(/images/farmers-bash-bg5.jpg)',
-        position: 'center center',
-        backgroundSize: 'cover'
+        color: 'bg-gray-100',
+        image: 'url(/images/farmers-bash-bg11.jpg)',
+        position: 'center bottom',
+        backgroundSize: 'cover',
       },
       useContainer: true,
       content: (
@@ -170,8 +175,8 @@ function App() {
             icon: <Users className="w-6 h-6" />,
             padding: 'pt-4 pb-48',
             background: {
-        color: 'bg-yellow-100',
-        image: 'url(/images/farmers-bash-bg0.jpg)',
+        color: 'bg-red-900',
+        image: 'url(/images/farmers-bash-bg3.jpg)',
         position: 'center bottom',
         backgroundSize: 'cover',
         attachment: 'fixed'
@@ -195,7 +200,7 @@ function App() {
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform group-hover:translate-y-4 transition-transform duration-300">
                   <h3 className="text-white text-xl font-bold mb-1">{artist.name}</h3>
                 </div>
@@ -218,7 +223,7 @@ function App() {
       },
       useContainer: true,
       content: (
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 text-white">
           <div>
             <h3 className="text-2xl font-bold mb-4">Location</h3>
             <p className="flex items-center gap-2">
@@ -250,11 +255,11 @@ function App() {
       id: 'about',
       title: 'ABOUT',
       icon: <Info className="w-6 h-6" />,
-      padding: 'pt-4 pb-48',
+      padding: 'pt-4 pb-[30rem]',
       background: {
         color: 'bg-purple-100',
-        image: 'url(/images/about-bg.jpg)',
-        position: 'center center'
+        image: 'url(/images/farmers-bash-bg1.jpg)',
+        position: 'center bottom'
       },
       useContainer: true,
       content: (
@@ -274,7 +279,7 @@ function App() {
       padding: 'pt-4 pb-48',
       background: {
         color: 'bg-white-100',
-        image: 'url(/images/farmers-bash-bg1.jpg)',
+        image: 'url(/images/farmers-bash-bg4.jpg)',
         position: 'center bottom',
         backgroundSize: 'cover',
         attachment: 'fixed'

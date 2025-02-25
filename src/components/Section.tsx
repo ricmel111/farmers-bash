@@ -25,10 +25,8 @@ const Section: React.FC<SectionProps> = ({ id, title, icon, children }) => {
     >
       <div className="text-center my-24">
         <div className="flex items-center justify-center gap-2 mb-4">
-          {icon}
-          <h2 className="text-3xl font-bold">{title}</h2>
+            <h2 className={`text-5xl font-bold ${id === 'contact' || id === 'about' || id === 'tickets' ? 'text-black' : 'text-white my-shadow'}`}>{title}</h2>
         </div>
-        <div className="w-24 h-1 bg-green-600 mx-auto" />
       </div>
       {children}
     </motion.section>
