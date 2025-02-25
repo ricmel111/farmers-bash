@@ -119,7 +119,6 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasSeenPopup]);
-
   const sections = [
     {
       id: 'tickets',
@@ -128,8 +127,8 @@ function App() {
       padding: 'pt-4 pb-48',
       background: {
         color: 'bg-gray-100',
-        image: 'url(/images/farmers-bash-bg11.jpg)',
-        position: 'center bottom',
+        image: 'url(/images/farmers-bash-bg12.jpg)',
+        position: 'right bottom',
         backgroundSize: 'cover',
       },
       useContainer: true,
