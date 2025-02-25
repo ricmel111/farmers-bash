@@ -37,7 +37,7 @@ const Hero = () => {
           />
         </video>
         
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
+        <div className="absolute inset-0 " />
       </div>
       
       {/* <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
