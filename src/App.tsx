@@ -123,8 +123,10 @@ function App() {
       padding: 'py-16',
       background: {
         color: 'bg-red-100',
-        image: 'url(/images/tickets-bg.jpg)',
-        position: 'center center',
+        image: 'url(/images/farmers-bash-bg4.jpg)',
+        position: 'center bottom',
+        backgroundSize: 'cover',
+        attachment: 'fixed'
       },
       useContainer: true,
       content: (
@@ -152,7 +154,8 @@ function App() {
         color: 'bg-blue-100',
         image: 'url(/images/hero-bg.jpg)',
         position: 'center bottom',
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        attachment: 'fixed'
       },
       useContainer: false,
       content: (
@@ -161,20 +164,22 @@ function App() {
           <img src="/images/Lineup.png" alt="Lineup" className="max-w-full h-auto" />
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
         </div>
-      ),
-    },
-    {
-      id: 'artists',
-      title: 'ARTISTS',
-      icon: <Users className="w-6 h-6" />,
-      padding: 'py-16',
-      background: {
+            ),
+          },
+          {
+            id: 'artists',
+            title: 'ARTISTS',
+            icon: <Users className="w-6 h-6" />,
+            padding: 'py-16',
+            background: {
         color: 'bg-yellow-100',
-        image: 'url(/images/color-bg.png)',
-        position: 'center center',
-      },
-      useContainer: true,
-      content: (
+        image: 'url(/images/farmers-bash-bg0.jpg)',
+        position: 'center bottom',
+        backgroundSize: 'cover',
+        attachment: 'fixed'
+            },
+            useContainer: true,
+            content: (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {artists.map((artist) => (
             <motion.a
@@ -250,7 +255,7 @@ function App() {
       background: {
         color: 'bg-purple-100',
         image: 'url(/images/about-bg.jpg)',
-        position: 'center center',
+        position: 'center center'
       },
       useContainer: true,
       content: (
@@ -269,9 +274,11 @@ function App() {
       icon: <Mail className="w-6 h-6" />,
       padding: 'py-16',
       background: {
-        color: 'bg-pink-100',
-        image: 'url(/images/contact-bg.jpg)',
-        position: 'center center',
+        color: 'bg-white-100',
+        image: 'url(/images/farmers-bash-bg1.jpg)',
+        position: 'center bottom',
+        backgroundSize: 'cover',
+        attachment: 'fixed'
       },
       useContainer: true,
       content: (
@@ -310,7 +317,7 @@ function App() {
       <Hero />
       
       {sections.map((section) => (
-        <div key={section.id} className={`${section.background.color} ${section.padding}`} style={{ backgroundImage: section.background.image, backgroundPosition: section.background.position, backgroundSize: section.background.backgroundSize }}>
+        <div key={section.id} className={`${section.background.color} ${section.padding}`} style={{ backgroundImage: section.background.image, backgroundPosition: section.background.position, backgroundSize: section.background.backgroundSize, backgroundAttachment: section.background.attachment }}>
           {section.useContainer ? (
             <div className="container mx-auto px-4">
               <Section
