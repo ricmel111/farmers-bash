@@ -153,8 +153,7 @@ function App() {
         color: 'bg-blue-100',
         image: 'url(/images/hero-bg.jpg)',
         position: 'center bottom',
-        backgroundSize: 'cover',
-        attachment: 'fixed'
+        backgroundSize: 'cover'
       },
       useContainer: false,
       content: (
