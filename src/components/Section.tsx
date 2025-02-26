@@ -23,7 +23,7 @@ const Section: React.FC<SectionProps> = ({ id, title, icon, children }) => {
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="text-center my-24">
+      <div className="text-center my-8 md:my-24">
         <div className="flex items-center justify-center gap-2 mb-4">
             <h2 className={`text-5xl font-bold ${id === 'contact' || id === 'about' || id === 'tickets' ? 'text-black' : 'text-white my-shadow'}`}>{title}</h2>
         </div>

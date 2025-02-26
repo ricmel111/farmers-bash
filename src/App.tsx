@@ -167,7 +167,7 @@ function App() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12">
           <img src="/images/Lineup-Saturday.png" alt="Lineup Saturday" className="max-w-full h-auto mb-12 md:mb-0" />
-          <img src="/images/Lineup-Sunday.png" alt="Lineup Sunday" className="max-w-full h-auto" />
+          <img src="/images/Lineup-Sunday.png" alt="Lineup Sunday" className="max-w-full h-auto mb-12 md:mb-0" />
           </div>
           <div className="relative flex flex-col items-center space-y-4">
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
