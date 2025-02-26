@@ -15,92 +15,92 @@ function App() {
   const artists = [
     {
       name: 'Kaiser Chiefs',
-      image: '/images/KaiserChiefs.jpg',
+      image: '/images/artists/KaiserChiefs.jpg',
       website: 'https://www.kaiserchiefs.com/'
     },
     {
       name: 'The 2 Johnnies',
-      image: '/images/The2Johnnies.jpg',
+      image: '/images/artists/The2Johnnies.jpg',
       website: 'https://www.the2johnnies.ie/'
     },
     {
       name: 'The Coronas',
-      image: '/images/TheCoronas.jpg',
+      image: '/images/artists/TheCoronas.jpg',
       website: 'https://thecoronas.net/'
     },
     {
       name: 'Boyzlife',
-      image: '/images/Boyzlife.png',
+      image: '/images/artists/Boyzlife.png',
       website: 'https://www.facebook.com/BoyzlifeTour'
     },
     {
       name: 'BWitched',
-      image: '/images/BWitched.png',
+      image: '/images/artists/BWitched.png',
       website: 'https://bwitchedofficial.com/'
     },
     {
       name: 'Garron Noone',
-      image: '/images/GarronNoone.jpg',
+      image: '/images/artists/GarronNoone.jpg',
       website: 'https://linktr.ee/garronnoone'
     },
     {
       name: 'Tumbling Paddies',
-      image: '/images/TumblingPaddies.jpg',
+      image: '/images/artists/TumblingPaddies.jpg',
       website: 'https://thetumblingpaddiesofficial.com/'
     },
     {
       name: 'Rural Routes',
-      image: '/images/AllFolk_dUp.jpg',
+      image: '/images/artists/AllFolk_dUp.jpg',
       website: 'https://www.allfolkdup.ie/'
     },
     {
       name: 'Allie Sherlock',
-      image: '/images/AllieSherlock.jpeg',
+      image: '/images/artists/AllieSherlock.jpeg',
       website: 'https://www.alliesherlock.com/'
     },
     {
       name: 'Clodagh Lawlor',
-      image: '/images/ClodaghLawlor.jpg',
+      image: '/images/artists/ClodaghLawlor.jpg',
       website: 'https://www.clodaghlawlormusic.com/'
     },
     {
       name: 'David James',
-      image: '/images/DavidJames.jpg',
+      image: '/images/artists/DavidJames.jpg',
       website: 'https://davidjamesmusic.co.uk/'
     },
     {
       name: 'Derek Ryan',
-      image: '/images/DerekRyan.jpg',
+      image: '/images/artists/DerekRyan.jpg',
       website: 'https://derekryanmusic.com/'
     },
     {
       name: 'Lisa McHugh',
-      image: '/images/LisaMcHugh.jpg',
+      image: '/images/artists/LisaMcHugh.jpg',
       website: 'https://lisamchughmusic.com/'
     },
     {
       name: 'Mike Denver',
-      image: '/images/MikeDenver.jpg',
+      image: '/images/artists/MikeDenver.jpg',
       website: 'https://www.mikedenvermusic.com/'
     },
     {
       name: 'Nathan Carter',
-      image: '/images/NathanCarter.jpg',
+      image: '/images/artists/NathanCarter.jpg',
       website: 'https://www.nathancartermusic.com/'
     },
     {
       name: 'Olivia Douglas',
-      image: '/images/OliviaDouglas.png',
+      image: '/images/artists/OliviaDouglas.png',
       website: 'https://www.oliviadouglasmusic.com/'
     },
     {
       name: 'Robert Mizzell',
-      image: '/images/RobertMizzell.jpg',
+      image: '/images/artists/RobertMizzell.jpg',
       website: 'https://robertmizzell.ie/'
     },
     {
       name: 'Shrek Rave',
-      image: '/images/ShrekTheRave.jpg',
+      image: '/images/artists/ShrekTheRave.jpg',
       website: 'https://www.shrekraveofficial.com/'
     }
   ];
@@ -161,11 +161,18 @@ function App() {
       },
       useContainer: false,
       content: (
+        <>
         <div className="relative flex flex-col items-center space-y-4">
           <img src="/images/Banner-A.png" alt="Farmers Bash Banner" className="max-w-full h-auto" />
-          <img src="/images/Lineup.png" alt="Lineup" className="max-w-full h-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12">
+          <img src="/images/Lineup-Saturday.png" alt="Lineup Saturday" className="max-w-full h-auto mb-12 md:mb-0" />
+          <img src="/images/Lineup-Sunday.png" alt="Lineup Sunday" className="max-w-full h-auto" />
+          </div>
+          <div className="relative flex flex-col items-center space-y-4">
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
         </div>
+        </>
             ),
           },
           {
