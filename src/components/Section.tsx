@@ -24,6 +24,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children }) => {
       transition={{ duration: 0.8 }}
     >
       <div className="text-center my-8 md:my-24">
+      <div id={`${id.toLowerCase().replace(/\s+/g, '')}-anchor`} style={{ height: 100, marginTop: -100 }}></div>
         <div className="flex items-center justify-center gap-2 mb-4">
             <h2 className={`text-5xl font-bold ${id === 'contact' || id === 'about' || id === 'tickets' ? 'text-[#42462f]' : id === 'lineup' ? 'text-[#42462f]' : 'text-white my-shadow'}`}>{title}</h2>
         </div>

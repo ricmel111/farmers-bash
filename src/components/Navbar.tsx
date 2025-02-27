@@ -71,7 +71,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
+          <div className="px-4 pt-8 pb-3 space-y-1 bg-white shadow-lg">
             {menuItems.map((item) => (
               <a
                 key={item}

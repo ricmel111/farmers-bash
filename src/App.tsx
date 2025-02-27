@@ -105,6 +105,13 @@ function App() {
       useContainer: false,
       content: (
         <>
+          <div className="relative flex flex-col items-center justify-center container mx-auto">
+            <img
+              src="/images/hero-logo.png"
+              alt="Farmers Bash Banner"
+              className="max-w-full h-auto"
+            />
+          </div>
           <div className="relative flex flex-col items-center space-y-4">
             <img
               src="/images/Banner-A.png"
@@ -150,8 +157,8 @@ function App() {
       padding: "pt-4 pb-48",
       background: {
         color: "bg-red-900",
-        image: "url(/images/farmers-bash-bg2.jpg)",
-        position: "center bottom md:center bottom",
+        image: "url(/images/farmers-bash-bg13.jpg)",
+        position: "75% bottom md:center bottom",
         backgroundSize: "cover",
         attachment: "scroll md:fixed",
       },
