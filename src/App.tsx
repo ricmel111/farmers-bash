@@ -128,8 +128,8 @@ function App() {
       padding: 'pt-4 pb-48',
       background: {
         color: 'bg-gray-100',
-        image: 'url(/images/farmers-bash-bg12.jpg)',
-        position: 'right bottom',
+        image: 'url(/images/music-bg1.jpg)',
+        position: 'center bottom',
         backgroundSize: 'cover',
       },
       useContainer: true,
@@ -166,11 +166,16 @@ function App() {
         <div className="relative flex flex-col items-center space-y-4">
           <img src="/images/Banner-A.png" alt="Farmers Bash Banner" className="max-w-full h-auto" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12">
-          <img src="/images/Lineup-Saturday.png" alt="Lineup Saturday" className="max-w-full h-auto mb-12 md:mb-0" />
-          <img src="/images/Lineup-Sunday.png" alt="Lineup Sunday" className="max-w-full h-auto mb-12 md:mb-0" />
-          </div>
+              <div className="relative flex flex-col items-center justify-center container mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12 justify-items-center">
+                <img src="/images/Lineup-Saturday.png" alt="Lineup Saturday" className="max-w-full h-auto mb-12 md:mb-0" />
+                <img src="/images/Lineup-Sunday.png" alt="Lineup Sunday" className="max-w-full h-auto mb-4 md:mb-0" />
+              </div>
+              </div>
           <div className="relative flex flex-col items-center space-y-4">
+          <div className="relative flex flex-col items-center justify-center container mx-auto">
+          <img src="/images/Plus.png" alt="Plus" className="max-w-full h-auto md:mb-0" />
+          </div>
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
         </div>
         </>
@@ -224,7 +229,7 @@ function App() {
       padding: 'pt-4 pb-48',
       background: {
         color: 'bg-green-100',
-        image: 'url(/images/farmers-bash-bg5.jpg)',
+        image: 'url(/images/music-bg2.jpg)',
         position: 'center center',
         backgroundSize: 'cover'
       },
