@@ -9,7 +9,7 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, icon, children }) => {
+const Section: React.FC<SectionProps> = ({ id, title, children }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -25,7 +25,7 @@ const Section: React.FC<SectionProps> = ({ id, title, icon, children }) => {
     >
       <div className="text-center my-8 md:my-24">
         <div className="flex items-center justify-center gap-2 mb-4">
-            <h2 className={`text-5xl font-bold ${id === 'contact' || id === 'about' || id === 'tickets' ? 'text-black' : 'text-white my-shadow'}`}>{title}</h2>
+            <h2 className={`text-5xl font-bold ${id === 'contact' || id === 'about' || id === 'tickets' ? 'text-[#42462f]' : id === 'lineup' ? 'text-[#42462f]' : 'text-white my-shadow'}`}>{title}</h2>
         </div>
       </div>
       {children}

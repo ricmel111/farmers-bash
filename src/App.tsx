@@ -119,6 +119,7 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasSeenPopup]);
+
   const sections = [
     {
       id: 'tickets',
@@ -173,22 +174,22 @@ function App() {
           <img src="/images/hero-fg.png" alt="Lineup Footer" className="w-max h-auto -mt-12" />
         </div>
         </>
-            ),
-          },
-          {
-            id: 'artists',
-            title: 'ARTISTS',
-            icon: <Users className="w-6 h-6" />,
-            padding: 'pt-4 pb-48',
-            background: {
+      ),
+    },
+    {
+      id: 'artists',
+      title: 'ARTISTS',
+      icon: <Users className="w-6 h-6" />,
+      padding: 'pt-4 pb-48',
+      background: {
         color: 'bg-red-900',
         image: 'url(/images/farmers-bash-bg3.jpg)',
-        position: 'center bottom',
+        position: 'center bottom md:center bottom',
         backgroundSize: 'cover',
-        attachment: 'fixed'
-            },
-            useContainer: true,
-            content: (
+        attachment: 'scroll md:fixed'
+      },
+      useContainer: true,
+      content: (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {artists.map((artist) => (
             <motion.a
@@ -324,7 +325,9 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <Hero />
+      <div ref={heroRef}>
+        <Hero />
+      </div>
       
       {sections.map((section) => (
         <div key={section.id} className={`${section.background.color} ${section.padding}`} style={{ backgroundImage: section.background.image, backgroundPosition: section.background.position, backgroundSize: section.background.backgroundSize, backgroundAttachment: section.background.attachment }}>
