@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -7,6 +7,34 @@ interface NewsletterPopupProps {
 }
 
 const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('https://formspree.io/f/manebdwj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -33,19 +61,30 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
           and special offers!
         </p>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border rounded-lg"
+            required
           />
           <button
             type="submit"
             className="w-full bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors"
+            disabled={status === 'loading'}
           >
-            Subscribe
+            {status === 'loading' ? 'Submitting...' : 'Subscribe'}
           </button>
         </form>
+
+        {status === 'success' && (
+          <p className="text-green-600 mt-4">Thanks  for subscribing!</p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-600 mt-4">Something went wrong. Please try again.</p>
+        )}
       </motion.div>
     </motion.div>
   );
