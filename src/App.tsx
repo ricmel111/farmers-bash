@@ -320,12 +320,13 @@ function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-white">Getting Here</h3>
+                    <h3 className="text-2xl font-bold text-white">Getting To Boucher Road Playing Fields</h3>
                   </div>
                   <div className="space-y-6 text-white/90">
                     <div className="space-y-4">
                       <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
                         <h4 className="font-semibold text-blue-400 mb-3">Public Transport</h4>
+                        <h3 className="mb-4">Belfast has excellent public transport links, making it easy to get to Boucher Road Playing Fields.</h3>
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
@@ -339,18 +340,15 @@ function App() {
                       </div>
                       <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
                         <h4 className="font-semibold text-blue-400 mb-3">Driving & Parking</h4>
+                        <h3 className="mb-4">If you're driving, limited parking will be available near the venue, but we strongly encourage using public transport or carpooling. Nearby alternatives include:</h3>
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            Limited parking available near venue
+                            Park & Ride services (Details to be confirmed closer to the event)
                           </li>
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            Park & Ride services (TBC)
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            City Centre parking with transport links
+                            City Centre Parking with public transport connections
                           </li>
                         </ul>
                       </div>
@@ -380,7 +378,7 @@ function App() {
                     </li>
                     <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
                       <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      Bring your own chairs
+                      Dress Appropriately
                     </li>
                     <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
                       <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
