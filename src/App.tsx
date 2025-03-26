@@ -82,8 +82,8 @@ function App() {
           <div className="text-center space-y-12">
             <div className="space-y-4">
               <p className="text-xl text-white/90 max-w-2xl mx-auto">
-                Tickets for Farmers Bash sell fast, so grab yours early to avoid 
-                disappointment. Check our official ticket partners for availability.
+              Tickets for the Farmers Bash Weekender are selling fast, 
+              so grab yours early to avoid disappointment.
               </p>
             </div>
 
@@ -124,8 +124,8 @@ function App() {
               <div className="text-white space-y-4">
                 <h3 className="text-3xl font-semibold">Age Restriction</h3>
                 <p className="text-lg leading-relaxed">
-                  Under 16s can attend provided they present at the entrance gate 
-                  accompanied by a parent or guardian who is also a ticket holder.
+                Under 16s can attend provided they are accompanied by a parent 
+                or guardian who is also a ticketholder.
                 </p>
               </div>
             </div>
@@ -438,7 +438,7 @@ function App() {
       ),
     },
     {
-      id: "contact",
+      id: "getintouch",
       title: "GET IN TOUCH",
       icon: <Mail className="w-6 h-6" />,
       padding: "pt-4 pb-48",

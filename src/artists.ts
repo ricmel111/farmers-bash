@@ -35,7 +35,7 @@ export const artists = [
       website: "https://thetumblingpaddiesofficial.com/",
     },
     {
-      name: "Rural Routes",
+      name: "All Folk'd Up",
       image: "/images/artists/AllFolk_dUp.jpg",
       website: "https://www.allfolkdup.ie/",
     },

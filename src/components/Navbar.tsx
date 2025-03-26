@@ -16,7 +16,10 @@ const Navbar = () => {
       sections.forEach((section) => {
         const sectionTop = section.offsetTop - 60;
         if (window.scrollY >= sectionTop) {
-          currentSection = section.getAttribute('id');
+          const sectionId = section.getAttribute('id');
+          if (sectionId) {
+            currentSection = sectionId;
+          }
         }
       });
       setActiveSection(currentSection);
