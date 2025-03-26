@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Menu,
-  X,
   Music2,
   Calendar,
   Users,
   Info,
   Mail,
-  MapPin,
 } from "lucide-react";
 import NewsletterPopup from "./components/NewsletterPopup";
 import Navbar from "./components/Navbar";
@@ -70,24 +67,82 @@ function App() {
       padding: "pt-4 pb-48",
       background: {
         color: "bg-gray-100",
-        image: "url(/images/music-bg1.jpg)",
+        image: "url(/images/farmers-bash-bg3.jpg)",
         position: "center bottom",
         backgroundSize: "cover",
       },
       useContainer: true,
       content: (
-        <div className="grid md:grid-cols-3 gap-8">
-          {["Early Bird", "Regular", "VIP"].map((type) => (
-            <div key={type} className="bg-white p-6 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold mb-4">{type}</h3>
-              <p className="text-3xl font-bold mb-4">
-                ${type === "VIP" ? "299" : type === "Regular" ? "199" : "149"}
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                Get Your Tickets
+              </h2>
+              <p className="text-xl text-white/90 max-w-2xl mx-auto">
+                Tickets for Farmers Bash sell fast, so grab yours early to avoid 
+                disappointment. Check our official ticket partners for availability.
               </p>
-              <button className="bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors">
-                Buy Now
-              </button>
             </div>
-          ))}
+
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-white">
+                Available Ticket Types
+              </h3>
+              <p className="text-xl text-white/90">
+                Day, Weekend, and VIF (Very Important Farmer) Tickets available here:{' '}
+                <a 
+                  href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-400 hover:text-green-300 underline font-semibold"
+                >
+                  Ticketmaster
+                </a>
+              </p>
+            </div>
+
+            <div className="max-w-lg mx-auto">
+              <div className="space-y-6 text-white">
+                <h3 className="text-2xl font-semibold mb-4">Event Details</h3>
+                <ul className="space-y-4 text-lg">
+                  <li className="flex items-center justify-center gap-3">
+                    <span className="text-2xl">🕐</span>
+                    <span className="font-semibold">Doors Open:</span> 2pm
+                  </li>
+                  <li className="flex items-center justify-center gap-3">
+                    <span className="text-2xl">🎵</span>
+                    <span className="font-semibold">Show Starts:</span> 3pm
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="max-w-2xl mx-auto">
+              <div className="text-white space-y-4">
+                <h3 className="text-2xl font-semibold">Age Restriction</h3>
+                <p className="text-lg leading-relaxed">
+                  <span className="text-2xl mr-2">👥</span>
+                  Under 16s can attend provided they present at the entrance gate 
+                  accompanied by a parent or guardian who is also a ticket holder.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <p className="text-lg text-white/90">
+                For more details, visit{' '}
+                <a 
+                  href="https://www.ticketmaster.ie"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-400 hover:text-green-300 underline font-semibold"
+                >
+                  www.ticketmaster.ie
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       ),
     },
@@ -194,8 +249,8 @@ function App() {
       ),
     },
     {
-      id: "info-about",
-      title: "INFO & ABOUT",
+      id: "info",
+      title: "INFO",
       icon: <Info className="w-6 h-6" />,
       padding: "pt-4 pb-48",
       background: {
@@ -206,53 +261,166 @@ function App() {
       },
       useContainer: true,
       content: (
-        <>
-          <div id="info" className="mb-12">
-            <h2 className="text-3xl font-bold text-center text-white mb-8">
-              Info
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8 text-white">
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Location</h3>
-                <p className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5" />
-                  Farmers Field, Country Road, Rural County
-                </p>
-                <div className="mt-4">
-                  <h4 className="font-bold mb-2">Getting Here</h4>
-                  <ul className="list-disc list-inside space-y-2">
-                    <li>Free parking available</li>
-                    <li>Shuttle service from downtown</li>
-                    <li>RV camping spots available</li>
-                  </ul>
+        <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white">Accommodation</h3>
+                <div className="space-y-4 text-white/90">
+                  <p>
+                    Planning to stay in Belfast for Farmers Bash? The city offers a range 
+                    of accommodation options to suit every budget and preference.
+                  </p>
+                  <div className="grid gap-4">
+                    <div>
+                      <h4 className="font-semibold text-white">Luxury Stays:</h4>
+                      <p>The Merchant Hotel, Grand Central Hotel, Fitzwilliam Hotel</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">Mid-Range Hotels:</h4>
+                      <p>Maldron Hotel, Europa Hotel, AC Hotel Belfast</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">Budget-Friendly:</h4>
+                      <p>Ibis Belfast, ETAP Hotel, Travelodge Belfast</p>
+                    </div>
+                  </div>
+                  <p className="italic">We recommend booking early as demand is high around the event!</p>
                 </div>
               </div>
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Festival Rules</h3>
-                <ul className="list-disc list-inside space-y-2">
-                  <li>No outside food or drinks</li>
-                  <li>No pets allowed</li>
-                  <li>Bring your own chairs</li>
-                  <li>All ages welcome</li>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white">Getting Here</h3>
+                <div className="space-y-4 text-white/90">
+                  <div>
+                    <h4 className="font-semibold text-white">Public Transport:</h4>
+                    <ul className="list-disc list-inside pl-4 space-y-2">
+                      <li>Train: Balmoral and Adelaide stations nearby</li>
+                      <li>Bus: Regular Translink Metro services</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">Driving & Parking:</h4>
+                    <ul className="list-disc list-inside pl-4 space-y-2">
+                      <li>Limited parking available near venue</li>
+                      <li>Park & Ride services (TBC)</li>
+                      <li>City Centre parking with transport links</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white">Tickets & Entry</h3>
+                <div className="space-y-4 text-white/90">
+                  <p>
+                    Tickets for Farmers Bash sell fast, so grab yours early to avoid 
+                    disappointment. Check our official ticket partners for availability.
+                  </p>
+                  <p>
+                    Day, Weekend, and VIF (Very Important Farmer) Tickets available here:{' '}
+                    <a 
+                      href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-400 hover:text-green-300 underline"
+                    >
+                      Ticketmaster
+                    </a>
+                  </p>
+                  <div className="space-y-2 mt-4">
+                    <ul className="space-y-2">
+                      <li>🕐 Doors Open: 2pm</li>
+                      <li>🎵 Show Starts: 3pm</li>
+                      <li className="leading-relaxed">
+                        👥 Age Restriction: Under 16s can attend provided they present at the 
+                        entrance gate accompanied by a parent or guardian who is also a ticket holder.
+                      </li>
+                    </ul>
+                  </div>
+                  <p className="mt-4">
+                    For more details, visit{' '}
+                    <a 
+                      href="https://www.ticketmaster.ie"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-400 hover:text-green-300 underline"
+                    >
+                      www.ticketmaster.ie
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold text-white">Festival Rules</h3>
+                <ul className="space-y-3 text-white/90">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    No outside food or drinks
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    No pets allowed
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    Bring your own chairs
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    All ages welcome (with guardian if under 16)
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div id="about" className="mt-12">
-            <h2 className="text-3xl font-bold text-center text-white mb-8">
-              About
+        </div>
+      ),
+    },
+    {
+      id: "about",
+      title: "ABOUT FARMERS BASH",
+      icon: <Info className="w-6 h-6" />,
+      padding: "pt-4 pb-48",
+      background: {
+        color: "bg-brown-100",
+        image: "url(/images/farmers-bash-bg.jpg)",
+        position: "center center",
+        backgroundSize: "cover",
+      },
+      useContainer: true,
+      content: (
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-pink-900/75 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
+            <h2 className="text-4xl font-bold text-white mb-6 text-center">
+              Ireland's Biggest Music & Entertainment Festival
             </h2>
-            <div className="max-w-3xl mx-auto text-center">
-              <p className="text-lg leading-relaxed text-white">
-                Farmers Bash is the biggest country music festival celebrating
-                rural life and music. Join us for two days of incredible
-                performances, delicious local food, and unforgettable memories.
-                Started in 2020, we've grown to become the premier country music
-                event in the region.
+            <div className="space-y-6 text-lg text-white/90 leading-relaxed">
+              <p>
+                Farmers Bash is Ireland's biggest music and entertainment festival, bringing 
+                together thousands of fans for an electrifying weekend of live performances. 
+                Launched in 2017 at the SSE Arena, the event quickly became a must-attend 
+                celebration of music and live entertainment.
+              </p>
+              <p>
+                After several incredible years in the SSE, Farmers Bash moved to Belsonic 
+                in 2023, where it sold out at an incredible 22,000 capacity, proving itself 
+                as one of Ireland's top festivals.
+              </p>
+              <p>
+                Now, in its biggest evolution yet, Farmers Bash expands into a two-day 
+                festival at Boucher Road Playing Fields, featuring multiple stages, an 
+                unbeatable lineup, and an atmosphere like no other. Whether you're a fan 
+                of country, folk, rock, or high-energy live music, Farmers Bash promises 
+                an unforgettable experience filled with music, dancing, and memories that 
+                will last a lifetime.
               </p>
             </div>
           </div>
-        </>
+        </div>
       ),
     },
     {
@@ -267,33 +435,102 @@ function App() {
         backgroundSize: "cover",
       },
       useContainer: true,
-      content: (
-        <div className="max-w-2xl mx-auto">
-          <form className="space-y-4">
-            <input
-              type="text"
-              placeholder="Name"
-              className="w-full p-2 border rounded-lg"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full p-2 border rounded-lg"
-            />
-            <textarea
-              placeholder="Message"
-              rows={4}
-              className="w-full p-2 border rounded-lg"
-            />
-            <button
-              type="submit"
-              className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors"
+      content: (() => {
+        const [isSubmitting, setIsSubmitting] = useState(false);
+        const [isSubmitted, setIsSubmitted] = useState(false);
+        const [error, setError] = useState("");
+
+        const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          setIsSubmitting(true);
+          setError("");
+
+          try {
+            const form = e.currentTarget;
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              setIsSubmitted(true);
+              form.reset();
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (err) {
+            setError("Something went wrong. Please try again later.");
+          } finally {
+            setIsSubmitting(false);
+          }
+        };
+
+        if (isSubmitted) {
+          return (
+            <div className="max-w-2xl mx-auto text-center">
+              <div className="bg-green-100 text-green-700 p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-2">Thank You!</h3>
+                <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="mt-4 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <div className="max-w-2xl mx-auto">
+            <form
+              action="https://formspree.io/f/xzzevwdq"
+              method="POST"
+              className="space-y-4"
+              onSubmit={handleSubmit}
             >
-              Send Message
-            </button>
-          </form>
-        </div>
-      ),
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                required
+                className="w-full p-2 border rounded-lg"
+                disabled={isSubmitting}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                className="w-full p-2 border rounded-lg"
+                disabled={isSubmitting}
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows={4}
+                required
+                className="w-full p-2 border rounded-lg"
+                disabled={isSubmitting}
+              />
+              {error && (
+                <div className="text-red-600 text-sm">{error}</div>
+              )}
+              <button
+                type="submit"
+                className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          </div>
+        );
+      })(),
     },
   ];
 
