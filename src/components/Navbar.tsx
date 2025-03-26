@@ -35,18 +35,24 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          <a 
-            href="#" 
-            className={`flex items-center gap-2 transition-all duration-300 ${scrolled ? 'scale-90' : 'scale-100'}`}
-          >
-            <div className={`transition-all duration-300 ${scrolled ? 'bg-white rounded-full' : ''}`}>
-              <img 
-                src={scrolled ? "/images/farmers-bash-logo-sm.svg" : "/images/farmers-bash-logo.svg"} 
-                alt="Farmers Bash Logo" 
-                className={`transition-all duration-300 ${scrolled ? 'w-24' : 'w-40 my-shadow'}`} 
-              />
-            </div>
-          </a>
+          <div className={`relative transition-all duration-300 ${
+            scrolled ? 'h-12 w-32' : 'h-28 w-40'
+          }`}>
+            <img
+              src="/images/farmers-bash-logo.svg"
+              alt="Farmers Bash Logo"
+              className={`absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-300 ${
+                scrolled ? 'opacity-0' : 'opacity-100'
+              }`}
+            />
+            <img
+              src="/images/farmers-bash-logo-sm.svg"
+              alt="Farmers Bash Logo"
+              className={`absolute top-0 left-0 h-full w-full object-contain transition-opacity duration-300 ${
+                scrolled ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">

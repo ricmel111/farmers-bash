@@ -80,20 +80,30 @@ function App() {
       },
       useContainer: true,
       content: (
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="space-y-16">
             {/* Intro Section */}
-            <div className="border-l-4 border-green-400 pl-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="border-l-4 border-green-400 pl-6"
+            >
               <p className="text-2xl text-white/90 leading-relaxed">
                 Tickets for the Farmers Bash Weekender are selling fast, 
                 so grab yours early to avoid disappointment.
               </p>
-            </div>
+            </motion.div>
 
             {/* Ticket Types & Event Details */}
             <div className="grid md:grid-cols-5 gap-12">
               {/* Ticket Types */}
-              <div className="space-y-6 md:col-span-3 border-l-4 border-green-400 pl-6">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="space-y-6 md:col-span-3 border-l-4 border-green-400 pl-6"
+              >
                 <h3 className="text-3xl font-semibold text-white border-b border-white/20 pb-4">
                   Available Ticket Types
                 </h3>
@@ -115,36 +125,56 @@ function App() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Event Details */}
-              <div className="space-y-6 md:col-span-2 border-l-4 border-green-400 pl-6">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="space-y-6 md:col-span-2 border-l-4 border-green-400 pl-6"
+              >
                 <h3 className="text-3xl font-semibold text-white border-b border-white/20 pb-4">
                   Event Details
                 </h3>
                 <div className="space-y-6 text-lg text-white/90">
-                  <div className="flex items-center gap-4">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 }}
+                    className="flex items-center gap-4"
+                  >
                     <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
                       <span className="text-2xl">🕐</span>
                     </div>
                     <div className="text-xl">
                       <span className="font-semibold">Doors Open:</span> 2pm
                     </div>
-                  </div>
-                  <div className="flex items-center gap-4">
+                  </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 }}
+                    className="flex items-center gap-4"
+                  >
                     <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
                       <span className="text-2xl">🎵</span>
                     </div>
                     <div className="text-xl">
                       <span className="font-semibold">Show Starts:</span> 3pm
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Age Restriction */}
-            <div className="border-l-4 border-green-400 pl-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="border-l-4 border-green-400 pl-6"
+            >
               <div className="max-w-2xl">
                 <h3 className="text-3xl font-semibold text-white mb-4 flex items-center gap-3">
                   Age Restriction
@@ -154,10 +184,15 @@ function App() {
                   or guardian who is also a ticketholder.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* More Details Link */}
-            <div className="border-t border-white/20 pt-12 text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="border-t border-white/20 pt-12 text-center"
+            >
               <p className="text-lg text-white/90">
                 For more details, visit{' '}
                 <a 
@@ -172,7 +207,7 @@ function App() {
                   </svg>
                 </a>
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       ),
@@ -495,10 +530,10 @@ function App() {
               >
                 <div className="space-y-6 text-lg text-white/90 leading-relaxed">
                   <p>
-                  Farmers Bash is Ireland’s biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
+                  Farmers Bash is Ireland's biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
                   </p>
                   <p>
-                  After several incredible years in the SSE, Farmers Bash moved to Belsonic in 2023, where it sold out at an incredible 22,000 capacity, proving itself as one of Ireland’s top festivals.
+                  After several incredible years in the SSE, Farmers Bash moved to Belsonic in 2023, where it sold out at an incredible 22,000 capacity, proving itself as one of Ireland's top festivals.
                   </p>
                   <p>
                   Now, in its biggest evolution yet, Farmers Bash expands into a two-day festival at Boucher Road Playing Fields, featuring multiple stages, an unbeatable lineup, and an atmosphere like no other. Whether you're a fan of country, folk, rock, or high-energy live music, Farmers Bash promises an unforgettable experience filled with music, dancing, and memories that will last a lifetime.
