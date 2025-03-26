@@ -200,7 +200,8 @@ function App() {
             <img
               src="/images/hero-fg.png"
               alt="Lineup Footer"
-              className="w-max h-auto -mt-24"
+              className="h-auto -mt-24 w-full"
+              style={{ width: '-webkit-fill-available' }}
             />
           </div>
         </>
