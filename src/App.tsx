@@ -253,7 +253,7 @@ function App() {
       padding: "pt-4 pb-48",
       background: {
         color: "bg-gray-900",
-        image: "url(/images/farmers-bash-bg15.jpg)",
+        image: "url(/images/farmers-bash-bg21.jpg)",
         position: "center center",
         backgroundSize: "cover",
         overlay: "bg-black/50",
