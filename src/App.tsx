@@ -330,11 +330,15 @@ function App() {
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            Train: Balmoral and Adelaide stations nearby
+                            <p className="flex-1">
+                            <strong className="text-blue-400">Train:</strong> Balmoral and Adelaide stations nearby
+                            </p>
                           </li>
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            Bus: Regular Translink Metro services
+                            <p className="flex-1">
+                            <strong className="text-blue-400">Bus:</strong> Regular Translink Metro services
+                            </p>
                           </li>
                         </ul>
                       </div>
@@ -344,11 +348,15 @@ function App() {
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            Park & Ride services (Details to be confirmed closer to the event)
+                            <p className="flex-1">
+                              <strong className="text-blue-400">Park & Ride services</strong> (Details to be confirmed closer to the event)
+                            </p>
                           </li>
                           <li className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            City Centre Parking with public transport connections
+                            <p className="flex-1">
+                            <strong className="text-blue-400">City Centre Parking</strong> with public transport connections
+                            </p>
                           </li>
                         </ul>
                       </div>
