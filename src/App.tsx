@@ -40,6 +40,7 @@ interface Section {
   background: Background;
   useContainer: boolean;
   content: JSX.Element;
+  titleStyle?: 'default' | 'large' | 'accent';
 }
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
       id: "tickets",
       title: "GET YOUR TICKETS",
       icon: <Music2 className="w-6 h-6" />,
+      titleStyle: 'large',
       padding: "pt-4 pb-48",
       background: {
         color: "bg-gray-100",
@@ -79,67 +81,95 @@ function App() {
       useContainer: true,
       content: (
         <div className="max-w-4xl mx-auto">
-          <div className="text-center space-y-12">
-            <div className="space-y-4">
-              <p className="text-xl text-white/90 max-w-2xl mx-auto">
-              Tickets for the Farmers Bash Weekender are selling fast, 
-              so grab yours early to avoid disappointment.
+          <div className="space-y-16">
+            {/* Intro Section */}
+            <div className="border-l-4 border-green-400 pl-6">
+              <p className="text-2xl text-white/90 leading-relaxed">
+                Tickets for the Farmers Bash Weekender are selling fast, 
+                so grab yours early to avoid disappointment.
               </p>
             </div>
 
-            <div className="space-y-6">
-              <h3 className="text-3xl font-semibold text-white">
-                Available Ticket Types
-              </h3>
-              <p className="text-xl text-white/90">
-                Day, Weekend, and VIF (Very Important Farmer) Tickets available here:{' '}
-                <a 
-                  href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-400 hover:text-green-300 underline font-semibold"
-                >
-                  Ticketmaster
-                </a>
-              </p>
-            </div>
-
-            <div className="max-w-lg mx-auto">
-              <div className="space-y-6 text-white">
-                <h3 className="text-3xl font-semibold mb-4">Event Details</h3>
-                <div className="flex flex-col md:flex-row justify-center gap-8 text-lg">
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-2xl">🕐</span>
-                    <span className="font-semibold">Doors Open:</span> 2pm
+            {/* Ticket Types & Event Details */}
+            <div className="grid md:grid-cols-5 gap-12">
+              {/* Ticket Types */}
+              <div className="space-y-6 md:col-span-3 border-l-4 border-green-400 pl-6">
+                <h3 className="text-3xl font-semibold text-white border-b border-white/20 pb-4">
+                  Available Ticket Types
+                </h3>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-xl text-white/90">
+                      Day, Weekend, and VIF (Very Important Farmer) Tickets available here:
+                    </div>
+                    <a 
+                      href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
+                    >
+                      Book on Ticketmaster
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </a>
                   </div>
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-2xl">🎵</span>
-                    <span className="font-semibold">Show Starts:</span> 3pm
+                </div>
+              </div>
+
+              {/* Event Details */}
+              <div className="space-y-6 md:col-span-2 border-l-4 border-green-400 pl-6">
+                <h3 className="text-3xl font-semibold text-white border-b border-white/20 pb-4">
+                  Event Details
+                </h3>
+                <div className="space-y-6 text-lg text-white/90">
+                  <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
+                      <span className="text-2xl">🕐</span>
+                    </div>
+                    <div className="text-xl">
+                      <span className="font-semibold">Doors Open:</span> 2pm
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
+                      <span className="text-2xl">🎵</span>
+                    </div>
+                    <div className="text-xl">
+                      <span className="font-semibold">Show Starts:</span> 3pm
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="max-w-2xl mx-auto">
-              <div className="text-white space-y-4">
-                <h3 className="text-3xl font-semibold">Age Restriction</h3>
-                <p className="text-lg leading-relaxed">
-                Under 16s can attend provided they are accompanied by a parent 
-                or guardian who is also a ticketholder.
+            {/* Age Restriction */}
+            <div className="border-l-4 border-green-400 pl-6">
+              <div className="max-w-2xl">
+                <h3 className="text-3xl font-semibold text-white mb-4 flex items-center gap-3">
+                  Age Restriction
+                </h3>
+                <p className="text-xl leading-relaxed text-white/90">
+                  Under 16s can attend provided they are accompanied by a parent 
+                  or guardian who is also a ticketholder.
                 </p>
               </div>
             </div>
 
-            <div className="mt-8">
+            {/* More Details Link */}
+            <div className="border-t border-white/20 pt-12 text-center">
               <p className="text-lg text-white/90">
                 For more details, visit{' '}
                 <a 
                   href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-green-400 hover:text-green-300 underline font-semibold"
+                  className="text-green-400 hover:text-green-300 underline font-semibold inline-flex items-center gap-1"
                 >
                   www.ticketmaster.ie
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
                 </a>
               </p>
             </div>
@@ -151,6 +181,7 @@ function App() {
       id: "lineup",
       title: "LINEUP",
       icon: <Calendar className="w-6 h-6" />,
+      titleStyle: 'large',
       padding: "pt-4",
       background: {
         color: "bg-blue-100",
@@ -211,6 +242,7 @@ function App() {
       id: "artists",
       title: "ARTISTS",
       icon: <Users className="w-6 h-6" />,
+      titleStyle: 'large',
       padding: "pt-4 pb-48",
       background: {
         color: "bg-red-900",
@@ -254,6 +286,7 @@ function App() {
       id: "info",
       title: "INFO",
       icon: <Info className="w-6 h-6" />,
+      titleStyle: 'large',
       padding: "pt-4 pb-48",
       background: {
         color: "bg-gray-900",
@@ -402,42 +435,76 @@ function App() {
     },
     {
       id: "about",
-      title: "ABOUT FARMER'S BASH",
+      title: "ABOUT",
       icon: <Info className="w-6 h-6" />,
+      titleStyle: 'large',
       padding: "pt-4 pb-48",
       background: {
-        color: "bg-brown-100",
+        color: "bg-gray-900",
         image: "url(/images/farmers-bash-bg.jpg)",
         position: "center center",
         backgroundSize: "cover",
+        overlay: "bg-black/80",
       },
       useContainer: true,
       content: (
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-[#cd2367]/75 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
-            <h2 className="text-4xl font-bold text-white mb-6 text-center">
-              Ireland's Biggest Music & Entertainment Festival
-            </h2>
-            <div className="space-y-6 text-lg text-white/90 leading-relaxed">
-              <p>
-                Farmers Bash is Ireland's biggest music and entertainment festival, bringing 
-                together thousands of fans for an electrifying weekend of live performances. 
-                Launched in 2017 at the SSE Arena, the event quickly became a must-attend 
-                celebration of music and live entertainment.
-              </p>
-              <p>
-                After several incredible years in the SSE, Farmers Bash moved to Belsonic 
-                in 2023, where it sold out at an incredible 22,000 capacity, proving itself 
-                as one of Ireland's top festivals.
-              </p>
-              <p>
-                Now, in its biggest evolution yet, Farmers Bash expands into a two-day 
-                festival at Boucher Road Playing Fields, featuring multiple stages, an 
-                unbeatable lineup, and an atmosphere like no other. Whether you're a fan 
-                of country, folk, rock, or high-energy live music, Farmers Bash promises 
-                an unforgettable experience filled with music, dancing, and memories that 
-                will last a lifetime.
-              </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12">
+            {/* Main Content */}
+            <div className="md:col-span-7 md:col-start-1 space-y-12">
+              <div className="space-y-8">
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  className="border-l-4 border-green-400 pl-6"
+                >
+                  <h3 className="text-4xl md:text-5xl text-white mb-6">The Ultimate Country Music Experience</h3>
+                  <p className="text-xl text-white/90 leading-relaxed">
+                    The Farmers Bash has become Northern Ireland's biggest country music event, 
+                    bringing together the best of country music talent and thousands of passionate fans.
+                  </p>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="grid grid-cols-3 gap-8"
+                >
+                  <div className="text-center p-6 bg-white/15 rounded-xl">
+                    <div className="text-4xl font-bold text-green-400 mb-2">2024</div>
+                    <div className="text-white/90">Biggest Year Yet</div>
+                  </div>
+                  <div className="text-center p-6 bg-white/15 rounded-xl">
+                    <div className="text-4xl font-bold text-green-400 mb-2">15K+</div>
+                    <div className="text-white/90">Expected Attendees</div>
+                  </div>
+                  <div className="text-center p-6 bg-white/15 rounded-xl">
+                    <div className="text-4xl font-bold text-green-400 mb-2">20+</div>
+                    <div className="text-white/90">Top Artists</div>
+                  </div>
+                </motion.div>
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="space-y-6"
+              >
+                <div className="space-y-6 text-lg text-white/90 leading-relaxed">
+                  <p>
+                  Farmers Bash is Ireland’s biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
+                  </p>
+                  <p>
+                  After several incredible years in the SSE, Farmers Bash moved to Belsonic in 2023, where it sold out at an incredible 22,000 capacity, proving itself as one of Ireland’s top festivals.
+                  </p>
+                  <p>
+                  Now, in its biggest evolution yet, Farmers Bash expands into a two-day festival at Boucher Road Playing Fields, featuring multiple stages, an unbeatable lineup, and an atmosphere like no other. Whether you're a fan of country, folk, rock, or high-energy live music, Farmers Bash promises an unforgettable experience filled with music, dancing, and memories that will last a lifetime.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -447,6 +514,7 @@ function App() {
       id: "getintouch",
       title: "GET IN TOUCH",
       icon: <Mail className="w-6 h-6" />,
+      titleStyle: 'large',
       padding: "pt-4 pb-48",
       background: {
         color: "bg-white-100",
@@ -588,12 +656,13 @@ function App() {
                   id={section.id}
                   title={section.title}
                   icon={section.icon}
+                  titleStyle={section.titleStyle}
                 >
                   {section.content}
                 </Section>
               </div>
             ) : (
-              <Section id={section.id} title={section.title} icon={section.icon}>
+              <Section id={section.id} title={section.title} icon={section.icon} titleStyle={section.titleStyle}>
                 {section.content}
               </Section>
             )}
