@@ -27,6 +27,9 @@ interface Background {
   backgroundSize: string;
   attachment?: string;
   overlay?: string;
+  mobileImage?: string;
+  mobilePosition?: string;
+  mobileBackgroundSize?: string;
 }
 
 interface Section {
@@ -131,7 +134,7 @@ function App() {
               <p className="text-lg text-white/90">
                 For more details, visit{' '}
                 <a 
-                  href="https://www.ticketmaster.ie"
+                  href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 underline font-semibold"
@@ -254,9 +257,12 @@ function App() {
       background: {
         color: "bg-gray-900",
         image: "url(/images/farmers-bash-bg21.jpg)",
-        position: "center center",
+        position: "center bottom",
         backgroundSize: "cover",
-        overlay: "bg-black/50",
+        mobileImage: "url(/images/farmers-bash-bg21.jpg)",
+        mobilePosition: "75% bottom",
+        mobileBackgroundSize: "cover",
+        overlay: "bg-black/70",
       },
       useContainer: true,
       content: (
@@ -275,8 +281,7 @@ function App() {
                 </div>
                 <div className="space-y-6 text-white/90">
                   <p className="leading-relaxed">
-                    Planning to stay in Belfast for Farmers Bash? The city offers a range 
-                    of accommodation options to suit every budget and preference.
+                    Planning to stay in Belfast for Farmers Bash? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top recommendations.
                   </p>
                   <div className="grid gap-6">
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
@@ -290,6 +295,10 @@ function App() {
                     <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
                       <h4 className="font-semibold text-green-400 mb-2">Budget-Friendly</h4>
                       <p>Ibis Belfast, ETAP Hotel, Travelodge Belfast</p>
+                    </div>
+                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
+                      <h4 className="font-semibold text-green-400 mb-2">Self-Catering & B&Bs</h4>
+                      <p>Dream Apartments, Titanic Guesthouse, Bullitt Hotel</p>
                     </div>
                   </div>
                   <p className="italic text-green-400 text-sm">
@@ -386,7 +395,7 @@ function App() {
     },
     {
       id: "about",
-      title: "ABOUT FARMERS BASH",
+      title: "ABOUT FARMER'S BASH",
       icon: <Info className="w-6 h-6" />,
       padding: "pt-4 pb-48",
       background: {
@@ -398,7 +407,7 @@ function App() {
       useContainer: true,
       content: (
         <div className="max-w-4xl mx-auto">
-          <div className="bg-pink-900/75 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
+          <div className="bg-[#cd2367]/75 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
             <h2 className="text-4xl font-bold text-white mb-6 text-center">
               Ireland's Biggest Music & Entertainment Festival
             </h2>
@@ -550,11 +559,17 @@ function App() {
           key={section.id}
           className={`${section.background.color} relative ${section.padding}`}
           style={{
-            backgroundImage: section.background.image,
-            backgroundPosition: section.background.position,
-            backgroundSize: section.background.backgroundSize,
+            '--desktop-image': section.background.image,
+            '--mobile-image': section.background.mobileImage || section.background.image,
+            '--desktop-position': section.background.position,
+            '--mobile-position': section.background.mobilePosition || section.background.position,
+            '--desktop-backgroundsize': section.background.backgroundSize,
+            '--mobile-backgroundsize': section.background.backgroundSize || section.background.backgroundSize,
+            backgroundImage: 'var(--desktop-image)',
+            backgroundPosition: 'var(--desktop-position)',
+            backgroundSize: 'var(--desktop-backgroundsize)',
             backgroundAttachment: section.background.attachment,
-          }}
+          } as React.CSSProperties}
         >
           {section.background.overlay && (
             <div className={`absolute inset-0 ${section.background.overlay}`}></div>
