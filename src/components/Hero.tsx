@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -37,7 +36,7 @@ const Hero = () => {
           />
         </video>
         
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent" />
       </div>
       
       {/* <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">

@@ -23,10 +23,10 @@ const Section: React.FC<SectionProps> = ({ id, title, children }) => {
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.8 }}
     >
-      <div className="text-center my-16 md:my-24">
+      <div className="text-center my-16 md:my-24 ${id === 'tickets' ? md:mb-12 : ">
       <div id={`${id.toLowerCase().replace(/\s+/g, '')}-anchor`} style={{ height: 100, marginTop: -100 }}></div>
         <div className="flex items-center justify-center gap-2 mb-4">
-            <h2 className={`text-5xl ${id === 'contact' || id === 'tickets' ? 'text-[#acbb37] text-3d-dark'  : 'text-[rgb(245,243,239)] my-shadow text-3d-light'}`}>{title}</h2>
+            <h2 className={`text-5xl ${id === 'contact' ? 'text-[#acbb37] text-3d-dark'  : 'text-[rgb(245,243,239)] my-shadow text-3d-light'}`}>{title}</h2>
         </div>
       </div>
       {children}

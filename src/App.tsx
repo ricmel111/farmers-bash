@@ -26,6 +26,7 @@ interface Background {
   position: string;
   backgroundSize: string;
   attachment?: string;
+  overlay?: string;
 }
 
 interface Section {
@@ -62,7 +63,7 @@ function App() {
   const sections: Section[] = [
     {
       id: "tickets",
-      title: "TICKETS",
+      title: "GET YOUR TICKETS",
       icon: <Music2 className="w-6 h-6" />,
       padding: "pt-4 pb-48",
       background: {
@@ -70,15 +71,13 @@ function App() {
         image: "url(/images/farmers-bash-bg3.jpg)",
         position: "center bottom",
         backgroundSize: "cover",
+        overlay: "bg-black/40",
       },
       useContainer: true,
       content: (
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-12">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                Get Your Tickets
-              </h2>
               <p className="text-xl text-white/90 max-w-2xl mx-auto">
                 Tickets for Farmers Bash sell fast, so grab yours early to avoid 
                 disappointment. Check our official ticket partners for availability.
@@ -86,7 +85,7 @@ function App() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-white">
+              <h3 className="text-3xl font-semibold text-white">
                 Available Ticket Types
               </h3>
               <p className="text-xl text-white/90">
@@ -104,25 +103,24 @@ function App() {
 
             <div className="max-w-lg mx-auto">
               <div className="space-y-6 text-white">
-                <h3 className="text-2xl font-semibold mb-4">Event Details</h3>
-                <ul className="space-y-4 text-lg">
-                  <li className="flex items-center justify-center gap-3">
+                <h3 className="text-3xl font-semibold mb-4">Event Details</h3>
+                <div className="flex flex-col md:flex-row justify-center gap-8 text-lg">
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-2xl">🕐</span>
                     <span className="font-semibold">Doors Open:</span> 2pm
-                  </li>
-                  <li className="flex items-center justify-center gap-3">
+                  </div>
+                  <div className="flex items-center justify-center gap-3">
                     <span className="text-2xl">🎵</span>
                     <span className="font-semibold">Show Starts:</span> 3pm
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div className="max-w-2xl mx-auto">
               <div className="text-white space-y-4">
-                <h3 className="text-2xl font-semibold">Age Restriction</h3>
+                <h3 className="text-3xl font-semibold">Age Restriction</h3>
                 <p className="text-lg leading-relaxed">
-                  <span className="text-2xl mr-2">👥</span>
                   Under 16s can attend provided they present at the entrance gate 
                   accompanied by a parent or guardian who is also a ticket holder.
                 </p>
@@ -254,126 +252,132 @@ function App() {
       icon: <Info className="w-6 h-6" />,
       padding: "pt-4 pb-48",
       background: {
-        color: "bg-green-100",
-        image: "url(/images/music-bg2.jpg)",
+        color: "bg-gray-900",
+        image: "url(/images/farmers-bash-bg0.jpg)",
         position: "center center",
         backgroundSize: "cover",
+        overlay: "bg-black/50",
       },
       useContainer: true,
       content: (
-        <div className="bg-black/40 backdrop-blur-sm rounded-xl p-8 shadow-2xl">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white">Accommodation</h3>
-                <div className="space-y-4 text-white/90">
-                  <p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Left Column */}
+            <div className="space-y-8 backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-green-500/10">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Accommodation</h3>
+                </div>
+                <div className="space-y-6 text-white/90">
+                  <p className="leading-relaxed">
                     Planning to stay in Belfast for Farmers Bash? The city offers a range 
                     of accommodation options to suit every budget and preference.
                   </p>
-                  <div className="grid gap-4">
-                    <div>
-                      <h4 className="font-semibold text-white">Luxury Stays:</h4>
+                  <div className="grid gap-6">
+                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
+                      <h4 className="font-semibold text-green-400 mb-2">Luxury Stays</h4>
                       <p>The Merchant Hotel, Grand Central Hotel, Fitzwilliam Hotel</p>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Mid-Range Hotels:</h4>
+                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
+                      <h4 className="font-semibold text-green-400 mb-2">Mid-Range Hotels</h4>
                       <p>Maldron Hotel, Europa Hotel, AC Hotel Belfast</p>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-white">Budget-Friendly:</h4>
+                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
+                      <h4 className="font-semibold text-green-400 mb-2">Budget-Friendly</h4>
                       <p>Ibis Belfast, ETAP Hotel, Travelodge Belfast</p>
                     </div>
                   </div>
-                  <p className="italic">We recommend booking early as demand is high around the event!</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white">Getting Here</h3>
-                <div className="space-y-4 text-white/90">
-                  <div>
-                    <h4 className="font-semibold text-white">Public Transport:</h4>
-                    <ul className="list-disc list-inside pl-4 space-y-2">
-                      <li>Train: Balmoral and Adelaide stations nearby</li>
-                      <li>Bus: Regular Translink Metro services</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">Driving & Parking:</h4>
-                    <ul className="list-disc list-inside pl-4 space-y-2">
-                      <li>Limited parking available near venue</li>
-                      <li>Park & Ride services (TBC)</li>
-                      <li>City Centre parking with transport links</li>
-                    </ul>
-                  </div>
+                  <p className="italic text-green-400 text-sm">
+                    ⚡ Pro tip: Book early as rooms fill up quickly during the event!
+                  </p>
                 </div>
               </div>
             </div>
 
+            {/* Right Column */}
             <div className="space-y-8">
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white">Tickets & Entry</h3>
-                <div className="space-y-4 text-white/90">
-                  <p>
-                    Tickets for Farmers Bash sell fast, so grab yours early to avoid 
-                    disappointment. Check our official ticket partners for availability.
-                  </p>
-                  <p>
-                    Day, Weekend, and VIF (Very Important Farmer) Tickets available here:{' '}
-                    <a 
-                      href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-400 hover:text-green-300 underline"
-                    >
-                      Ticketmaster
-                    </a>
-                  </p>
-                  <div className="space-y-2 mt-4">
-                    <ul className="space-y-2">
-                      <li>🕐 Doors Open: 2pm</li>
-                      <li>🎵 Show Starts: 3pm</li>
-                      <li className="leading-relaxed">
-                        👥 Age Restriction: Under 16s can attend provided they present at the 
-                        entrance gate accompanied by a parent or guardian who is also a ticket holder.
-                      </li>
-                    </ul>
+              <div className="backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-blue-500/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">Getting Here</h3>
                   </div>
-                  <p className="mt-4">
-                    For more details, visit{' '}
-                    <a 
-                      href="https://www.ticketmaster.ie"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-400 hover:text-green-300 underline"
-                    >
-                      www.ticketmaster.ie
-                    </a>
-                  </p>
+                  <div className="space-y-6 text-white/90">
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
+                        <h4 className="font-semibold text-blue-400 mb-3">Public Transport</h4>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                            Train: Balmoral and Adelaide stations nearby
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                            Bus: Regular Translink Metro services
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
+                        <h4 className="font-semibold text-blue-400 mb-3">Driving & Parking</h4>
+                        <ul className="space-y-2">
+                          <li className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                            Limited parking available near venue
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                            Park & Ride services (TBC)
+                          </li>
+                          <li className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                            City Centre parking with transport links
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold text-white">Festival Rules</h3>
-                <ul className="space-y-3 text-white/90">
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    No outside food or drinks
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    No pets allowed
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    Bring your own chairs
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                    All ages welcome (with guardian if under 16)
-                  </li>
-                </ul>
+              <div className="backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-purple-500/10">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-white">Festival Rules</h3>
+                  </div>
+                  <ul className="space-y-4 text-white/90">
+                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      No outside food or drinks
+                    </li>
+                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      No pets allowed
+                    </li>
+                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      Bring your own chairs
+                    </li>
+                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                      All ages welcome (with guardian if under 16)
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -544,7 +548,7 @@ function App() {
       {sections.map((section) => (
         <div
           key={section.id}
-          className={`${section.background.color} ${section.padding}`}
+          className={`${section.background.color} relative ${section.padding}`}
           style={{
             backgroundImage: section.background.image,
             backgroundPosition: section.background.position,
@@ -552,21 +556,26 @@ function App() {
             backgroundAttachment: section.background.attachment,
           }}
         >
-          {section.useContainer ? (
-            <div className="container mx-auto px-4">
-              <Section
-                id={section.id}
-                title={section.title}
-                icon={section.icon}
-              >
+          {section.background.overlay && (
+            <div className={`absolute inset-0 ${section.background.overlay}`}></div>
+          )}
+          <div className="relative">  {/* Add this wrapper */}
+            {section.useContainer ? (
+              <div className="container mx-auto px-4">
+                <Section
+                  id={section.id}
+                  title={section.title}
+                  icon={section.icon}
+                >
+                  {section.content}
+                </Section>
+              </div>
+            ) : (
+              <Section id={section.id} title={section.title} icon={section.icon}>
                 {section.content}
               </Section>
-            </div>
-          ) : (
-            <Section id={section.id} title={section.title} icon={section.icon}>
-              {section.content}
-            </Section>
-          )}
+            )}
+          </div>
         </div>
       ))}
 
