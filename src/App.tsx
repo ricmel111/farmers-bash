@@ -70,7 +70,7 @@ function App() {
       title: "GET YOUR TICKETS",
       icon: <Music2 className="w-6 h-6" />,
       titleStyle: 'large',
-      padding: "pt-4 pb-48",
+      padding: "pt-4 pb-24 md:pb-48",
       background: {
         color: "bg-gray-100",
         image: "url(/images/bg6.jpg)",
@@ -278,7 +278,7 @@ function App() {
       title: "ARTISTS",
       icon: <Users className="w-6 h-6" />,
       titleStyle: 'large',
-      padding: "pt-4 pb-48",
+      padding: "pt-4 pb-24 md:pb-48",
       background: {
         color: "bg-red-900",
         image: "url(/images/bg3.jpg)",
@@ -322,7 +322,7 @@ function App() {
       title: "INFO",
       icon: <Info className="w-6 h-6" />,
       titleStyle: 'large',
-      padding: "pt-4 pb-48",
+      padding: "pt-4 pb-24 md:pb-48",
       background: {
         color: "bg-gray-900",
         image: "url(/images/farmers-bash-bg21.jpg)",
@@ -469,7 +469,7 @@ function App() {
       title: "ABOUT",
       icon: <Info className="w-6 h-6" />,
       titleStyle: 'large',
-      padding: "pt-4 pb-48",
+      padding: "pt-4 pb-24 md:pb-48",
       background: {
         color: "bg-gray-900",
         image: "url(/images/bg1.jpg)",
@@ -503,15 +503,15 @@ function App() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="grid grid-cols-3 gap-8"
                 >
-                  <div className="text-center p-6 bg-white/15 rounded-xl">
+                  <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
                     <div className="text-4xl font-bold text-green-400 mb-2">2024</div>
                     <div className="text-white/90">Biggest Year Yet</div>
                   </div>
-                  <div className="text-center p-6 bg-white/15 rounded-xl">
+                  <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
                     <div className="text-4xl font-bold text-green-400 mb-2">15K+</div>
                     <div className="text-white/90">Expected Attendees</div>
                   </div>
-                  <div className="text-center p-6 bg-white/15 rounded-xl">
+                  <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
                     <div className="text-4xl font-bold text-green-400 mb-2">20+</div>
                     <div className="text-white/90">Top Artists</div>
                   </div>
@@ -524,7 +524,7 @@ function App() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="space-y-6"
               >
-                <div className="space-y-6 text-lg text-white/90 leading-relaxed">
+                <div className="space-y-6 text-xl text-white/90 leading-relaxed">
                   <p>
                   Farmers Bash is Ireland's biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
                   </p>
