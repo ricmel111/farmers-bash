@@ -117,7 +117,6 @@ export const artists = [
     {
       name: "Folk That Rock",
       image: "/images/artists/FolkThatRock.jpg",
-      website: "https://www.bbc.co.uk/programmes/m0013482",
     },
     {
       name: "Shrek Rave",
