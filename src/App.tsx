@@ -229,35 +229,67 @@ function App() {
       useContainer: false,
       content: (
         <>
-          <div className="relative flex flex-col items-center justify-center container mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative flex flex-col items-center justify-center container mx-auto"
+          >
             <img
               src="/images/hero-logo.png"
               alt="Farmers Bash Banner"
               className="max-w-full h-auto"
             />
-          </div>
-          <div className="relative flex flex-col items-center space-y-4">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="relative flex flex-col items-center space-y-4"
+          >
             <img
               src="/images/Banner-A.png"
               alt="Farmers Bash Banner"
               className="max-w-full h-auto"
             />
-          </div>
-          <div className="relative flex flex-col items-center justify-center container mx-auto">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="relative flex flex-col items-center justify-center container mx-auto"
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12 justify-items-center">
-              <img
+              <motion.img
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
                 src="/images/Lineup-Saturday.png"
                 alt="Lineup Saturday"
                 className="max-w-full h-auto mb-12 md:mb-0"
               />
-              <img
+              <motion.img
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                viewport={{ once: true }}
                 src="/images/Lineup-Sunday.png"
                 alt="Lineup Sunday"
                 className="max-w-full h-auto mb-4 md:mb-0"
               />
             </div>
-          </div>
-          <div className="relative flex flex-col items-center">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+            className="relative flex flex-col items-center"
+          >
             <div className="relative flex flex-col items-center justify-center container mx-auto">
               <img
                 src="/images/Plus.png"
@@ -271,7 +303,7 @@ function App() {
               className="h-auto -mt-24 w-full"
               style={{ width: '-webkit-fill-available' }}
             />
-          </div>
+          </motion.div>
         </>
       ),
     },
@@ -282,18 +314,17 @@ function App() {
       titleStyle: 'large',
       padding: "pt-4 pb-24 md:pb-48",
       background: {
-        color: "bg-red-900",
+        color: "bg-[#1f2356]",
         image: "url(/images/bg3.jpg)",
-        position: "75% bottom",
+        position: "75% bottom md:center bottom",
         backgroundSize: "cover",
-        attachment: "fixed",
-        mobileImage: "url(/images/bg3.jpg)",
-        mobilePosition: "95% bottom",
-        mobileBackgroundSize: "cover",
+        mobileImage: "url(/images/bg3a.jpg)",
+        mobilePosition: "center bottom",
+        mobileBackgroundSize: "100%",
       },
       useContainer: true,
       content: (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 min-h-screen">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {artists.map((artist: Artist) => (
             <motion.a
               key={artist.name}
@@ -336,7 +367,7 @@ function App() {
         mobileImage: "url(/images/farmers-bash-bg21.jpg)",
         mobilePosition: "75% bottom",
         mobileBackgroundSize: "cover",
-        overlay: "bg-black/50",
+        overlay: "bg-white/5",
       },
       useContainer: true,
       content: (
