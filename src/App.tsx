@@ -284,9 +284,12 @@ function App() {
       background: {
         color: "bg-red-900",
         image: "url(/images/bg3.jpg)",
-        position: "75% bottom md:center bottom",
+        position: "75% bottom",
         backgroundSize: "cover",
-        attachment: "scroll md:fixed",
+        attachment: "fixed",
+        mobileImage: "url(/images/bg3.jpg)",
+        mobilePosition: "95% bottom",
+        mobileBackgroundSize: "cover",
       },
       useContainer: true,
       content: (
