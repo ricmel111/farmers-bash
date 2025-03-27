@@ -47,6 +47,8 @@ function App() {
   const [showNewsletter, setShowNewsletter] = useState(false);
   const [hasSeenPopup, setHasSeenPopup] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -653,9 +655,21 @@ function App() {
     },
   ];
 
+  const [activeSection, setActiveSection] = useState("tickets");
+
+  const handleMenuItemClick = (id: string) => {
+    setActiveSection(id);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar />
+      <Navbar 
+        toggleMenu={toggleMenu}
+        isMenuOpen={isMenuOpen}
+        menuItems={sections}
+        activeSection={activeSection}
+        onMenuItemClick={handleMenuItemClick}
+      />
       <div ref={heroRef}>
         <Hero />
       </div>
