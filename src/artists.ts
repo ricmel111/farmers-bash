@@ -142,5 +142,9 @@ export const artists = [
       image: "/images/artists/BingoLoco.jpg",
       website: "https://www.bingoloco.com/",
     },
+    {
+      name: "And Many More...",
+      image: "/images/bg4.jpg",
+    },
   ];
   

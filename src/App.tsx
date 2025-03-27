@@ -150,7 +150,7 @@ function App() {
                       <span className="text-2xl">🕐</span>
                     </div>
                     <div className="text-xl">
-                      <span className="font-semibold">Doors Open:</span> 2pm
+                      <span className="font-semibold">Gates Open:</span> 2pm
                     </div>
                   </motion.div>
                   <motion.div 
@@ -349,7 +349,7 @@ function App() {
               >
                 <h3 className="text-4xl md:text-5xl text-white mb-6">Accommodation</h3>
                 <p className="text-xl text-white/90 leading-relaxed">
-                Planning to stay in Belfast for Farmers Bash? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
+                Planning to stay in Belfast for the Weekender? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
                 recommendations:
                 </p>
               </motion.div>
@@ -496,19 +496,19 @@ function App() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="grid grid-cols-3 gap-8"
+                  className="grid grid-cols-3 gap-2 md:gap-8"
                 >
-                  <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
-                    <div className="text-4xl font-bold text-green-400 mb-2">2025</div>
-                    <div className="text-white/90">Biggest Year Yet</div>
+                  <div className="text-center p-2 md:p-6 bg-white/15 rounded-xl">
+                    <div className="text-3xl md:text-4xl font-bold text-green-400 mb-1 md:mb-2">2025</div>
+                    <div className="text-sm md:text-base text-white/90">Biggest Year Yet</div>
                   </div>
-                  <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
-                    <div className="text-4xl font-bold text-green-400 mb-2">30K+</div>
-                    <div className="text-white/90">Expected Attendees</div>
+                  <div className="text-center p-2 md:p-6 bg-white/15 rounded-xl">
+                    <div className="text-3xl md:text-4xl font-bold text-green-400 mb-1 md:mb-2">30K+</div>
+                    <div className="text-sm md:text-base text-white/90">Expected Attendees</div>
                   </div>
-                  <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
-                    <div className="text-4xl font-bold text-green-400 mb-2">40+</div>
-                    <div className="text-white/90">Top Artists</div>
+                  <div className="text-center p-2 md:p-6 bg-white/15 rounded-xl">
+                    <div className="text-3xl md:text-4xl font-bold text-green-400 mb-1 md:mb-2">40+</div>
+                    <div className="text-sm md:text-base text-white/90">Top Artists</div>
                   </div>
                 </motion.div>
               </div>
