@@ -448,7 +448,7 @@ function App() {
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-lg text-white/90">
-                        <strong className="text-[#d5a271]">City Centre parking</strong> with publictransport links
+                        <strong className="text-[#d5a271]">City Centre parking</strong> with public transport links
                         </span>
                       </li>
                     </ul>
