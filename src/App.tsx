@@ -336,133 +336,118 @@ function App() {
       useContainer: true,
       content: (
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-12 gap-12">
             {/* Left Column */}
-            <div className="space-y-8 backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-green-500/10">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">Accommodation</h3>
+            <div className="md:col-span-7 space-y-12">
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="border-l-4 border-green-400 pl-6"
+              >
+                <h3 className="text-4xl md:text-5xl text-white mb-6">Accommodation</h3>
+                <p className="text-xl text-white/90 leading-relaxed">
+                  Planning to stay in Belfast for Farmers Bash? The city offers a range 
+                  of accommodation options to suit every budget and preference.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="space-y-6"
+              >
+                <div className="grid gap-6">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                  >
+                    <h4 className="font-semibold text-green-400 text-xl mb-3">Luxury Stays</h4>
+                    <p className="text-lg text-white/90">The Merchant Hotel, Grand Central Hotel, Fitzwilliam Hotel</p>
+                  </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                  >
+                    <h4 className="font-semibold text-green-400 text-xl mb-3">Mid-Range Hotels</h4>
+                    <p className="text-lg text-white/90">Maldron Hotel, Europa Hotel, AC Hotel Belfast</p>
+                  </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                  >
+                    <h4 className="font-semibold text-green-400 text-xl mb-3">Budget-Friendly</h4>
+                    <p className="text-lg text-white/90">Ibis Belfast, ETAP Hotel, Travelodge Belfast</p>
+                  </motion.div>
                 </div>
-                <div className="space-y-6 text-white/90">
-                  <p className="leading-relaxed">
-                    Planning to stay in Belfast for Farmers Bash? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top recommendations.
-                  </p>
-                  <div className="grid gap-6">
-                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                      <h4 className="font-semibold text-green-400 mb-2">Luxury Stays</h4>
-                      <p>The Merchant Hotel, Grand Central Hotel, Fitzwilliam Hotel</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                      <h4 className="font-semibold text-green-400 mb-2">Mid-Range Hotels</h4>
-                      <p>Maldron Hotel, Europa Hotel, AC Hotel Belfast</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                      <h4 className="font-semibold text-green-400 mb-2">Budget-Friendly</h4>
-                      <p>Ibis Belfast, ETAP Hotel, Travelodge Belfast</p>
-                    </div>
-                    <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                      <h4 className="font-semibold text-green-400 mb-2">Self-Catering & B&Bs</h4>
-                      <p>Dream Apartments, Titanic Guesthouse, Bullitt Hotel</p>
-                    </div>
-                  </div>
-                  <p className="italic text-green-400 text-sm">
-                    ⚡ Pro tip: Book early as rooms fill up quickly during the event!
-                  </p>
-                </div>
-              </div>
+                <p className="italic text-green-400 text-lg">
+                  ⚡ Pro tip: Book early as rooms fill up quickly during the event!
+                </p>
+              </motion.div>
             </div>
 
             {/* Right Column */}
-            <div className="space-y-8">
-              <div className="backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
+            <div className="md:col-span-5 space-y-12">
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="border-l-4 border-green-400 pl-6"
+              >
+                <h3 className="text-4xl md:text-5xl text-white mb-6">Getting Here</h3>
                 <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-blue-500/10">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">Getting To Boucher Road Playing Fields</h3>
-                  </div>
-                  <div className="space-y-6 text-white/90">
-                    <div className="space-y-4">
-                      <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                        <h4 className="font-semibold text-blue-400 mb-3">Public Transport</h4>
-                        <h3 className="mb-4">Belfast has excellent public transport links, making it easy to get to Boucher Road Playing Fields.</h3>
-                        <ul className="space-y-2">
-                          <li className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            <p className="flex-1">
-                            <strong className="text-blue-400">Train:</strong> Balmoral and Adelaide stations nearby
-                            </p>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            <p className="flex-1">
-                            <strong className="text-blue-400">Bus:</strong> Regular Translink Metro services
-                            </p>
-                          </li>
-                        </ul>
-                      </div>
-                      <div className="p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                        <h4 className="font-semibold text-blue-400 mb-3">Driving & Parking</h4>
-                        <h3 className="mb-4">If you're driving, limited parking will be available near the venue, but we strongly encourage using public transport or carpooling. Nearby alternatives include:</h3>
-                        <ul className="space-y-2">
-                          <li className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            <p className="flex-1">
-                              <strong className="text-blue-400">Park & Ride services</strong> (Details to be confirmed closer to the event)
-                            </p>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                            <p className="flex-1">
-                            <strong className="text-blue-400">City Centre Parking</strong> with public transport connections
-                            </p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                  >
+                    <h4 className="font-semibold text-blue-400 text-xl mb-4">Public Transport</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <span className="text-lg text-white/90">Train: Balmoral and Adelaide stations nearby</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <span className="text-lg text-white/90">Bus: Regular Translink Metro services</span>
+                      </li>
+                    </ul>
+                  </motion.div>
 
-              <div className="backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-purple-500/10">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white">Festival Rules</h3>
-                  </div>
-                  <ul className="space-y-4 text-white/90">
-                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      No outside food or drinks
-                    </li>
-                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      No pets allowed
-                    </li>
-                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      Dress Appropriately
-                    </li>
-                    <li className="flex items-center gap-3 bg-white/5 p-3 rounded-lg">
-                      <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
-                      All ages welcome (with guardian if under 16)
-                    </li>
-                  </ul>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                  >
+                    <h4 className="font-semibold text-blue-400 text-xl mb-4">Driving & Parking</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <span className="text-lg text-white/90">Limited parking available near venue</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <span className="text-lg text-white/90">
+                          <strong className="text-blue-400">Park & Ride</strong> services (Details to be confirmed closer to the event)
+                        </span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <span className="text-lg text-white/90">City Centre parking with transport links</span>
+                      </li>
+                    </ul>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
