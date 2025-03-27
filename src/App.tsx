@@ -229,67 +229,35 @@ function App() {
       useContainer: false,
       content: (
         <>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative flex flex-col items-center justify-center container mx-auto"
-          >
+          <div className="relative flex flex-col items-center justify-center container mx-auto">
             <img
               src="/images/hero-logo.png"
               alt="Farmers Bash Banner"
               className="max-w-full h-auto"
             />
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative flex flex-col items-center space-y-4"
-          >
+          </div>
+          <div className="relative flex flex-col items-center space-y-4">
             <img
               src="/images/Banner-A.png"
               alt="Farmers Bash Banner"
               className="max-w-full h-auto"
             />
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="relative flex flex-col items-center justify-center container mx-auto"
-          >
+          </div>
+          <div className="relative flex flex-col items-center justify-center container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12 justify-items-center">
-              <motion.img
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                viewport={{ once: true }}
+              <img
                 src="/images/Lineup-Saturday.png"
                 alt="Lineup Saturday"
                 className="max-w-full h-auto mb-12 md:mb-0"
               />
-              <motion.img
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                viewport={{ once: true }}
+              <img
                 src="/images/Lineup-Sunday.png"
                 alt="Lineup Sunday"
                 className="max-w-full h-auto mb-4 md:mb-0"
               />
             </div>
-          </motion.div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            viewport={{ once: true }}
-            className="relative flex flex-col items-center"
-          >
+          </div>
+          <div className="relative flex flex-col items-center">
             <div className="relative flex flex-col items-center justify-center container mx-auto">
               <img
                 src="/images/Plus.png"
@@ -303,7 +271,7 @@ function App() {
               className="h-auto -mt-24 w-full"
               style={{ width: '-webkit-fill-available' }}
             />
-          </motion.div>
+          </div>
         </>
       ),
     },
@@ -367,7 +335,7 @@ function App() {
         mobileImage: "url(/images/farmers-bash-bg21.jpg)",
         mobilePosition: "75% bottom",
         mobileBackgroundSize: "cover",
-        overlay: "bg-white/5",
+        overlay: "bg-brown/10",
       },
       useContainer: true,
       content: (
