@@ -1,13 +1,13 @@
 export const artists = [
     {
-      name: "Kaiser Chiefs",
-      image: "/images/artists/KaiserChiefs.jpg",
-      website: "https://www.kaiserchiefs.com/",
-    },
-    {
       name: "The 2 Johnnies",
       image: "/images/artists/The2Johnnies.jpg",
       website: "https://www.the2johnnies.ie/",
+    },
+    {
+      name: "Kaiser Chiefs",
+      image: "/images/artists/KaiserChiefs.jpg",
+      website: "https://www.kaiserchiefs.com/",
     },
     {
       name: "The Coronas",
@@ -15,9 +15,24 @@ export const artists = [
       website: "https://thecoronas.net/",
     },
     {
+      name: "Derek Ryan",
+      image: "/images/artists/DerekRyan.jpg",
+      website: "https://derekryanmusic.com/",
+    },
+    {
+      name: "Nathan Carter",
+      image: "/images/artists/NathanCarter.jpg",
+      website: "https://www.nathancartermusic.com/",
+    },
+    {
       name: "Boyzlife",
       image: "/images/artists/Boyzlife.png",
       website: "https://www.facebook.com/BoyzlifeTour",
+    },
+    {
+      name: "Mark McCabe",
+      image: "/images/artists/MarkMcCabe.jpg",
+      website: "https://www.markmccabe.ie/",
     },
     {
       name: "BWitched",
@@ -35,9 +50,19 @@ export const artists = [
       website: "https://thetumblingpaddiesofficial.com/",
     },
     {
+      name: "The Whistlin Donkeys",
+      image: "/images/artists/TheWhistlinDonkeys.jpg",
+      website: "https://www.facebook.com/thewhistlindonkeys/?locale=en_GB",
+    },
+    {
       name: "All Folk'd Up",
       image: "/images/artists/AllFolk_dUp.jpg",
       website: "https://www.allfolkdup.ie/",
+    },
+    {
+      name: "Luke Combs UK",
+      image: "/images/artists/LukeCombsUK.jpg",
+      website: "Luke Combs UK",
     },
     {
       name: "Allie Sherlock",
@@ -55,11 +80,6 @@ export const artists = [
       website: "https://davidjamesmusic.co.uk/",
     },
     {
-      name: "Derek Ryan",
-      image: "/images/artists/DerekRyan.jpg",
-      website: "https://derekryanmusic.com/",
-    },
-    {
       name: "Lisa McHugh",
       image: "/images/artists/LisaMcHugh.jpg",
       website: "https://lisamchughmusic.com/",
@@ -68,11 +88,6 @@ export const artists = [
       name: "Mike Denver",
       image: "/images/artists/MikeDenver.jpg",
       website: "https://www.mikedenvermusic.com/",
-    },
-    {
-      name: "Nathan Carter",
-      image: "/images/artists/NathanCarter.jpg",
-      website: "https://www.nathancartermusic.com/",
     },
     {
       name: "Olivia Douglas",
@@ -85,8 +100,47 @@ export const artists = [
       website: "https://robertmizzell.ie/",
     },
     {
+      name: "Claudia Buckley",
+      image: "/images/artists/ClaudiaBuckley.jpg",
+      website: "https://www.youtube.com/channel/UCU8qlz5-2MeehDCnlDheGqA/about",
+    },
+    {
+      name: "Jimmy Buckley",
+      image: "/images/artists/JimmyBuckley.jpg",
+      website: "https://www.jimmy-buckley.com/",
+    },
+    {
+      name: "Johnny Brady",
+      image: "/images/artists/JohnnyBrady.jpg",
+      website: "https://johnny-brady.com/",
+    },
+    {
+      name: "Folk That Rock",
+      image: "/images/artists/FolkThatRock.jpg",
+      website: "https://www.bbc.co.uk/programmes/m0013482",
+    },
+    {
       name: "Shrek Rave",
       image: "/images/artists/ShrekTheRave.jpg",
       website: "https://www.shrekraveofficial.com/",
     },
+    {
+      name: "The 30+ Club",
+      image: "/images/artists/The30Club.jpg",
+      website: "https://the30plus.club/",
+    },
+    {
+      name: "Sheep Shearing Disco",
+      image: "/images/artists/SheepShearingDisco.jpg",
+    },
+    {
+      name: "Bangerthon",
+      image: "/images/artists/Bangerthon.jpg",
+    },
+    {
+      name: "Bingo Loco",
+      image: "/images/artists/BingoLoco.jpg",
+      website: "https://www.bingoloco.com/",
+    },
   ];
+  

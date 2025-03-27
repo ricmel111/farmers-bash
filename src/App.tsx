@@ -17,7 +17,7 @@ import { artists } from "./artists"; // Import the artists array
 interface Artist {
   name: string;
   image: string;
-  website: string;
+  website?: string;
 }
 
 interface Background {
@@ -421,14 +421,13 @@ function App() {
                     className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
                     <h4 className="font-semibold text-[#d5a271] text-xl mb-4">Public Transport</h4>
+                    <div className="text-white/90 mb-6 text-lg">Belfast has excellent public transport links, making it easy to get to Boucher Road Playing Fields.</div>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
-                        <span className="text-lg text-white/90">Train: Balmoral and Adelaide stations nearby</span>
+                        <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Train:</strong> Balmoral and Adelaide train stations are the closest, with regular services from Belfast city centre.</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
-                        <span className="text-lg text-white/90">Bus: Regular Translink Metro services</span>
+                        <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Bus:</strong> Translink Metro services operate routes that stop near Boucher Road.</span>
                       </li>
                     </ul>
                   </motion.div>
@@ -440,21 +439,16 @@ function App() {
                     className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
                     <h4 className="font-semibold text-[#d5a271] text-xl mb-4">Driving & Parking</h4>
+                    <div className="text-white/90 mb-6 text-lg">If you're driving, limited parking will be available near the venue, but we strongly encourage using public transport or carpooling. Nearby alternatives include</div>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
-                        <span className="text-lg text-white/90">Limited parking available near venue</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
                         <span className="text-lg text-white/90">
-                          <strong className="text-[#d5a271]">Park & Ride</strong> services (Details to be confirmed closer to the event)
+                          <strong className="text-[#d5a271]">Park & Ride services</strong> (Details to be confirmed closer to the event)
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
                         <span className="text-lg text-white/90">
-                        <strong className="text-[#d5a271]">City Centre parking</strong> with transport links
+                        <strong className="text-[#d5a271]">City Centre parking</strong> with publictransport links
                         </span>
                       </li>
                     </ul>
@@ -492,10 +486,9 @@ function App() {
                   transition={{ duration: 0.8 }}
                   className="border-l-4 border-green-400 pl-6"
                 >
-                  <h3 className="text-4xl md:text-5xl text-white mb-6">The Ultimate Country Music Experience</h3>
+                  <h3 className="text-4xl md:text-5xl text-white mb-6">THE ULTIMATE LIVE MUSIC EXPERIENCE</h3>
                   <p className="text-xl text-white/90 leading-relaxed">
-                    The Farmers Bash has become Northern Ireland's biggest country music event, 
-                    bringing together the best of country music talent and thousands of passionate fans.
+                  The Farmers Bash has become Northern Ireland's biggest music event, bringing together the best live talent and thousands of passionate fans.
                   </p>
                 </motion.div>
 
@@ -506,15 +499,15 @@ function App() {
                   className="grid grid-cols-3 gap-8"
                 >
                   <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
-                    <div className="text-4xl font-bold text-green-400 mb-2">2024</div>
+                    <div className="text-4xl font-bold text-green-400 mb-2">2025</div>
                     <div className="text-white/90">Biggest Year Yet</div>
                   </div>
                   <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
-                    <div className="text-4xl font-bold text-green-400 mb-2">15K+</div>
+                    <div className="text-4xl font-bold text-green-400 mb-2">30K+</div>
                     <div className="text-white/90">Expected Attendees</div>
                   </div>
                   <div className="text-center p-3 md:p-6 bg-white/15 rounded-xl">
-                    <div className="text-4xl font-bold text-green-400 mb-2">20+</div>
+                    <div className="text-4xl font-bold text-green-400 mb-2">40+</div>
                     <div className="text-white/90">Top Artists</div>
                   </div>
                 </motion.div>
