@@ -38,7 +38,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children, titleStyle = 'de
       <div className="text-center my-16 md:my-24">
         <div id={`${id.toLowerCase().replace(/\s+/g, '')}-anchor`} style={{ height: 100, marginTop: -100 }}></div>
         <div className="flex items-center justify-center gap-2 mb-4">
-          <h2 className={`${getTitleClasses()} ${id === 'getintouch' ? 'text-[#16a34a] my-shadow' : 'text-[rgb(245,243,239)] my-shadow'}`}>
+          <h2 className={`${getTitleClasses()} ${id === 'getintouch' || id === 'info'? 'text-[#16a34a] my-shadow' : 'text-[rgb(245,243,239)] my-shadow'}`}>
             {title}
           </h2>
         </div>

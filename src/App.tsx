@@ -73,7 +73,7 @@ function App() {
       padding: "pt-4 pb-48",
       background: {
         color: "bg-gray-100",
-        image: "url(/images/farmers-bash-bg3.jpg)",
+        image: "url(/images/bg6.jpg)",
         position: "center bottom",
         backgroundSize: "cover",
         overlay: "bg-black/40",
@@ -89,7 +89,7 @@ function App() {
               transition={{ duration: 0.8 }}
               className="border-l-4 border-green-400 pl-6"
             >
-              <p className="text-2xl text-white/90 leading-relaxed">
+              <p className="text-3xl text-white/90 leading-relaxed">
                 Tickets for the Farmers Bash Weekender are selling fast, 
                 so grab yours early to avoid disappointment.
               </p>
@@ -281,7 +281,7 @@ function App() {
       padding: "pt-4 pb-48",
       background: {
         color: "bg-red-900",
-        image: "url(/images/farmers-bash-bg13.jpg)",
+        image: "url(/images/bg3.jpg)",
         position: "75% bottom md:center bottom",
         backgroundSize: "cover",
         attachment: "scroll md:fixed",
@@ -331,7 +331,7 @@ function App() {
         mobileImage: "url(/images/farmers-bash-bg21.jpg)",
         mobilePosition: "75% bottom",
         mobileBackgroundSize: "cover",
-        overlay: "bg-black/70",
+        overlay: "bg-black/50",
       },
       useContainer: true,
       content: (
@@ -347,8 +347,8 @@ function App() {
               >
                 <h3 className="text-4xl md:text-5xl text-white mb-6">Accommodation</h3>
                 <p className="text-xl text-white/90 leading-relaxed">
-                  Planning to stay in Belfast for Farmers Bash? The city offers a range 
-                  of accommodation options to suit every budget and preference.
+                Planning to stay in Belfast for Farmers Bash? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
+                recommendations:
                 </p>
               </motion.div>
 
@@ -358,12 +358,12 @@ function App() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="space-y-6"
               >
-                <div className="grid gap-6">
+                <div className="grid gap-2">
                   <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                    className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
                     <h4 className="font-semibold text-green-400 text-xl mb-3">Luxury Stays</h4>
                     <p className="text-lg text-white/90">The Merchant Hotel, Grand Central Hotel, Fitzwilliam Hotel</p>
@@ -372,7 +372,7 @@ function App() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                    className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
                     <h4 className="font-semibold text-green-400 text-xl mb-3">Mid-Range Hotels</h4>
                     <p className="text-lg text-white/90">Maldron Hotel, Europa Hotel, AC Hotel Belfast</p>
@@ -381,10 +381,19 @@ function App() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                    className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
                     <h4 className="font-semibold text-green-400 text-xl mb-3">Budget-Friendly</h4>
                     <p className="text-lg text-white/90">Ibis Belfast, ETAP Hotel, Travelodge Belfast</p>
+                  </motion.div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
+                  >
+                    <h4 className="font-semibold text-green-400 text-xl mb-3">Self-Catering & B&Bs</h4>
+                    <p className="text-lg text-white/90">Dream Apartments, Titanic Guesthouse, Bullitt Hotel</p>
                   </motion.div>
                 </div>
                 <p className="italic text-green-400 text-lg">
@@ -399,7 +408,7 @@ function App() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className="border-l-4 border-green-400 pl-6"
+                className="border-l-4 border-[#d5a271] pl-6"
               >
                 <h3 className="text-4xl md:text-5xl text-white mb-6">Getting Here</h3>
                 <div className="space-y-6">
@@ -407,16 +416,16 @@ function App() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                    className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
-                    <h4 className="font-semibold text-blue-400 text-xl mb-4">Public Transport</h4>
+                    <h4 className="font-semibold text-[#d5a271] text-xl mb-4">Public Transport</h4>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
                         <span className="text-lg text-white/90">Train: Balmoral and Adelaide stations nearby</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
                         <span className="text-lg text-white/90">Bus: Regular Translink Metro services</span>
                       </li>
                     </ul>
@@ -426,23 +435,25 @@ function App() {
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+                    className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10"
                   >
-                    <h4 className="font-semibold text-blue-400 text-xl mb-4">Driving & Parking</h4>
+                    <h4 className="font-semibold text-[#d5a271] text-xl mb-4">Driving & Parking</h4>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
                         <span className="text-lg text-white/90">Limited parking available near venue</span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
                         <span className="text-lg text-white/90">
-                          <strong className="text-blue-400">Park & Ride</strong> services (Details to be confirmed closer to the event)
+                          <strong className="text-[#d5a271]">Park & Ride</strong> services (Details to be confirmed closer to the event)
                         </span>
                       </li>
                       <li className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
-                        <span className="text-lg text-white/90">City Centre parking with transport links</span>
+                        <div className="w-1.5 h-1.5 bg-[#d5a271] rounded-full"></div>
+                        <span className="text-lg text-white/90">
+                        <strong className="text-[#d5a271]">City Centre parking</strong> with transport links
+                        </span>
                       </li>
                     </ul>
                   </motion.div>
@@ -461,10 +472,10 @@ function App() {
       padding: "pt-4 pb-48",
       background: {
         color: "bg-gray-900",
-        image: "url(/images/farmers-bash-bg.jpg)",
+        image: "url(/images/bg1.jpg)",
         position: "center center",
         backgroundSize: "cover",
-        overlay: "bg-black/80",
+        overlay: "bg-black/30",
       },
       useContainer: true,
       content: (

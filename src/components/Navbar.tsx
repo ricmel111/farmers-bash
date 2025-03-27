@@ -36,7 +36,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className={`relative transition-all duration-300 ${
-            scrolled ? 'h-12 w-32' : 'h-28 w-40'
+            scrolled ? 'h-12 w-20' : 'h-28 w-40'
           }`}>
             <img
               src="/images/farmers-bash-logo.svg"
