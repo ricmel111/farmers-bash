@@ -293,7 +293,7 @@ function App() {
       },
       useContainer: true,
       content: (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 min-h-screen">
           {artists.map((artist: Artist) => (
             <motion.a
               key={artist.name}
