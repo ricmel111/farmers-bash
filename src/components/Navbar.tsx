@@ -116,11 +116,11 @@ const Navbar: React.FC<NavbarProps> = ({
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 h-full w-[300px] bg-black/90 backdrop-blur-xl z-50"
+              className="fixed top-0 right-0 h-full w-[300px] bg-black/40 backdrop-blur-xl border-l border-white/10 z-50"
             >
               <div className="flex flex-col h-full">
                 {/* Menu Header with Close Button */}
-                <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/5">
                   <img
                     src="/images/farmers-bash-logo.svg"
                     alt="Farmers Bash Logo"
@@ -159,9 +159,9 @@ const Navbar: React.FC<NavbarProps> = ({
                 </nav>
 
                 {/* Menu Footer */}
-                <div className="p-6 border-t border-white/10">
+                <div className="p-6 border-t border-white/10 bg-white/5">
                   <div className="text-sm text-white/60 text-center">
-                    © 2024 Farmers Bash
+                    © 2025 Farmers Bash
                   </div>
                 </div>
               </div>
