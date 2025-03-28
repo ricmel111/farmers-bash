@@ -92,7 +92,7 @@ function App() {
               className="border-l-4 border-green-400 pl-6"
             >
               <p className="text-3xl text-white/90 leading-relaxed">
-                Tickets for the Farmers Bash Weekender are selling fast, 
+                Tickets for the Farmer's Bash Weekender are selling fast, 
                 so grab yours early to avoid disappointment.
               </p>
             </motion.div>
@@ -490,7 +490,7 @@ function App() {
                 >
                   <h3 className="text-4xl md:text-5xl text-white mb-6">THE ULTIMATE LIVE MUSIC EXPERIENCE</h3>
                   <p className="text-xl text-white/90 leading-relaxed">
-                  The Farmers Bash has become Northern Ireland's biggest music event, bringing together the best live talent and thousands of passionate fans.
+                  The Farmer's Bash has become Northern Ireland's biggest music event, bringing together the best live talent and thousands of passionate fans.
                   </p>
                 </motion.div>
 
@@ -523,13 +523,13 @@ function App() {
               >
                 <div className="space-y-6 text-xl text-white/90 leading-relaxed">
                   <p>
-                  Farmers Bash is Ireland's biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
+                  Farmer's Bash is Ireland's biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
                   </p>
                   <p>
-                  After several incredible years in the SSE, Farmers Bash moved to Belsonic in 2023, where it sold out at an incredible 22,000 capacity, proving itself as one of Ireland's top festivals.
+                  After several incredible years in the SSE, Farmer's Bash moved to Belsonic in 2024, where it sold out at an incredible 22,000 capacity, proving itself as one of Ireland's top festivals.
                   </p>
                   <p>
-                  Now, in its biggest evolution yet, Farmers Bash expands into a two-day festival at Boucher Road Playing Fields, featuring multiple stages, an unbeatable lineup, and an atmosphere like no other. Whether you're a fan of country, folk, rock, or high-energy live music, Farmers Bash promises an unforgettable experience filled with music, dancing, and memories that will last a lifetime.
+                  Now, in its biggest evolution yet, Farmer's Bash expands into a two-day festival at Boucher Road Playing Fields, featuring multiple stages, an unbeatable lineup, and an atmosphere like no other. Whether you're a fan of country, folk, rock, or high-energy live music, Farmer's Bash promises an unforgettable experience filled with music, dancing, and memories that will last a lifetime.
                   </p>
                 </div>
               </motion.div>
