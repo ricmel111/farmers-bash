@@ -663,7 +663,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar 
         toggleMenu={toggleMenu}
         isMenuOpen={isMenuOpen}
@@ -678,7 +678,7 @@ function App() {
       {sections.map((section) => (
         <div
           key={section.id}
-          className={`${section.background.color} relative ${section.padding}`}
+          className={`${section.background.color} relative ${section.padding} overflow-hidden`}
           style={{
             '--desktop-image': section.background.image,
             '--mobile-image': section.background.mobileImage || section.background.image,
