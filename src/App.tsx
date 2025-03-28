@@ -375,27 +375,29 @@ function App() {
       },
       useContainer: true,
       content: (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto overflow-hidden">
           <div className="grid md:grid-cols-12 gap-12">
             {/* Left Column */}
             <div className="md:col-span-7 space-y-12">
               <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
                 className="border-l-4 border-green-400 pl-6"
               >
                 <h3 className="text-4xl md:text-5xl text-white mb-6">Accommodation</h3>
                 <p className="text-xl text-white/90 leading-relaxed">
-                Planning to stay in Belfast for the Weekender? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
-                recommendations:
+                  Planning to stay in Belfast for the Weekender? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
+                  recommendations:
                 </p>
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
                 <div className="grid gap-2">
@@ -445,9 +447,10 @@ function App() {
             {/* Right Column */}
             <div className="md:col-span-5 space-y-12">
               <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
                 className="border-l-4 border-[#d5a271] pl-6"
               >
                 <h3 className="text-4xl md:text-5xl text-white mb-6">Getting Here</h3>
@@ -513,15 +516,16 @@ function App() {
       },
       useContainer: true,
       content: (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto overflow-hidden">
           <div className="grid md:grid-cols-12 gap-12">
             {/* Main Content */}
             <div className="md:col-span-7 md:col-start-1 space-y-12">
               <div className="space-y-8">
                 <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
                   className="border-l-4 border-green-400 pl-6"
                 >
                   <h3 className="text-4xl md:text-5xl text-white mb-6">THE ULTIMATE LIVE MUSIC EXPERIENCE</h3>
@@ -531,9 +535,10 @@ function App() {
                 </motion.div>
 
                 <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
                   className="grid grid-cols-3 gap-2 md:gap-8"
                 >
                   <div className="text-center p-2 md:p-6 bg-white/15 rounded-xl">
@@ -552,9 +557,10 @@ function App() {
               </div>
 
               <motion.div 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
                 className="space-y-6"
               >
                 <div className="space-y-6 text-xl text-white/90 leading-relaxed">
