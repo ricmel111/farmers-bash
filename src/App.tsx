@@ -305,7 +305,7 @@ function App() {
               className="relative flex flex-col items-center justify-center container mx-auto px-4"
             >
               <motion.img
-                whileHover={{ scale: 1.05, rotate: 180 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6 }}
                 src="/images/Plus.png"
                 alt="Plus"
