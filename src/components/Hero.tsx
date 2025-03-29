@@ -1,95 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Hero = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
   return (
-    <div className="relative h-screen md:h-[56.25vw]">
-      <div className={`absolute inset-0 ${videoLoaded ? '' : 'bg-cover bg-center'}`} style={{ background: videoLoaded ? 'none' : '#000' }}>
-        {/* Desktop Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="hidden md:block w-full h-full object-cover"
-          onLoadedData={() => setVideoLoaded(true)}
-        >
-          <source
-            src="/images/fb-video-desktop.mp4"
-            type="video/mp4"
-          />
-        </video>
-        
-        {/* Mobile Video - shorter, more vertical-friendly content */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="md:hidden w-full h-full object-cover"
-          onLoadedData={() => setVideoLoaded(true)}
-        >
-          <source
-            src="/images/fb-video-mobile.mp4"
-            type="video/mp4"
-          />
-        </video>
-        
-        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent" />
-      </div>
-      
-      {/* <div className="relative h-full flex flex-col items-center justify-center text-white text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="mb-12"
-        >
-          <div className="flex items-center justify-center mb-6">
-            <Music className="w-24 h-24 md:w-32 md:h-32" />
-          </div>
-          
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-6xl md:text-8xl font-bold mb-6"
-          >
-            FARMERS BASH
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xl md:text-2xl mb-8"
-          >
-            The Ultimate Country Music Festival
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="space-x-4"
-        >
-          <a
-            href="#tickets"
-            className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors"
-          >
-            Get Tickets
-          </a>
-          <a
-            href="#lineup"
-            className="bg-white text-gray-900 px-8 py-3 rounded-full hover:bg-gray-100 transition-colors"
-          >
-            View Lineup
-          </a>
-        </motion.div>
-      </div> */}
+    <>
+    <div className="hidden md:block relative w-full aspect-[16/9]">
+      {/* Desktop Video */}
+      <iframe
+        src="https://player.vimeo.com/video/1070514030?background=1&quality=1080p"
+        className="hidden md:block absolute inset-0 w-full h-full"
+        frameBorder="0"
+        allow="autoplay; fullscreen"
+        allowFullScreen
+      ></iframe>
     </div>
+    <div className="md:hidden relative w-full aspect-[9/16]">
+      {/* Mobile Video */}
+      <iframe
+        src="https://player.vimeo.com/video/1070514071?background=1&quality=1080p"
+        className="md:hidden absolute inset-0 w-full h-full"
+        frameBorder="0"
+        allow="autoplay; fullscreen"
+        allowFullScreen
+      ></iframe>
+      
+      <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent" />
+      
+    </div>
+    </>
   );
 };
 
