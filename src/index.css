@@ -44,3 +44,18 @@ body {
     background-position: var(--mobile-position) !important;
   }
 }
+
+.video-wrapper {
+  background: black;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.video-wrapper iframe.loaded {
+  opacity: 1;
+}
