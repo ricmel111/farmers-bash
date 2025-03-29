@@ -62,7 +62,7 @@ export const artists = [
     {
       name: "Luke Combs UK",
       image: "/images/artists/LukeCombsUK.jpg",
-      website: "Luke Combs UK",
+      website: "https://lukecombsuk.com/",
     },
     {
       name: "Allie Sherlock",
