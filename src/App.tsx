@@ -382,7 +382,7 @@ function App() {
         mobileImage: "url(/images/farmers-bash-bg21.jpg)",
         mobilePosition: "75% bottom",
         mobileBackgroundSize: "cover",
-        overlay: "bg-brown/10",
+        overlay: "bg-black/50",
       },
       useContainer: true,
       content: (
