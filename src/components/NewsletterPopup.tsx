@@ -40,7 +40,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center font-sans"
+      className="fixed inset-0 z-50 flex items-center justify-center"
     >
       <div className="fixed inset-0 bg-black/50" onClick={onClose} />
       <motion.div
@@ -56,7 +56,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-xl md:text-2xl font-bold mb-3 font-sans">Stay Updated!</h2>
+        <h2 className="text-xl md:text-2xl font-bold mb-3">Stay Updated!</h2>
         <p className="text-gray-600 mb-6">
           Subscribe to our newsletter for exclusive updates, artist announcements,
           and special offers!
