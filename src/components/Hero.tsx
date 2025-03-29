@@ -13,7 +13,7 @@ const Hero = () => {
         allowFullScreen
       ></iframe>
     </div>
-    <div className="md:hidden relative w-full aspect-[9/16]">
+    <div className="md:hidden relative w-full aspect-[9/16] mb-[-1px]">
       {/* Mobile Video */}
       <iframe
         src="https://player.vimeo.com/video/1070514071?background=1&quality=1080p"
