@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface NavbarProps {
   toggleMenu: () => void;
   isMenuOpen: boolean;
-  menuItems: { id: string; title: string }[];
+  menuItems: { id: string; title: string; externalUrl?: string }[];
   activeSection: string;
   onMenuItemClick: (id: string) => void;
 }
@@ -56,23 +56,37 @@ const Navbar: React.FC<NavbarProps> = ({
             </div>
 
             {/* Desktop Menu - Hide when scrolled */}
-            <div className={`hidden md:flex items-center space-x-8 transition-opacity duration-300 ${
+            <div className={`hidden md:flex items-center space-x-2 transition-opacity duration-300 ${
               scrolled ? 'opacity-0' : 'opacity-100'
             }`}>
               {menuItems.map((item) => (
-                <motion.button
-                  key={item.id}
-                  onClick={() => handleMenuClick(item.id)}
-                  className={`text-lg transition-colors ${
-                    activeSection === item.id
-                      ? 'text-green-400'
-                      : 'text-white hover:text-green-400'
-                  }`}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ y: 0 }}
-                >
-                  {item.title}
-                </motion.button>
+                item.externalUrl ? (
+                  <motion.a
+                    key={item.id}
+                    href={item.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 text-lg text-white hover:text-green-400 transition-colors"
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 0 }}
+                  >
+                    {item.title}
+                  </motion.a>
+                ) : (
+                  <motion.button
+                    key={item.id}
+                    onClick={() => handleMenuClick(item.id)}
+                    className={`px-4 py-2 text-lg transition-colors ${
+                      activeSection === item.id
+                        ? 'text-green-400'
+                        : 'text-white hover:text-green-400'
+                    }`}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 0 }}
+                  >
+                    {item.title}
+                  </motion.button>
+                )
               ))}
             </div>
           </div>
@@ -141,18 +155,29 @@ const Navbar: React.FC<NavbarProps> = ({
                   <ul className="space-y-1 px-2">
                     {menuItems.map((item) => (
                       <motion.li key={item.id}>
-                        <motion.button
-                          onClick={() => handleMenuClick(item.id)}
-                          className={`w-full px-4 py-3 rounded-lg text-left transition-colors ${
-                            activeSection === item.id
-                              ? 'bg-green-500/20 text-green-400'
-                              : 'text-white/90 hover:bg-white/10'
-                          }`}
-                          whileHover={{ x: 4 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          {item.title}
-                        </motion.button>
+                        {item.externalUrl ? (
+                          <motion.a
+                            href={item.externalUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full px-4 py-3 rounded-lg text-left text-white/90 hover:bg-white/10 transition-colors block"
+                            whileHover={{ x: 4 }}
+                          >
+                            {item.title}
+                          </motion.a>
+                        ) : (
+                          <motion.button
+                            onClick={() => handleMenuClick(item.id)}
+                            className={`w-full px-4 py-3 rounded-lg text-left transition-colors ${
+                              activeSection === item.id
+                                ? 'bg-green-500/20 text-green-400'
+                                : 'text-white/90 hover:bg-white/10'
+                            }`}
+                            whileHover={{ x: 4 }}
+                          >
+                            {item.title}
+                          </motion.button>
+                        )}
                       </motion.li>
                     ))}
                   </ul>

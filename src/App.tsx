@@ -6,6 +6,7 @@ import {
   Users,
   Info,
   Mail,
+  Globe,
 } from "lucide-react";
 import NewsletterPopup from "./components/NewsletterPopup";
 import Navbar from "./components/Navbar";
@@ -39,8 +40,9 @@ interface Section {
   padding: string;
   background: Background;
   useContainer: boolean;
-  content: JSX.Element;
+  content: JSX.Element | null;
   titleStyle?: 'default' | 'large' | 'accent';
+  externalUrl?: string;
 }
 
 function App() {
@@ -541,7 +543,7 @@ function App() {
                 >
                   <h3 className="text-4xl md:text-5xl text-white mb-6">THE ULTIMATE LIVE MUSIC EXPERIENCE</h3>
                   <p className="text-2xl text-white/90 leading-relaxed">
-                  The Farmer’s Bash has become Northern Ireland’s biggest music event, uniting top live talent with thousands of passionate fans.
+                  The Farmer's Bash has become Northern Ireland's biggest music event, uniting top live talent with thousands of passionate fans.
                   </p>
                 </motion.div>
 
@@ -576,10 +578,10 @@ function App() {
               >
                 <div className="space-y-6 text-xl text-white/90 leading-relaxed">
                   <p>
-                  Since launching at the SSE Arena in 2017, it has grown into an annual must-attend celebration. In 2019, Farmer’s Bash: Live at the Beach drew nearly 20,000 to Portrush, and in 2020, it adapted to host the UK’s biggest drive-in concerts. After returning to the SSE in 2022, it moved to Belsonic in 2024, selling out at 22,000. In 2023, it expanded to Scotland with the Royal Highland Hoolie at the Royal Highland Show.
+                  Since launching at the SSE Arena in 2017, it has grown into an annual must-attend celebration. In 2019, Farmer's Bash: Live at the Beach drew nearly 20,000 to Portrush, and in 2020, it adapted to host the UK's biggest drive-in concerts. After returning to the SSE in 2022, it moved to Belsonic in 2024, selling out at 22,000. In 2023, it expanded to Scotland with the Royal Highland Hoolie at the Royal Highland Show.
                   </p>
                   <p>
-                  Now, in 2025, Farmer’s Bash evolves into a two-day festival—the Weekender—at Boucher Road Playing Fields. With multiple stages, an unbeatable lineup, and an electric atmosphere, it’s set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, the Farmer’s Bash Weekender promises an unforgettable experience of music, dancing, and entertainment.
+                  Now, in 2025, Farmer's Bash evolves into a two-day festival—the Weekender—at Boucher Road Playing Fields. With multiple stages, an unbeatable lineup, and an electric atmosphere, it's set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, the Farmer's Bash Weekender promises an unforgettable experience of music, dancing, and entertainment.
                   </p>
                 </div>
               </motion.div>
@@ -700,6 +702,29 @@ function App() {
     },
   ];
 
+  // Create menu items with Scotland between Info and About
+  const menuItems = [
+    ...sections.slice(0, 3), // tickets, lineup, artists
+    sections[3], // info
+    {
+      id: "scotland",
+      title: "SCOTLAND",
+      externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
+      icon: <Globe className="w-6 h-6" />,
+      // These properties are required by the interface but won't be used
+      padding: "",
+      background: {
+        color: "",
+        image: "",
+        position: "",
+        backgroundSize: "",
+      },
+      useContainer: false,
+      content: null
+    },
+    ...sections.slice(4) // about, getintouch
+  ];
+
   const [activeSection, setActiveSection] = useState("tickets");
 
   const handleMenuItemClick = (id: string) => {
@@ -711,7 +736,7 @@ function App() {
       <Navbar 
         toggleMenu={toggleMenu}
         isMenuOpen={isMenuOpen}
-        menuItems={sections}
+        menuItems={menuItems}
         activeSection={activeSection}
         onMenuItemClick={handleMenuItemClick}
       />
