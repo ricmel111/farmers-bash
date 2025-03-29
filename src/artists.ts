@@ -35,7 +35,7 @@ export const artists = [
       website: "https://www.markmccabe.ie/",
     },
     {
-      name: "BWitched",
+      name: "B*Witched",
       image: "/images/artists/BWitched.png",
       website: "https://bwitchedofficial.com/",
     },
@@ -45,7 +45,7 @@ export const artists = [
       website: "https://linktr.ee/garronnoone",
     },
     {
-      name: "Tumbling Paddies",
+      name: "The Tumbling Paddies",
       image: "/images/artists/TumblingPaddies.jpg",
       website: "https://thetumblingpaddiesofficial.com/",
     },
