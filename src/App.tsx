@@ -15,6 +15,7 @@ import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
 import ContactForm from "./components/ContactForm";
+import GDPRPopup from "./components/GDPRPopup";
 
 interface Artist {
   name: string;
@@ -698,6 +699,8 @@ function App() {
           <NewsletterPopup onClose={() => setShowNewsletter(false)} />
         )}
       </AnimatePresence>
+
+      <GDPRPopup />
     </div>
   );
 }
