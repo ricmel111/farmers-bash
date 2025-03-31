@@ -9,29 +9,36 @@ interface NewsletterPopupProps {
 const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
+    setErrorMessage('');
 
     try {
-      const response = await fetch('https://formspree.io/f/manebdwj', {
+      const response = await fetch('/.netlify/functions/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          name: 'Newsletter Subscriber',
+          email,
+          message: 'Newsletter subscription request',
+          formType: 'newsletter'
+        }),
       });
 
       if (response.ok) {
         setStatus('success');
         setEmail('');
       } else {
-        setStatus('error');
+        throw new Error('Failed to subscribe');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
       setStatus('error');
+      setErrorMessage('Something went wrong. Please try again.');
     }
   };
 
@@ -70,10 +77,11 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
             onChange={(e) => setEmail(e.target.value)}
             className="w-full p-2 border rounded-lg"
             required
+            disabled={status === 'loading'}
           />
           <button
             type="submit"
-            className="w-full bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors"
+            className="w-full bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={status === 'loading'}
           >
             {status === 'loading' ? 'Submitting...' : 'Subscribe'}
@@ -81,10 +89,22 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
         </form>
 
         {status === 'success' && (
-          <p className="text-green-600 mt-4">Thanks  for subscribing!</p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-green-600 mt-4"
+          >
+            Thanks for subscribing!
+          </motion.p>
         )}
         {status === 'error' && (
-          <p className="text-red-600 mt-4">Something went wrong. Please try again.</p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-red-600 mt-4"
+          >
+            {errorMessage}
+          </motion.p>
         )}
       </motion.div>
     </motion.div>
