@@ -30,6 +30,10 @@ const ContactForm: React.FC = () => {
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', message: '' });
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setStatus('idle');
+        }, 3000);
       } else {
         throw new Error('Failed to send message');
       }
@@ -44,33 +48,22 @@ const ContactForm: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  if (status === 'success') {
-    return (
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-2xl mx-auto text-center"
-      >
-        <div className="bg-green-100 text-green-700 p-6 rounded-lg">
-          <h3 className="text-xl font-bold mb-2">Thank You!</h3>
-          <p>Your message has been sent successfully. We'll get back to you soon.</p>
-          <button
-            onClick={() => setStatus('idle')}
-            className="mt-4 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors"
-          >
-            Send Another Message
-          </button>
-        </div>
-      </motion.div>
-    );
-  }
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className="max-w-2xl mx-auto"
     >
+      {status === 'success' && (
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-green-100 text-green-700 p-4 rounded-lg mb-6"
+        >
+          <h3 className="text-lg font-bold mb-2">Thank You!</h3>
+          <p>Your message has been sent successfully. We'll get back to you soon.</p>
+        </motion.div>
+      )}
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -79,7 +72,7 @@ const ContactForm: React.FC = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-2 border rounded-lg bg-white"
           disabled={status === 'loading'}
         />
         <input
@@ -89,7 +82,7 @@ const ContactForm: React.FC = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-2 border rounded-lg bg-white"
           disabled={status === 'loading'}
         />
         <textarea
@@ -99,7 +92,7 @@ const ContactForm: React.FC = () => {
           onChange={handleChange}
           rows={4}
           required
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-2 border rounded-lg bg-white"
           disabled={status === 'loading'}
         />
         {errorMessage && (
