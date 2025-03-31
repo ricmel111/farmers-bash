@@ -13,6 +13,7 @@ import Hero from "./components/Hero";
 import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
+import ContactForm from "./components/ContactForm";
 
 interface Artist {
   name: string;
@@ -604,102 +605,7 @@ function App() {
         backgroundSize: "cover",
       },
       useContainer: true,
-      content: (() => {
-        const [isSubmitting, setIsSubmitting] = useState(false);
-        const [isSubmitted, setIsSubmitted] = useState(false);
-        const [error, setError] = useState("");
-
-        const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-          setIsSubmitting(true);
-          setError("");
-
-          try {
-            const form = e.currentTarget;
-            const response = await fetch(form.action, {
-              method: 'POST',
-              body: new FormData(form),
-              headers: {
-                'Accept': 'application/json'
-              }
-            });
-
-            if (response.ok) {
-              setIsSubmitted(true);
-              form.reset();
-            } else {
-              throw new Error('Form submission failed');
-            }
-          } catch (err) {
-            setError("Something went wrong. Please try again later.");
-          } finally {
-            setIsSubmitting(false);
-          }
-        };
-
-        if (isSubmitted) {
-          return (
-            <div className="max-w-2xl mx-auto text-center">
-              <div className="bg-green-100 text-green-700 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-2">Thank You!</h3>
-                <p>Your message has been sent successfully. We'll get back to you soon.</p>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="mt-4 bg-green-600 text-white px-6 py-2 rounded-full hover:bg-green-700 transition-colors"
-                >
-                  Send Another Message
-                </button>
-              </div>
-            </div>
-          );
-        }
-
-        return (
-          <div className="max-w-2xl mx-auto">
-            <form
-              action="https://formspree.io/f/xzzevwdq"
-              method="POST"
-              className="space-y-4"
-              onSubmit={handleSubmit}
-            >
-              <input
-                type="text"
-                name="name"
-                placeholder="Name"
-                required
-                className="w-full p-2 border rounded-lg"
-                disabled={isSubmitting}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="w-full p-2 border rounded-lg"
-                disabled={isSubmitting}
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                rows={4}
-                required
-                className="w-full p-2 border rounded-lg"
-                disabled={isSubmitting}
-              />
-              {error && (
-                <div className="text-red-600 text-sm">{error}</div>
-              )}
-              <button
-                type="submit"
-                className="bg-green-600 text-white px-8 py-3 rounded-full hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          </div>
-        );
-      })(),
+      content: <ContactForm />
     },
   ];
 
