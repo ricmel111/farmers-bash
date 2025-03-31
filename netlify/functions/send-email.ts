@@ -25,7 +25,7 @@ const handler: Handler = async (event) => {
     } else if (formType === 'contact') {
       subject = "Farmer's Bash Contact Form";
       fromEmail = process.env.ADMIN_EMAIL || 'noreply@farmersbash.com';
-      replyTo = email; // Set reply-to to the sender's email
+      replyTo = email; // Set reply-to to the sender's email address
     }
 
     // Create transporter
