@@ -1,22 +1,9 @@
 import { Handler } from '@netlify/functions';
 import nodemailer from 'nodemailer';
-import fs from 'fs';
-import path from 'path';
-import { checkRateLimit } from './utils/rate-limit';
-
-const SUBMISSIONS_DIR = path.join(process.cwd(), 'submissions');
-
-// Ensure submissions directory exists
-if (!fs.existsSync(SUBMISSIONS_DIR)) {
-  fs.mkdirSync(SUBMISSIONS_DIR, { recursive: true });
-}
 
 const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Method not allowed' }),
-    };
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   try {
@@ -24,56 +11,24 @@ const handler: Handler = async (event) => {
 
     // Validate required fields
     if (!email) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Email is required' }),
-      };
-    }
-
-    // Get client IP
-    const ip = event.headers['client-ip'] || event.headers['x-forwarded-for'] || 'unknown';
-
-    // Check rate limits
-    const rateLimit = checkRateLimit(ip, email, formType);
-    if (!rateLimit.allowed) {
-      return {
-        statusCode: 429,
-        body: JSON.stringify({ error: rateLimit.message }),
-      };
+      return { statusCode: 400, body: 'Email is required' };
     }
 
     // Set subject and from email based on form type
     let subject = 'New Contact Form Submission';
-    const fromEmail = process.env.ADMIN_EMAIL || 'noreply@farmersbash.com';
+    let fromEmail = process.env.ADMIN_EMAIL || 'noreply@farmersbash.com';
     let replyTo = '';
 
     if (formType === 'newsletter') {
-      subject = 'FB Newsletter Subscription';
+      subject = 'Farmers Bash Newsletter Subscription';
+      fromEmail = process.env.ADMIN_EMAIL || 'noreply@farmersbash.com';
     } else if (formType === 'contact') {
-      subject = 'FB Contact Form Message';
-      replyTo = email; // Set reply-to to the sender's email
+      subject = "Farmer's Bash Contact Form";
+      fromEmail = process.env.ADMIN_EMAIL || 'noreply@farmersbash.com';
+      replyTo = email; // Set reply-to to the sender's email address
     }
 
-    // Create a timestamp for the filename
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const filename = `${formType || 'submission'}-${timestamp}.json`;
-    const filepath = path.join(SUBMISSIONS_DIR, filename);
-
-    // Prepare submission data
-    const submissionData = {
-      timestamp: new Date().toISOString(),
-      formType,
-      name,
-      email,
-      message,
-      userAgent: event.headers['user-agent'],
-      ip,
-    };
-
-    // Write to file
-    fs.writeFileSync(filepath, JSON.stringify(submissionData, null, 2));
-
-    // Configure email transport
+    // Create transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -84,24 +39,26 @@ const handler: Handler = async (event) => {
       },
     });
 
+    // Email content
     const mailOptions = {
       from: `"${name}" <${fromEmail}>`,
-      replyTo: replyTo || undefined, // Only include replyTo if it's set
       to: process.env.ADMIN_EMAIL,
+      replyTo: replyTo || undefined, // Only include replyTo if it's set
       subject: subject,
       text: `
 Name: ${name}
 Email: ${email}
-Message: ${message || 'No message provided'}
+Message: ${message}
       `.trim(),
       html: `
-<h2>New ${formType === 'newsletter' ? 'Newsletter Subscription' : 'Contact Form Submission'}</h2>
+<h2>${subject}</h2>
 <p><strong>Name:</strong> ${name}</p>
 <p><strong>Email:</strong> ${email}</p>
-${message ? `<p><strong>Message:</strong> ${message}</p>` : ''}
+<p><strong>Message:</strong> ${message}</p>
       `.trim(),
     };
 
+    // Send email
     await transporter.sendMail(mailOptions);
 
     return {
