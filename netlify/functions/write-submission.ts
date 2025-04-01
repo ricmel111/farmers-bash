@@ -1,5 +1,4 @@
 import { Handler } from '@netlify/functions';
-import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 import { checkRateLimit } from './utils/rate-limit';
@@ -42,18 +41,6 @@ const handler: Handler = async (event) => {
       };
     }
 
-    // Set subject and from email based on form type
-    let subject = 'New Contact Form Submission';
-    const fromEmail = process.env.ADMIN_EMAIL || 'noreply@farmersbash.com';
-    let replyTo = '';
-
-    if (formType === 'newsletter') {
-      subject = 'FB Newsletter Subscription';
-    } else if (formType === 'contact') {
-      subject = 'FB Contact Form Message';
-      replyTo = email; // Set reply-to to the sender's email
-    }
-
     // Create a timestamp for the filename
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
     const filename = `${formType || 'submission'}-${timestamp}.json`;
@@ -73,46 +60,15 @@ const handler: Handler = async (event) => {
     // Write to file
     fs.writeFileSync(filepath, JSON.stringify(submissionData, null, 2));
 
-    // Configure email transport
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: true,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    const mailOptions = {
-      from: `"${name}" <${fromEmail}>`,
-      replyTo: replyTo || undefined, // Only include replyTo if it's set
-      to: process.env.ADMIN_EMAIL,
-      subject: subject,
-      text: `
-Name: ${name}
-Email: ${email}
-Message: ${message || 'No message provided'}
-      `.trim(),
-      html: `
-<h2>New ${formType === 'newsletter' ? 'Newsletter Subscription' : 'Contact Form Submission'}</h2>
-<p><strong>Name:</strong> ${name}</p>
-<p><strong>Email:</strong> ${email}</p>
-${message ? `<p><strong>Message:</strong> ${message}</p>` : ''}
-      `.trim(),
-    };
-
-    await transporter.sendMail(mailOptions);
-
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Email sent successfully' }),
+      body: JSON.stringify({ message: 'Submission recorded successfully' }),
     };
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error writing submission:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send email' }),
+      body: JSON.stringify({ error: 'Failed to record submission' }),
     };
   }
 };
