@@ -17,26 +17,24 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/.netlify/functions/send-email', {
+      const response = await fetch('/.netlify/functions/subscribe-newsletter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: 'Newsletter Subscriber',
-          email,
-          message: 'Newsletter subscription request',
-          formType: 'newsletter'
-        }),
+        body: JSON.stringify({ email }),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setStatus('success');
         setEmail('');
       } else {
-        throw new Error('Failed to subscribe');
+        setStatus('error');
+        setErrorMessage(data.error || 'Failed to subscribe');
       }
-    } catch (error) {
+    } catch (err) {
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again.');
     }
@@ -97,6 +95,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
             Thanks for subscribing!
           </motion.p>
         )}
+        
         {status === 'error' && (
           <motion.p 
             initial={{ opacity: 0 }}
