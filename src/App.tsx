@@ -14,6 +14,8 @@ import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
 import ContactForm from "./components/ContactForm";
+import Unsubscribe from "./pages/Unsubscribe";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 interface Artist {
   name: string;
@@ -616,67 +618,55 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <Navbar 
-        toggleMenu={toggleMenu}
-        isMenuOpen={isMenuOpen}
-        menuItems={sections}
-        activeSection={activeSection}
-        onMenuItemClick={handleMenuItemClick}
-      />
-      <div ref={heroRef}>
-        <Hero />
-      </div>
-
-      {sections.map((section) => (
-        <div
-          key={section.id}
-          className={`${section.background.color} relative ${section.padding} overflow-hidden`}
-          style={{
-            '--desktop-image': section.background.image,
-            '--mobile-image': section.background.mobileImage || section.background.image,
-            '--desktop-position': section.background.position,
-            '--mobile-position': section.background.mobilePosition || section.background.position,
-            '--desktop-backgroundsize': section.background.backgroundSize,
-            '--mobile-backgroundsize': section.background.backgroundSize || section.background.backgroundSize,
-            backgroundImage: 'var(--desktop-image)',
-            backgroundPosition: 'var(--desktop-position)',
-            backgroundSize: 'var(--desktop-backgroundsize)',
-            backgroundAttachment: section.background.attachment,
-          } as React.CSSProperties}
-        >
-          {section.background.overlay && (
-            <div className={`absolute inset-0 ${section.background.overlay}`}></div>
-          )}
-          <div className="relative">  {/* Add this wrapper */}
-            {section.useContainer ? (
-              <div className="container mx-auto px-4">
-                <Section
-                  id={section.id}
-                  title={section.title}
-                  icon={section.icon}
-                  titleStyle={section.titleStyle}
-                >
-                  {section.content}
-                </Section>
+    <Router>
+      <Routes>
+        <Route path="/unsubscribe" element={<Unsubscribe />} />
+        <Route
+          path="/"
+          element={
+            <div className="min-h-screen bg-gray-900">
+              <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+              <Hero ref={heroRef} />
+              <div className="relative">
+                {sections.map((section) => (
+                  <div key={section.id} className={section.padding}>
+                    <div className="relative">
+                      {section.useContainer ? (
+                        <div className="container mx-auto px-4">
+                          <Section
+                            id={section.id}
+                            title={section.title}
+                            icon={section.icon}
+                            titleStyle={section.titleStyle}
+                          >
+                            {section.content}
+                          </Section>
+                        </div>
+                      ) : (
+                        <Section
+                          id={section.id}
+                          title={section.title}
+                          icon={section.icon}
+                          titleStyle={section.titleStyle}
+                        >
+                          {section.content}
+                        </Section>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ) : (
-              <Section id={section.id} title={section.title} icon={section.icon} titleStyle={section.titleStyle}>
-                {section.content}
-              </Section>
-            )}
-          </div>
-        </div>
-      ))}
-
-      <Footer />
-
-      <AnimatePresence>
-        {showNewsletter && (
-          <NewsletterPopup onClose={() => setShowNewsletter(false)} />
-        )}
-      </AnimatePresence>
-    </div>
+              <Footer />
+              <AnimatePresence>
+                {showNewsletter && (
+                  <NewsletterPopup onClose={() => setShowNewsletter(false)} />
+                )}
+              </AnimatePresence>
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
