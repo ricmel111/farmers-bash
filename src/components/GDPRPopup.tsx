@@ -23,6 +23,10 @@ const GDPRPopup: React.FC = () => {
     setIsVisible(false);
   };
 
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+
   if (!isVisible) return null;
 
   return (
@@ -32,9 +36,18 @@ const GDPRPopup: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 100 }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-green-400/30 shadow-xl"
+        className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-green-400/30 shadow-xl pb-safe"
       >
         <div className="container mx-auto px-4 py-6">
+          <div className="relative">
+            <button
+              onClick={handleClose}
+              className="absolute top-0 right-0 text-gray-400 hover:text-gray-600 transition-colors p-1 hover:bg-gray-100 rounded-full"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex-1 flex items-start gap-4">
               <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-50 flex items-center justify-center">
@@ -62,13 +75,6 @@ const GDPRPopup: React.FC = () => {
               >
                 <Cookie className="w-4 h-4" />
                 Accept All
-              </button>
-              <button
-                onClick={handleAccept}
-                className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
-                aria-label="Close"
-              >
-                <X className="w-5 h-5" />
               </button>
             </div>
           </div>
