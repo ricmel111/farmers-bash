@@ -31,39 +31,42 @@ const Hero = () => {
 
   return (
     <>
-      {/* Desktop Video Section */}
-      <div className="hidden md:block w-full aspect-[16/9]" style={{ position: 'relative', background: 'black' }}>
-        <AnimatePresence>
-          {placeholderVisible && (
-            <motion.div
-              initial={{ opacity: 1 }}
-              animate={{ opacity: desktopVideoReady ? 0 : 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 z-10"
-            >
-              <img
-                src="/images/bg4.jpg"
-                alt="Farmer's Bash"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+     <div className="hidden md:block w-full aspect-[16/9]" style={{ position: 'relative', background: 'black' }}>
+  <AnimatePresence>
+    {placeholderVisible && (
+      <motion.div
+        initial={{ opacity: 1 }}
+        animate={{ opacity: desktopVideoReady ? 0 : 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="absolute inset-0 z-10"
+      >
+        <img
+          src="/images/bg4.jpg"
+          alt="Farmer's Bash"
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+    )}
+  </AnimatePresence>
 
-        <iframe
-          ref={desktopVideoRef}
-          src="https://player.vimeo.com/video/1070514030?background=1&quality=1080p"
-          className="absolute inset-0 w-full h-full"
-          style={{
-            opacity: desktopVideoReady ? 1 : 0,
-            transition: 'opacity 0.3s ease-in-out',
-          }}
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-          allowFullScreen
-        ></iframe>
-      </div>
+  <iframe
+    ref={desktopVideoRef}
+    src="https://player.vimeo.com/video/1070514030?background=1&quality=1080p"
+    className="absolute inset-0 w-full h-full"
+    style={{
+      opacity: desktopVideoReady ? 1 : 0,
+      transition: 'opacity 0.3s ease-in-out',
+    }}
+    frameBorder="0"
+    allow="autoplay; fullscreen"
+    allowFullScreen
+  ></iframe>
+
+  {/* Gradient Overlay for Desktop */}
+  <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+</div>
+
 
       {/* Mobile Video Section */}
       <div className="md:hidden w-full aspect-[9/16] mb-[-1px]" style={{ position: 'relative', background: 'black' }}>

@@ -6,6 +6,7 @@ import {
   Users,
   Info,
   Mail,
+  Globe,
 } from "lucide-react";
 import NewsletterPopup from "./components/NewsletterPopup";
 import Navbar from "./components/Navbar";
@@ -14,6 +15,7 @@ import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
 import ContactForm from "./components/ContactForm";
+import GDPRPopup from "./components/GDPRPopup";
 
 interface Artist {
   name: string;
@@ -40,8 +42,9 @@ interface Section {
   padding: string;
   background: Background;
   useContainer: boolean;
-  content: JSX.Element;
+  content: JSX.Element | null;
   titleStyle?: 'default' | 'large' | 'accent';
+  externalUrl?: string;
 }
 
 function App() {
@@ -306,7 +309,7 @@ function App() {
               className="relative flex flex-col items-center justify-center container mx-auto px-4"
             >
               <motion.img
-                whileHover={{ scale: 1.05, rotate: 180 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6 }}
                 src="/images/Plus.png"
                 alt="Plus"
@@ -541,8 +544,8 @@ function App() {
                   className="border-l-4 border-green-400 pl-6"
                 >
                   <h3 className="text-4xl md:text-5xl text-white mb-6">THE ULTIMATE LIVE MUSIC EXPERIENCE</h3>
-                  <p className="text-xl text-white/90 leading-relaxed">
-                  The Farmer's Bash has become Northern Ireland's biggest music event, bringing together the best live talent and thousands of passionate fans.
+                  <p className="text-2xl text-white/90 leading-relaxed">
+                  The Farmer's Bash has become Northern Ireland's biggest music event, uniting top live talent with thousands of passionate fans.
                   </p>
                 </motion.div>
 
@@ -577,13 +580,10 @@ function App() {
               >
                 <div className="space-y-6 text-xl text-white/90 leading-relaxed">
                   <p>
-                  Farmer's Bash is Ireland's biggest music and entertainment festival, bringing together thousands of fans for an electrifying weekend of live performances. Launched in 2017 at the SSE Arena, the event quickly became a must-attend celebration of music and live entertainment.
+                  Since launching at the SSE Arena in 2017, it has grown into an annual must-attend celebration. In 2019, Farmer's Bash: Live at the Beach drew nearly 20,000 to Portrush, and in 2020, it adapted to host the UK's biggest drive-in concerts. After returning to the SSE in 2022, it moved to Belsonic in 2024, selling out at 22,000. In 2023, it expanded to Scotland with the Royal Highland Hoolie at the Royal Highland Show.
                   </p>
                   <p>
-                  After several incredible years in the SSE, Farmer's Bash moved to Belsonic in 2024, where it sold out at an incredible 22,000 capacity, proving itself as one of Ireland's top festivals.
-                  </p>
-                  <p>
-                  Now, in its biggest evolution yet, Farmer's Bash expands into a two-day festival at Boucher Road Playing Fields, featuring multiple stages, an unbeatable lineup, and an atmosphere like no other. Whether you're a fan of country, folk, rock, or high-energy live music, Farmer's Bash promises an unforgettable experience filled with music, dancing, and memories that will last a lifetime.
+                  Now, in 2025, Farmer's Bash evolves into a two-day festival—the Weekender—at Boucher Road Playing Fields. With multiple stages, an unbeatable lineup, and an electric atmosphere, it's set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, the Farmer's Bash Weekender promises an unforgettable experience of music, dancing, and entertainment.
                   </p>
                 </div>
               </motion.div>
@@ -609,6 +609,29 @@ function App() {
     },
   ];
 
+  // Create menu items with Scotland between Info and About
+  const menuItems = [
+    ...sections.slice(0, 3), // tickets, lineup, artists
+    sections[3], // info
+    {
+      id: "scotland",
+      title: "SCOTLAND",
+      externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
+      icon: <Globe className="w-6 h-6" />,
+      // These properties are required by the interface but won't be used
+      padding: "",
+      background: {
+        color: "",
+        image: "",
+        position: "",
+        backgroundSize: "",
+      },
+      useContainer: false,
+      content: null
+    },
+    ...sections.slice(4) // about, getintouch
+  ];
+
   const [activeSection, setActiveSection] = useState("tickets");
 
   const handleMenuItemClick = (id: string) => {
@@ -620,7 +643,7 @@ function App() {
       <Navbar 
         toggleMenu={toggleMenu}
         isMenuOpen={isMenuOpen}
-        menuItems={sections}
+        menuItems={menuItems}
         activeSection={activeSection}
         onMenuItemClick={handleMenuItemClick}
       />
@@ -676,6 +699,8 @@ function App() {
           <NewsletterPopup onClose={() => setShowNewsletter(false)} />
         )}
       </AnimatePresence>
+
+      <GDPRPopup />
     </div>
   );
 }

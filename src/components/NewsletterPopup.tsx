@@ -52,7 +52,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
         initial={{ scale: 0.9, y: 20 }}
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
-        className="relative bg-white rounded-xl shadow-xl w-[90%] max-w-[360px] p-5 md:p-8"
+        className="relative bg-white rounded-xl shadow-xl w-[90%] max-w-[360px] p-5 md:p-8 font-['Patua_One']"
       >
         <button
           onClick={onClose}
@@ -61,7 +61,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-xl md:text-2xl font-bold mb-3">Stay Updated!</h2>
+        <h2 className="text-xl md:text-2xl font-bold mb-3 font-['Rosebay_Slab']">Stay Updated!</h2>
         <p className="text-gray-600 mb-6">
           Subscribe to our newsletter for exclusive updates, artist announcements,
           and special offers!
