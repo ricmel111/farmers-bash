@@ -218,6 +218,13 @@ function App() {
                   </svg>
                 </a>
               </p>
+              <button
+                        onClick={() => setShowFAQ(true)}
+                        className="inline-flex items-center gap-3 px-10 mt-16 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                      >
+                        <HelpCircle className="w-8 h-8" />
+                        View FAQs
+                      </button>
             </motion.div>
           </div>
         </div>
@@ -702,9 +709,9 @@ function App() {
                     >
                       <button
                         onClick={() => setShowFAQ(true)}
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white text-xl font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                        className="inline-flex items-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
-                        <HelpCircle className="w-7 h-7" />
+                        <HelpCircle className="w-8 h-8" />
                         View FAQs
                       </button>
                     </motion.div>
