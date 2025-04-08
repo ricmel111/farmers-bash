@@ -18,10 +18,12 @@ import { artists } from "./artists"; // Import the artists array
 import ContactForm from "./components/ContactForm";
 import GDPRPopup from "./components/GDPRPopup";
 import FAQModal from "./components/FAQModal";
+import Image from "./components/Image";
 
 interface Artist {
   name: string;
   image: string;
+  imageFallback: string;
   website?: string;
 }
 
@@ -362,8 +364,9 @@ function App() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <img
+              <Image
                 src={artist.image}
+                fallbackSrc={artist.imageFallback}
                 alt={artist.name}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
