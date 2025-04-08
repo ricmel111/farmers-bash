@@ -17,7 +17,6 @@ import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
 import ContactForm from "./components/ContactForm";
 import GDPRPopup from "./components/GDPRPopup";
-import Image from "./components/Image";
 import FAQModal from "./components/FAQModal";
 
 interface Artist {
@@ -696,13 +695,13 @@ function App() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.6 }}
-                      className="mt-12 text-center"
+                      className="mt-16 text-center"
                     >
                       <button
                         onClick={() => setShowFAQ(true)}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 hover:bg-green-600 text-white text-xl font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
-                        <HelpCircle className="w-5 h-5" />
+                        <HelpCircle className="w-7 h-7" />
                         View FAQs
                       </button>
                     </motion.div>
