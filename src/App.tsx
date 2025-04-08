@@ -7,6 +7,7 @@ import {
   Info,
   Mail,
   Globe,
+  HelpCircle,
 } from "lucide-react";
 import NewsletterPopup from "./components/NewsletterPopup";
 import Navbar from "./components/Navbar";
@@ -16,6 +17,8 @@ import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
 import ContactForm from "./components/ContactForm";
 import GDPRPopup from "./components/GDPRPopup";
+import Image from "./components/Image";
+import FAQModal from "./components/FAQModal";
 
 interface Artist {
   name: string;
@@ -50,6 +53,7 @@ interface Section {
 function App() {
   const [showNewsletter, setShowNewsletter] = useState(false);
   const [hasSeenPopup, setHasSeenPopup] = useState(false);
+  const [showFAQ, setShowFAQ] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -245,7 +249,12 @@ function App() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              src="/images/hero-logo.png"
+              src="/images/hero-logo.webp"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.onerror = null;
+                target.src = "/images/hero-lo.png";
+              }}
               alt="Farmers Bash Banner"
               className="max-w-full h-auto"
             />
@@ -681,6 +690,23 @@ function App() {
                   titleStyle={section.titleStyle}
                 >
                   {section.content}
+                  {section.id === "info" && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.6 }}
+                      className="mt-12 text-center"
+                    >
+                      <button
+                        onClick={() => setShowFAQ(true)}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
+                      >
+                        <HelpCircle className="w-5 h-5" />
+                        View FAQs
+                      </button>
+                    </motion.div>
+                  )}
                 </Section>
               </div>
             ) : (
@@ -699,6 +725,8 @@ function App() {
           <NewsletterPopup onClose={() => setShowNewsletter(false)} />
         )}
       </AnimatePresence>
+
+      <FAQModal isOpen={showFAQ} onClose={() => setShowFAQ(false)} />
 
       <GDPRPopup />
     </div>
