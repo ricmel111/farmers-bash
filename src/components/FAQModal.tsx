@@ -49,15 +49,17 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
     },
     {
       question: "Can I bring children?",
-      answer: "Absolutely - we're a very family friendly event. Make a day of it!!"
+      answer: (
+        <>
+          Absolutely - we're a very family-friendly event.
+          <br /><br />
+          <span className="text-green-400">General Admission tickets:</span> Under 16s can attend provided they present at the entrance gate accompanied by a parent or guardian who is also a ticket holder. They will be issued a wristband containing the parent or guardian's contact details. A parent or guardian can only sign in a MAX of 2 under 16's (minimum age limit of 5 years of age and must have a show ticket). Parents and guardians must accompany Under 16s at all times.
+        </>
+      ),
     },
     {
       question: "Can you tell me more about public transport?",
       answer: "Train: Balmoral and Adelaide train stations are the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
-    },
-    {
-      question: "Is there parking available?",
-      answer: "There is very limited parking near and around the venue. We would strongly advise using public transport to get to Farmers Bash."
     },
     {
       question: "Is there any camper van parking in or near the event?",
