@@ -19,7 +19,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children, titleStyle = 'de
   const getTitleClasses = () => {
     switch (titleStyle) {
       case 'large':
-        return 'text-7xl md:text-8xl';
+        return 'text-4xl sm:text-5xl md:text-7xl lg:text-8xl';
       case 'accent':
         return 'text-6xl text-green-400';
       default:
