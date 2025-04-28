@@ -563,7 +563,7 @@ function App() {
               className="border-l-4 border-[color:#00adef] pl-6"
             >
               <p className="text-xl text-white/90 leading-relaxed">
-                At Emerge we endeavour to provide accessible access for all. Please see below for information regarding our accessibility areas and procedures. If you require any further information, please email <a href="mailto:accessibility@farmersbash.com" className="[color:#00adef] hover:[color:#00adaf]">accessibility@farmersbash.com</a>
+                At the Farmer's Bash we endeavour to provide accessible access for all. Please see below for information regarding our accessibility areas and procedures. If you require any further information, please email <a href="mailto:accessibility@farmersbash.com" className="[color:#00adef] hover:[color:#00adaf]">accessibility@farmersbash.com</a>
               </p>
             </motion.div>
 
@@ -584,7 +584,7 @@ function App() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
                 <h3 className="text-2xl font-bold [color:#00adef] mb-4">Accessibility Entrancing</h3>
                 <p className="text-lg text-white/90 leading-relaxed">
-                  There is a dropped curb at the pelican crossing directly in front of the Accessible Parking Area, which leads the footpath and the main entrance. Security at the Main Entrance will direct you to the Accessible entrance at GATE A – marked on the map below. This is the most direct Gate to the Accessible facilities at Emerge. When you arrive at GATE A, your tickets will be scanned, and a member of our team will escort you to the Accessible Platform.
+                  There is a dropped curb at the pelican crossing directly in front of the Accessible Parking Area, which leads the footpath and the main entrance. Security at the Main Entrance will direct you to the Accessible entrance at GATE A – marked on the map below. This is the most direct Gate to the Accessible facilities at the Farmer's Bash. When you arrive at GATE A, your tickets will be scanned, and a member of our team will escort you to the Accessible Platform.
                 </p>
               </div>
 
