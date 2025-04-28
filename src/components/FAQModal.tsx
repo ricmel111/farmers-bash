@@ -74,10 +74,6 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
       answer: "Yes, a full line up can be found on our website."
     },
     {
-      question: "Is there disabled parking in the event?",
-      answer: "Disabled parking is limited and first come / served."
-    },
-    {
       question: "Lost Property - who do I contact if I lose something?",
       answer: "For lost property, you can contact lostproperty@farmersbash.com"
     },

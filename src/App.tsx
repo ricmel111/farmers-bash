@@ -8,6 +8,7 @@ import {
   Mail,
   Globe,
   HelpCircle,
+  Accessibility,
 } from "lucide-react";
 import NewsletterPopup from "./components/NewsletterPopup";
 import Navbar from "./components/Navbar";
@@ -535,6 +536,90 @@ function App() {
       ),
     },
     {
+      id: "accessibility",
+      title: "ACCESSIBILITY",
+      icon: <Accessibility className="w-6 h-6" />,
+      titleStyle: 'large',
+      padding: "pt-4 pb-24 md:pb-48",
+      background: {
+        color: "bg-gray-900",
+        image: "url(/images/accessibility-bg.webp)",
+        position: "center bottom",
+        backgroundSize: "cover",
+        mobileImage: "url(/images/accessibility-bg.webp)",
+        mobilePosition: "75% bottom",
+        mobileBackgroundSize: "cover",
+        overlay: "bg-black/50",
+      },
+      useContainer: true,
+      content: (
+        <div className="max-w-6xl mx-auto overflow-hidden">
+          <div className="space-y-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="border-l-4 border-[color:#00adef] pl-6"
+            >
+              <p className="text-xl text-white/90 leading-relaxed">
+                At Emerge we endeavour to provide accessible access for all. Please see below for information regarding our accessibility areas and procedures. If you require any further information, please email <a href="mailto:accessibility@farmersbash.com" className="[color:#00adef] hover:[color:#00adaf]">accessibility@farmersbash.com</a>
+              </p>
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="space-y-8"
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <h3 className="text-2xl font-bold [color:#00adef] mb-4">Accessibility Parking</h3>
+                <p className="text-lg text-white/90 leading-relaxed">
+                  Blue Badge holders can park close the main entrance on Balmoral Road (indicated on the map). When arriving via car please enter from Stockman's Lane onto Boucher Road. We are enforcing a Road Closure from 9pm on each show night. When turning into Balmoral Road from Boucher Road you will encounter our Security staff simply show them your event tickets and your Blue Badge. Security will advise you to drive at a Maximum of 10 miles per hour and engage your hazard warning lights. This will help protect other customers who are on foot. On the map below you will see the Blue Badge Accessible Parking sign. Please Continue on Balmoral Road and security will direct you to the accessible parking spaces. Our Parking Area if large enough for wheelchair accessible vehicles to full open doors and back loading. Alternatively, if you are travelling by taxi or are being dropped off at the event they can also entrance through Stockman's Lane onto Boucher Road and Drop off at the Accessibility Parking area. Please note for collections, cars will need to be on the Boucher Road from 10:20pm at the latest as no cars will be permitted to drive through the road closure for at least 15 minutes after the show is finished to allow for a safe customer egress.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <h3 className="text-2xl font-bold [color:#00adef] mb-4">Accessibility Entrancing</h3>
+                <p className="text-lg text-white/90 leading-relaxed">
+                  There is a dropped curb at the pelican crossing directly in front of the Accessible Parking Area, which leads the footpath and the main entrance. Security at the Main Entrance will direct you to the Accessible entrance at GATE A – marked on the map below. This is the most direct Gate to the Accessible facilities at Emerge. When you arrive at GATE A, your tickets will be scanned, and a member of our team will escort you to the Accessible Platform.
+                </p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <h3 className="text-2xl font-bold [color:#00adef] mb-4">Accessibility Facilities</h3>
+                <p className="text-lg text-white/90 leading-relaxed">
+                  Adjacent to the Accessible Platform are Accessible toilets. We have dedicated and trained staff onsite to help with any needs of our Accessible customers, simply ask any of the stewards at the Parking Entrance, Gate Entrances, Accessibility Platform, or any of the team from Event Medical for directions or information.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg text-white/90">
+                  We hope you enjoy your night with us and again for any more information please contact our team at <a href="mailto:accessibility@farmersbash.com" className="[color:#00adef] hover:[color:#00adaf]">accessibility@farmersbash.com</a>
+                </p>
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="w-full mt-16"
+              >
+                <img
+                  src="/images/farmers-bash-map.webp"
+                  alt="Accessibility Map"
+                  className="w-full h-auto rounded-xl shadow-xl"
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      ),
+    },
+    {
       id: "about",
       title: "ABOUT",
       icon: <Info className="w-6 h-6" />,
@@ -647,7 +732,8 @@ function App() {
       useContainer: false,
       content: null
     },
-    ...sections.slice(4) // about, getintouch
+    sections[4], // accessibility
+    ...sections.slice(5) // about, getintouch
   ];
 
   const [activeSection, setActiveSection] = useState("tickets");
