@@ -36,7 +36,10 @@ const Navbar: React.FC<NavbarProps> = ({
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
     onMenuItemClick(id);
-    toggleMenu();
+    // Only toggle menu if we're on mobile (menu is already open)
+    if (window.innerWidth < 768 && isMenuOpen) {
+      toggleMenu();
+    }
   };
 
   return (
