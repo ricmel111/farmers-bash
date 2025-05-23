@@ -6,3 +6,12 @@
   from = "/.netlify/functions/*"
   to = "/.netlify/functions/:splat"
   status = 200 
+
+
+[dev]
+  functions = "netlify/functions"
+  framework = "#custom"
+
+[context.deploy-preview]
+  [context.deploy-preview.environment]
+    NETLIFY_EXPERIMENTAL_ENABLE_NEW_FORM_HANDLING = "true"
