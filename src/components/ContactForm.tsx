@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -16,20 +11,18 @@ const ContactForm: React.FC = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/.netlify/functions/send-email', {
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          formType: 'contact'
-        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+        form.reset();
         // Reset form after 3 seconds
         setTimeout(() => {
           setStatus('idle');
@@ -37,15 +30,11 @@ const ContactForm: React.FC = () => {
       } else {
         throw new Error('Failed to send message');
       }
-    } catch (error) {
+    } catch (err) {
+      console.error('Form submission error:', err);
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again later.');
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   return (
@@ -64,13 +53,21 @@ const ContactForm: React.FC = () => {
           <p>Your message has been sent successfully. We'll get back to you soon.</p>
         </motion.div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form 
+        name="contact" 
+        method="POST" 
+        data-netlify="true" 
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit} 
+        className="space-y-4"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="bot-field" />
+        
         <input
           type="text"
           name="name"
           placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
           required
           className="w-full p-2 border rounded-lg bg-white"
           disabled={status === 'loading'}
@@ -79,8 +76,6 @@ const ContactForm: React.FC = () => {
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
           required
           className="w-full p-2 border rounded-lg bg-white"
           disabled={status === 'loading'}
@@ -88,8 +83,6 @@ const ContactForm: React.FC = () => {
         <textarea
           name="message"
           placeholder="Message"
-          value={formData.message}
-          onChange={handleChange}
           rows={4}
           required
           className="w-full p-2 border rounded-lg bg-white"
