@@ -499,7 +499,7 @@ function App() {
                     <div className="text-white/90 mb-6 text-lg">Belfast has excellent public transport links, making it easy to get to Boucher Road Playing Fields.</div>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-2">
-                        <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Train:</strong> Balmoral and Adelaide train stations are the closest, with regular services from Belfast city centre.</span>
+                        <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Train:</strong> Balmoral train station is the closest, with regular services from Belfast city centre.</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Bus:</strong> Translink Metro services operate routes that stop near Boucher Road.</span>
@@ -529,6 +529,26 @@ function App() {
                     </ul>
                   </motion.div>
                 </div>
+              </motion.div>
+            </div>
+            <div className="md:col-span-12">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 mb-8"
+              >
+                <h4 className="font-semibold text-red-400 text-2xl mb-4">Important Event Information</h4>
+                <ul className="list-disc pl-6 space-y-2 text-white/90 text-lg">
+                  <li>Umbrellas, parasols and the like are not permitted at concert events for safety reasons.</li>
+                  <li>Chairs, seats and tables are not permitted at events for safety reasons. <strong>ALL EVENTS ARE STANDING SHOWS.</strong></li>
+                  <li>There are no cloakroom facilities on site. No bags bigger than A4 size are permitted.</li>
+                  <li>Suitcases, luggage and large bags (anything bigger than A4 sized bags) are not permitted.</li>
+                  <li>Picnic blankets are not permitted.</li>
+                  <li>No flags / emblems and flares / pyrotechnics of any kind permitted - those found to have brought inside face ejection without refund.</li>
+                  <li>Anyone considered to be engaging in disruptive behaviour may be ejected with no refund offered.</li>
+                </ul>
               </motion.div>
             </div>
           </div>

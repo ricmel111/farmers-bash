@@ -59,7 +59,7 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
     },
     {
       question: "Can you tell me more about public transport?",
-      answer: "Train: Balmoral and Adelaide train stations are the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
+      answer: "Train: Balmoral train station is the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
     },
     {
       question: "Is there any camper van parking in or near the event?",

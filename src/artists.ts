@@ -48,12 +48,6 @@ export const artists = [
       website: "https://bwitchedofficial.com/",
     },
     {
-      name: "Garron Noone",
-      image: "/images/artists/GarronNoone.webp",
-      imageFallback: "/images/artists/GarronNoone.jpg",
-      website: "https://linktr.ee/garronnoone",
-    },
-    {
       name: "The Tumbling Paddies",
       image: "/images/artists/TumblingPaddies.webp",
       imageFallback: "/images/artists/TumblingPaddies.jpg",
@@ -94,12 +88,6 @@ export const artists = [
       image: "/images/artists/DavidJames.webp",
       imageFallback: "/images/artists/DavidJames.jpg",
       website: "https://davidjamesmusic.co.uk/",
-    },
-    {
-      name: "Lisa McHugh",
-      image: "/images/artists/LisaMcHugh.webp",
-      imageFallback: "/images/artists/LisaMcHugh.jpg",
-      website: "https://lisamchughmusic.com/",
     },
     {
       name: "Mike Denver",
