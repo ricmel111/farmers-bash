@@ -20,6 +20,8 @@ import ContactForm from "./components/ContactForm";
 import GDPRPopup from "./components/GDPRPopup";
 import FAQModal from "./components/FAQModal";
 import Image from "./components/Image";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProgrammePage from "./ProgrammePage";
 
 interface Artist {
   name: string;
@@ -763,88 +765,101 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <Navbar 
-        toggleMenu={toggleMenu}
-        isMenuOpen={isMenuOpen}
-        menuItems={menuItems}
-        activeSection={activeSection}
-        onMenuItemClick={handleMenuItemClick}
-      />
-      <div ref={heroRef}>
-        <Hero />
-      </div>
-
-      {sections.map((section) => (
-        <div
-          key={section.id}
-          className={`${section.background.color} relative ${section.padding} overflow-hidden`}
-          style={{
-            '--desktop-image': section.background.image,
-            '--mobile-image': section.background.mobileImage || section.background.image,
-            '--desktop-position': section.background.position,
-            '--mobile-position': section.background.mobilePosition || section.background.position,
-            '--desktop-backgroundsize': section.background.backgroundSize,
-            '--mobile-backgroundsize': section.background.backgroundSize || section.background.backgroundSize,
-            backgroundImage: 'var(--desktop-image)',
-            backgroundPosition: 'var(--desktop-position)',
-            backgroundSize: 'var(--desktop-backgroundsize)',
-            backgroundAttachment: section.background.attachment,
-          } as React.CSSProperties}
-        >
-          {section.background.overlay && (
-            <div className={`absolute inset-0 ${section.background.overlay}`}></div>
-          )}
-          <div className="relative">  {/* Add this wrapper */}
-            {section.useContainer ? (
-              <div className="container mx-auto px-4">
-                <Section
-                  id={section.id}
-                  title={section.title}
-                  icon={section.icon}
-                  titleStyle={section.titleStyle}
-                >
-                  {section.content}
-                  {section.id === "info" && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      className="mt-16 text-center"
-                    >
-                      <button
-                        onClick={() => setShowFAQ(true)}
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
-                      >
-                        <HelpCircle className="w-8 h-8" />
-                        View FAQs
-                      </button>
-                    </motion.div>
-                  )}
-                </Section>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/programme"
+          element={<ProgrammePage />}
+        />
+        <Route
+          path="*"
+          element={
+            <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+              <Navbar 
+                toggleMenu={toggleMenu}
+                isMenuOpen={isMenuOpen}
+                menuItems={menuItems}
+                activeSection={activeSection}
+                onMenuItemClick={handleMenuItemClick}
+              />
+              <div ref={heroRef}>
+                <Hero />
               </div>
-            ) : (
-              <Section id={section.id} title={section.title} icon={section.icon} titleStyle={section.titleStyle}>
-                {section.content}
-              </Section>
-            )}
-          </div>
-        </div>
-      ))}
 
-      <Footer />
+              {sections.map((section) => (
+                <div
+                  key={section.id}
+                  className={`${section.background.color} relative ${section.padding} overflow-hidden`}
+                  style={{
+                    '--desktop-image': section.background.image,
+                    '--mobile-image': section.background.mobileImage || section.background.image,
+                    '--desktop-position': section.background.position,
+                    '--mobile-position': section.background.mobilePosition || section.background.position,
+                    '--desktop-backgroundsize': section.background.backgroundSize,
+                    '--mobile-backgroundsize': section.background.backgroundSize || section.background.backgroundSize,
+                    backgroundImage: 'var(--desktop-image)',
+                    backgroundPosition: 'var(--desktop-position)',
+                    backgroundSize: 'var(--desktop-backgroundsize)',
+                    backgroundAttachment: section.background.attachment,
+                  } as React.CSSProperties}
+                >
+                  {section.background.overlay && (
+                    <div className={`absolute inset-0 ${section.background.overlay}`}></div>
+                  )}
+                  <div className="relative">  {/* Add this wrapper */}
+                    {section.useContainer ? (
+                      <div className="container mx-auto px-4">
+                        <Section
+                          id={section.id}
+                          title={section.title}
+                          icon={section.icon}
+                          titleStyle={section.titleStyle}
+                        >
+                          {section.content}
+                          {section.id === "info" && (
+                            <motion.div 
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: 0.6 }}
+                              className="mt-16 text-center"
+                            >
+                              <button
+                                onClick={() => setShowFAQ(true)}
+                                className="inline-flex items-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                              >
+                                <HelpCircle className="w-8 h-8" />
+                                View FAQs
+                              </button>
+                            </motion.div>
+                          )}
+                        </Section>
+                      </div>
+                    ) : (
+                      <Section id={section.id} title={section.title} icon={section.icon} titleStyle={section.titleStyle}>
+                        {section.content}
+                      </Section>
+                    )}
+                  </div>
+                </div>
+              ))}
 
-      <AnimatePresence>
-        {showNewsletter && (
-          <NewsletterPopup onClose={() => setShowNewsletter(false)} />
-        )}
-      </AnimatePresence>
+              <Footer />
 
-      <FAQModal isOpen={showFAQ} onClose={() => setShowFAQ(false)} />
+              <AnimatePresence>
+                {showNewsletter && (
+                  <NewsletterPopup onClose={() => setShowNewsletter(false)} />
+                )}
+              </AnimatePresence>
 
-      <GDPRPopup />
-    </div>
+              <FAQModal isOpen={showFAQ} onClose={() => setShowFAQ(false)} />
+
+              <GDPRPopup />
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
