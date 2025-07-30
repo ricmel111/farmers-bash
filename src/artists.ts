@@ -155,6 +155,12 @@ export const artists = [
     imageFallback: "/images/artists/JimmyBuckley.jpg",
     website: "https://www.jimmy-buckley.com/",
   },
+    {
+    name: "Cliona Hagan",
+    image: "/images/artists/ClionaHagan.jpg",
+    imageFallback: "/images/artists/ClionaHagan.jpg",
+    website: "https://www.clionahagan.com/",
+  },
   {
     name: "Johnny Brady",
     image: "/images/artists/JohnnyBrady.webp",
