@@ -37,7 +37,7 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
   const faqs = [
     {
       question: "What time does the event start?",
-      answer: "2pm each day"
+      answer: "3pm each day"
     },
     {
       question: "Are there still tickets available?",
