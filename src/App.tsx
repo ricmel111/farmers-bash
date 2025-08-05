@@ -738,22 +738,22 @@ function App() {
   const menuItems = [
     ...sections.slice(0, 3), // tickets, lineup, artists
     sections[3], // info
-    {
-      id: "scotland",
-      title: "SCOTLAND",
-      externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
-      icon: <Globe className="w-6 h-6" />,
-      // These properties are required by the interface but won't be used
-      padding: "",
-      background: {
-        color: "",
-        image: "",
-        position: "",
-        backgroundSize: "",
-      },
-      useContainer: false,
-      content: null
-    },
+    // {
+    //   id: "scotland",
+    //   title: "SCOTLAND",
+    //   externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
+    //   icon: <Globe className="w-6 h-6" />,
+    //   // These properties are required by the interface but won't be used
+    //   padding: "",
+    //   background: {
+    //     color: "",
+    //     image: "",
+    //     position: "",
+    //     backgroundSize: "",
+    //   },
+    //   useContainer: false,
+    //   content: null
+    // },
     sections[4], // accessibility
     ...sections.slice(5) // about, getintouch
   ];
