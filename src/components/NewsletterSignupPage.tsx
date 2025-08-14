@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,43 @@ const NewsletterSignupPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Update document meta tags for social media sharing
+  useEffect(() => {
+    // Update title
+    document.title = "Subscribe to Newsletter - Farmers Bash";
+    
+    // Update or create meta tags for Open Graph
+    const updateMetaTag = (property: string, content: string) => {
+      let meta = document.querySelector(`meta[property="${property}"]`) || 
+                 document.querySelector(`meta[name="${property}"]`);
+      
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    // Open Graph meta tags
+    updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash');
+    updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash!');
+    updateMetaTag('og:image', '/images/bg6.jpg');
+    updateMetaTag('og:url', window.location.href);
+    updateMetaTag('og:type', 'website');
+    
+    // Twitter Card meta tags
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash');
+    updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash!');
+    updateMetaTag('twitter:image', '/images/bg6.jpg');
+
+    // Cleanup function to restore original title when component unmounts
+    return () => {
+      document.title = 'Farmers Bash';
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +68,7 @@ const NewsletterSignupPage: React.FC = () => {
         setStatus('error');
         setErrorMessage(data.error || 'Failed to subscribe');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again later.');
     }
