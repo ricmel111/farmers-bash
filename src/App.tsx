@@ -222,12 +222,12 @@ function App() {
                 </a>
               </p>
               <button
-                onClick={() => setShowFAQ(true)}
-                className="inline-flex items-center gap-3 px-10 mt-16 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                <HelpCircle className="w-8 h-8" />
-                View FAQs
-              </button>
+                        onClick={() => setShowFAQ(true)}
+                        className="inline-flex items-center gap-3 px-10 mt-16 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                      >
+                        <HelpCircle className="w-8 h-8" />
+                        View FAQs
+                      </button>
             </motion.div>
           </div>
         </div>
@@ -765,17 +765,17 @@ function App() {
   };
 
   const HomePage = () => (
-    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <Navbar 
-        toggleMenu={toggleMenu}
-        isMenuOpen={isMenuOpen}
-        menuItems={menuItems}
-        activeSection={activeSection}
-        onMenuItemClick={handleMenuItemClick}
-      />
-      <div ref={heroRef}>
-        <Hero />
-      </div>
+            <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+              <Navbar 
+                toggleMenu={toggleMenu}
+                isMenuOpen={isMenuOpen}
+                menuItems={menuItems}
+                activeSection={activeSection}
+                onMenuItemClick={handleMenuItemClick}
+              />
+              <div ref={heroRef}>
+                <Hero />
+              </div>
 
       {sections.map((section) => (
         <div

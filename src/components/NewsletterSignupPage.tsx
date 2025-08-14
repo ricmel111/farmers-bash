@@ -15,7 +15,11 @@ const NewsletterSignupPage: React.FC = () => {
     
     // Get the current domain for absolute URLs
     const baseUrl = window.location.origin;
-    const imageUrl = `${baseUrl}/images/bg6.jpg`;
+    
+    // Add cache busting timestamp to force fresh content
+    const timestamp = Date.now();
+    const imageUrl = `${baseUrl}/images/bg6.jpg?v=${timestamp}`;
+    const pageUrl = `${window.location.href}?v=${timestamp}`;
     
     // Function to create or update meta tags
     const createOrUpdateMetaTag = (property: string, content: string) => {
@@ -33,29 +37,31 @@ const NewsletterSignupPage: React.FC = () => {
       document.head.appendChild(meta);
     };
 
-    // Open Graph meta tags
-    createOrUpdateMetaTag('og:title', "Subscribe to Newsletter - Farmer's Bash 2026");
-    createOrUpdateMetaTag('og:description', "Stay updated with exclusive updates, artist announcements, and special offers from Farmer's Bash 2026!");
+    // Open Graph meta tags with cache busting
+    createOrUpdateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash 2026');
+    createOrUpdateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
     createOrUpdateMetaTag('og:image', imageUrl);
-    createOrUpdateMetaTag('og:url', window.location.href);
+    createOrUpdateMetaTag('og:url', pageUrl);
     createOrUpdateMetaTag('og:type', 'website');
     createOrUpdateMetaTag('og:image:width', '1200');
     createOrUpdateMetaTag('og:image:height', '630');
+    createOrUpdateMetaTag('og:image:alt', 'Farmers Bash 2026 Newsletter Signup');
     
-    // Twitter Card meta tags
+    // Twitter Card meta tags with cache busting
     createOrUpdateMetaTag('twitter:card', 'summary_large_image');
-    createOrUpdateMetaTag('twitter:title', "Subscribe to Newsletter - Farmer's Bash 2026");
-    createOrUpdateMetaTag('twitter:description', "Stay updated with exclusive updates, artist announcements, and special offers from Farmer's Bash 2026!");
+    createOrUpdateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash 2026');
+    createOrUpdateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
     createOrUpdateMetaTag('twitter:image', imageUrl);
+    createOrUpdateMetaTag('twitter:image:alt', 'Farmers Bash 2026 Newsletter Signup');
 
-    // Also add a canonical link
+    // Also add a canonical link with cache busting
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
       canonical.setAttribute('rel', 'canonical');
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute('href', window.location.href);
+    canonical.setAttribute('href', pageUrl);
 
     // Cleanup function to restore original title when component unmounts
     return () => {
