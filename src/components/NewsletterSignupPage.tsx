@@ -13,6 +13,30 @@ const NewsletterSignupPage: React.FC = () => {
     // Update title immediately
     document.title = "Subscribe to Newsletter - Farmers Bash 2026";
     
+    // Get the current domain for absolute URLs
+    const baseUrl = window.location.origin;
+    const imageUrl = `${baseUrl}/images/bg6.jpg`;
+    
+    // Function to update existing meta tags
+    const updateMetaTag = (property: string, content: string) => {
+      const meta = document.querySelector(`meta[property="${property}"]`) || 
+                  document.querySelector(`meta[name="${property}"]`);
+      if (meta) {
+        meta.setAttribute('content', content);
+      }
+    };
+
+    // Update the existing meta tags for signup page
+    updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash 2026');
+    updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
+    updateMetaTag('og:image', imageUrl);
+    updateMetaTag('og:url', window.location.href);
+    
+    // Update Twitter meta tags
+    updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash 2026');
+    updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
+    updateMetaTag('twitter:image', imageUrl);
+
     // Cleanup function to restore original title when component unmounts
     return () => {
       document.title = 'Farmers Bash';
