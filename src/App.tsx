@@ -6,7 +6,6 @@ import {
   Users,
   Info,
   Mail,
-  Globe,
   HelpCircle,
   Accessibility,
 } from "lucide-react";
@@ -20,6 +19,9 @@ import ContactForm from "./components/ContactForm";
 import GDPRPopup from "./components/GDPRPopup";
 import FAQModal from "./components/FAQModal";
 import Image from "./components/Image";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProgrammePage from "./ProgrammePage";
+import NewsletterSignupPage from "./components/NewsletterSignupPage";
 
 interface Artist {
   name: string;
@@ -220,12 +222,12 @@ function App() {
                 </a>
               </p>
               <button
-                        onClick={() => setShowFAQ(true)}
-                        className="inline-flex items-center gap-3 px-10 mt-16 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
-                      >
-                        <HelpCircle className="w-8 h-8" />
-                        View FAQs
-                      </button>
+                onClick={() => setShowFAQ(true)}
+                className="inline-flex items-center gap-3 px-10 mt-16 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                <HelpCircle className="w-8 h-8" />
+                View FAQs
+              </button>
             </motion.div>
           </div>
         </div>
@@ -720,7 +722,7 @@ function App() {
       id: "scotland",
       title: "SCOTLAND",
       externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
-      icon: <Globe className="w-6 h-6" />,
+      icon: <HelpCircle className="w-6 h-6" />,
       // These properties are required by the interface but won't be used
       padding: "",
       background: {
@@ -742,7 +744,7 @@ function App() {
     setActiveSection(id);
   };
 
-  return (
+  const HomePage = () => (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar 
         toggleMenu={toggleMenu}
@@ -775,7 +777,7 @@ function App() {
           {section.background.overlay && (
             <div className={`absolute inset-0 ${section.background.overlay}`}></div>
           )}
-          <div className="relative">  {/* Add this wrapper */}
+          <div className="relative">
             {section.useContainer ? (
               <div className="container mx-auto px-4">
                 <Section
@@ -825,6 +827,25 @@ function App() {
 
       <GDPRPopup />
     </div>
+  );
+
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/programme"
+          element={<ProgrammePage />}
+        />
+        <Route
+          path="/signup"
+          element={<NewsletterSignupPage />}
+        />
+        <Route
+          path="*"
+          element={<HomePage />}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
