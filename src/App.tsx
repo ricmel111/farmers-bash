@@ -501,7 +501,7 @@ function App() {
                     <div className="text-white/90 mb-6 text-lg">Belfast has excellent public transport links, making it easy to get to Boucher Road Playing Fields.</div>
                     <ul className="space-y-3">
                       <li className="flex items-center gap-2">
-                        <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Train:</strong> Balmoral and Adelaide train stations are the closest, with regular services from Belfast city centre.</span>
+                        <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Train:</strong> Balmoral train station is the closest, with regular services from Belfast city centre.</span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="text-lg text-white/90"><strong className="text-[#d5a271]">Bus:</strong> Translink Metro services operate routes that stop near Boucher Road.</span>
@@ -531,6 +531,26 @@ function App() {
                     </ul>
                   </motion.div>
                 </div>
+              </motion.div>
+            </div>
+            <div className="md:col-span-12">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 mb-8"
+              >
+                <h4 className="font-semibold text-red-400 text-2xl mb-4">Important Event Information</h4>
+                <ul className="list-disc pl-6 space-y-2 text-white/90 text-lg">
+                  <li>Umbrellas, parasols and the like are not permitted at concert events for safety reasons.</li>
+                  <li>Chairs, seats and tables are not permitted at events for safety reasons. <strong>ALL EVENTS ARE STANDING SHOWS.</strong></li>
+                  <li>There are no cloakroom facilities on site. No bags bigger than A4 size are permitted.</li>
+                  <li>Suitcases, luggage and large bags (anything bigger than A4 sized bags) are not permitted.</li>
+                  <li>Picnic blankets are not permitted.</li>
+                  <li>No flags / emblems and flares / pyrotechnics of any kind permitted - those found to have brought inside face ejection without refund.</li>
+                  <li>Anyone considered to be engaging in disruptive behaviour may be ejected with no refund offered.</li>
+                </ul>
               </motion.div>
             </div>
           </div>
@@ -718,22 +738,22 @@ function App() {
   const menuItems = [
     ...sections.slice(0, 3), // tickets, lineup, artists
     sections[3], // info
-    {
-      id: "scotland",
-      title: "SCOTLAND",
-      externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
-      icon: <HelpCircle className="w-6 h-6" />,
-      // These properties are required by the interface but won't be used
-      padding: "",
-      background: {
-        color: "",
-        image: "",
-        position: "",
-        backgroundSize: "",
-      },
-      useContainer: false,
-      content: null
-    },
+    // {
+    //   id: "scotland",
+    //   title: "SCOTLAND",
+    //   externalUrl: "https://royalhighlandshow.seetickets.com/event/royal-highland-show/royal-highland-centre/3052240?offercode=rhshoolie&direct=true#op1",
+    //   icon: <Globe className="w-6 h-6" />,
+    //   // These properties are required by the interface but won't be used
+    //   padding: "",
+    //   background: {
+    //     color: "",
+    //     image: "",
+    //     position: "",
+    //     backgroundSize: "",
+    //   },
+    //   useContainer: false,
+    //   content: null
+    // },
     sections[4], // accessibility
     ...sections.slice(5) // about, getintouch
   ];
@@ -744,91 +764,6 @@ function App() {
     setActiveSection(id);
   };
 
-  const HomePage = () => (
-    <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <Navbar 
-        toggleMenu={toggleMenu}
-        isMenuOpen={isMenuOpen}
-        menuItems={menuItems}
-        activeSection={activeSection}
-        onMenuItemClick={handleMenuItemClick}
-      />
-      <div ref={heroRef}>
-        <Hero />
-      </div>
-
-      {sections.map((section) => (
-        <div
-          key={section.id}
-          className={`${section.background.color} relative ${section.padding} overflow-hidden`}
-          style={{
-            '--desktop-image': section.background.image,
-            '--mobile-image': section.background.mobileImage || section.background.image,
-            '--desktop-position': section.background.position,
-            '--mobile-position': section.background.mobilePosition || section.background.position,
-            '--desktop-backgroundsize': section.background.backgroundSize,
-            '--mobile-backgroundsize': section.background.backgroundSize || section.background.backgroundSize,
-            backgroundImage: 'var(--desktop-image)',
-            backgroundPosition: 'var(--desktop-position)',
-            backgroundSize: 'var(--desktop-backgroundsize)',
-            backgroundAttachment: section.background.attachment,
-          } as React.CSSProperties}
-        >
-          {section.background.overlay && (
-            <div className={`absolute inset-0 ${section.background.overlay}`}></div>
-          )}
-          <div className="relative">
-            {section.useContainer ? (
-              <div className="container mx-auto px-4">
-                <Section
-                  id={section.id}
-                  title={section.title}
-                  icon={section.icon}
-                  titleStyle={section.titleStyle}
-                >
-                  {section.content}
-                  {section.id === "info" && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.6 }}
-                      className="mt-16 text-center"
-                    >
-                      <button
-                        onClick={() => setShowFAQ(true)}
-                        className="inline-flex items-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
-                      >
-                        <HelpCircle className="w-8 h-8" />
-                        View FAQs
-                      </button>
-                    </motion.div>
-                  )}
-                </Section>
-              </div>
-            ) : (
-              <Section id={section.id} title={section.title} icon={section.icon} titleStyle={section.titleStyle}>
-                {section.content}
-              </Section>
-            )}
-          </div>
-        </div>
-      ))}
-
-      <Footer />
-
-      <AnimatePresence>
-        {showNewsletter && (
-          <NewsletterPopup onClose={() => setShowNewsletter(false)} />
-        )}
-      </AnimatePresence>
-
-      <FAQModal isOpen={showFAQ} onClose={() => setShowFAQ(false)} />
-
-      <GDPRPopup />
-    </div>
-  );
-
   return (
     <BrowserRouter>
       <Routes>
@@ -837,16 +772,96 @@ function App() {
           element={<ProgrammePage />}
         />
         <Route
-          path="/signup"
-          element={<NewsletterSignupPage />}
-        />
-        <Route
           path="*"
-          element={<HomePage />}
+          element={
+            <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+              <Navbar 
+                toggleMenu={toggleMenu}
+                isMenuOpen={isMenuOpen}
+                menuItems={menuItems}
+                activeSection={activeSection}
+                onMenuItemClick={handleMenuItemClick}
+              />
+              <div ref={heroRef}>
+                <Hero />
+              </div>
+
+              {sections.map((section) => (
+                <div
+                  key={section.id}
+                  className={`${section.background.color} relative ${section.padding} overflow-hidden`}
+                  style={{
+                    '--desktop-image': section.background.image,
+                    '--mobile-image': section.background.mobileImage || section.background.image,
+                    '--desktop-position': section.background.position,
+                    '--mobile-position': section.background.mobilePosition || section.background.position,
+                    '--desktop-backgroundsize': section.background.backgroundSize,
+                    '--mobile-backgroundsize': section.background.backgroundSize || section.background.backgroundSize,
+                    backgroundImage: 'var(--desktop-image)',
+                    backgroundPosition: 'var(--desktop-position)',
+                    backgroundSize: 'var(--desktop-backgroundsize)',
+                    backgroundAttachment: section.background.attachment,
+                  } as React.CSSProperties}
+                >
+                  {section.background.overlay && (
+                    <div className={`absolute inset-0 ${section.background.overlay}`}></div>
+                  )}
+                  <div className="relative">  {/* Add this wrapper */}
+                    {section.useContainer ? (
+                      <div className="container mx-auto px-4">
+                        <Section
+                          id={section.id}
+                          title={section.title}
+                          icon={section.icon}
+                          titleStyle={section.titleStyle}
+                        >
+                          {section.content}
+                          {section.id === "info" && (
+                            <motion.div 
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: 0.6 }}
+                              className="mt-16 text-center"
+                            >
+                              <button
+                                onClick={() => setShowFAQ(true)}
+                                className="inline-flex items-center gap-3 px-10 py-5 bg-green-500 hover:bg-green-600 text-white text-2xl font-bold rounded-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105"
+                              >
+                                <HelpCircle className="w-8 h-8" />
+                                View FAQs
+                              </button>
+                            </motion.div>
+                          )}
+                        </Section>
+                      </div>
+                    ) : (
+                      <Section id={section.id} title={section.title} icon={section.icon} titleStyle={section.titleStyle}>
+                        {section.content}
+                      </Section>
+                    )}
+                  </div>
+                </div>
+              ))}
+
+              <Footer />
+
+              <AnimatePresence>
+                {showNewsletter && (
+                  <NewsletterPopup onClose={() => setShowNewsletter(false)} />
+                )}
+              </AnimatePresence>
+
+              <FAQModal isOpen={showFAQ} onClose={() => setShowFAQ(false)} />
+
+              <GDPRPopup />
+            </div>
+          }
         />
       </Routes>
     </BrowserRouter>
   );
+
 }
 
 export default App;

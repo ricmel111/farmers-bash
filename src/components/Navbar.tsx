@@ -38,7 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({
     onMenuItemClick(id);
     // Only toggle menu if we're on mobile (menu is already open)
     if (window.innerWidth < 768 && isMenuOpen) {
-      toggleMenu();
+    toggleMenu();
     }
   };
 
