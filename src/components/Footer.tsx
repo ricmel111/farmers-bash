@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const sponsors = [
@@ -33,12 +35,12 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 pt-8 mt-8 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
-            <a 
-              href="/signup" 
+            <Link 
+              to="/signup" 
               className="text-green-400 hover:text-green-300 transition-colors font-medium"
             >
               Subscribe to Newsletter
-            </a>
+            </Link>
           </div>
           <p className="text-gray-400">
             © {new Date().getFullYear()} Farmers Bash. All rights reserved.
