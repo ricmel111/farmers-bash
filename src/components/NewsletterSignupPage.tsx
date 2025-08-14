@@ -15,7 +15,7 @@ const NewsletterSignupPage: React.FC = () => {
     
     // Get the current domain for absolute URLs
     const baseUrl = window.location.origin;
-    const imageUrl = `${baseUrl}/images/bg6.jpg`;
+    const imageUrl = `${baseUrl}/images/FamersBash2026.png`;
     
     // Function to update existing meta tags
     const updateMetaTag = (property: string, content: string) => {
@@ -26,16 +26,18 @@ const NewsletterSignupPage: React.FC = () => {
       }
     };
 
-    // Update the existing meta tags for signup page
+    // Update the existing meta tags for signup page with cache busting
     updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash 2026');
     updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
     updateMetaTag('og:image', imageUrl);
-    updateMetaTag('og:url', window.location.href);
+    updateMetaTag('og:url', `${window.location.href}?reset=1`);
+    updateMetaTag('fb:app_id', '123456789012345');
     
     // Update Twitter meta tags
     updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash 2026');
     updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
     updateMetaTag('twitter:image', imageUrl);
+    updateMetaTag('twitter:url', `${window.location.href}?reset=1`);
 
     // Cleanup function to restore original title when component unmounts
     return () => {
