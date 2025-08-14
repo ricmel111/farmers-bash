@@ -98,7 +98,7 @@ const NewsletterSignupPage: React.FC = () => {
                   placeholder="Enter your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full p-4 border-2 border-gray-200 rounded-xl text-lg focus:border-green-500 focus:outline-none transition-colors"
+                  className="w-full p-4 border-2 border-gray-200 rounded-xl text-md focus:border-green-500 focus:outline-none transition-colors"
                   required
                   disabled={status === 'loading'}
                 />
