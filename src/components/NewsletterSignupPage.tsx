@@ -11,7 +11,7 @@ const NewsletterSignupPage: React.FC = () => {
   // Update document meta tags for social media sharing
   useEffect(() => {
     // Update title
-    document.title = "Subscribe to Newsletter - Farmers Bash";
+    document.title = "Subscribe to Newsletter - Farmers Bash 2026";
     
     // Update or create meta tags for Open Graph
     const updateMetaTag = (property: string, content: string) => {
@@ -26,18 +26,24 @@ const NewsletterSignupPage: React.FC = () => {
       meta.setAttribute('content', content);
     };
 
+    // Get the current domain for absolute URLs
+    const baseUrl = window.location.origin;
+    const imageUrl = `${baseUrl}/images/bg6.jpg`;
+
     // Open Graph meta tags
-    updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash');
-    updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash!');
-    updateMetaTag('og:image', '/images/bg6.jpg');
+    updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash 2026');
+    updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
+    updateMetaTag('og:image', imageUrl);
     updateMetaTag('og:url', window.location.href);
     updateMetaTag('og:type', 'website');
+    updateMetaTag('og:image:width', '1200');
+    updateMetaTag('og:image:height', '630');
     
     // Twitter Card meta tags
     updateMetaTag('twitter:card', 'summary_large_image');
-    updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash');
-    updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash!');
-    updateMetaTag('twitter:image', '/images/bg6.jpg');
+    updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash 2026');
+    updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
+    updateMetaTag('twitter:image', imageUrl);
 
     // Cleanup function to restore original title when component unmounts
     return () => {
@@ -116,6 +122,9 @@ const NewsletterSignupPage: React.FC = () => {
             className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-8 text-center"
           >
             <div className="mb-6">
+              {/* Farmers Bash 2026 Branding */}
+              <h2 className="text-3xl font-bold text-green-600 mb-4">Farmers Bash 2026</h2>
+              
               <div className="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
                 <Mail className="w-8 h-8 text-white" />
               </div>
@@ -124,7 +133,7 @@ const NewsletterSignupPage: React.FC = () => {
               </h1>
               <p className="text-gray-600 text-lg">
                 Subscribe to our newsletter for exclusive updates, artist announcements,
-                and special offers!
+                and special offers for Farmers Bash 2026!
               </p>
             </div>
 
