@@ -10,40 +10,52 @@ const NewsletterSignupPage: React.FC = () => {
 
   // Update document meta tags for social media sharing
   useEffect(() => {
-    // Update title
+    // Update title immediately
     document.title = "Subscribe to Newsletter - Farmers Bash 2026";
     
-    // Update or create meta tags for Open Graph
-    const updateMetaTag = (property: string, content: string) => {
-      let meta = document.querySelector(`meta[property="${property}"]`) || 
-                 document.querySelector(`meta[name="${property}"]`);
-      
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('property', property);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', content);
-    };
-
     // Get the current domain for absolute URLs
     const baseUrl = window.location.origin;
     const imageUrl = `${baseUrl}/images/bg6.jpg`;
+    
+    // Function to create or update meta tags
+    const createOrUpdateMetaTag = (property: string, content: string) => {
+      // Remove existing meta tag if it exists
+      const existingMeta = document.querySelector(`meta[property="${property}"]`) || 
+                          document.querySelector(`meta[name="${property}"]`);
+      if (existingMeta) {
+        existingMeta.remove();
+      }
+      
+      // Create new meta tag
+      const meta = document.createElement('meta');
+      meta.setAttribute('property', property);
+      meta.setAttribute('content', content);
+      document.head.appendChild(meta);
+    };
 
     // Open Graph meta tags
-    updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash 2026');
-    updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
-    updateMetaTag('og:image', imageUrl);
-    updateMetaTag('og:url', window.location.href);
-    updateMetaTag('og:type', 'website');
-    updateMetaTag('og:image:width', '1200');
-    updateMetaTag('og:image:height', '630');
+    createOrUpdateMetaTag('og:title', "Subscribe to Newsletter - Farmer's Bash 2026");
+    createOrUpdateMetaTag('og:description', "Stay updated with exclusive updates, artist announcements, and special offers from Farmer's Bash 2026!");
+    createOrUpdateMetaTag('og:image', imageUrl);
+    createOrUpdateMetaTag('og:url', window.location.href);
+    createOrUpdateMetaTag('og:type', 'website');
+    createOrUpdateMetaTag('og:image:width', '1200');
+    createOrUpdateMetaTag('og:image:height', '630');
     
     // Twitter Card meta tags
-    updateMetaTag('twitter:card', 'summary_large_image');
-    updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash 2026');
-    updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
-    updateMetaTag('twitter:image', imageUrl);
+    createOrUpdateMetaTag('twitter:card', 'summary_large_image');
+    createOrUpdateMetaTag('twitter:title', "Subscribe to Newsletter - Farmer's Bash 2026");
+    createOrUpdateMetaTag('twitter:description', "Stay updated with exclusive updates, artist announcements, and special offers from Farmer's Bash 2026!");
+    createOrUpdateMetaTag('twitter:image', imageUrl);
+
+    // Also add a canonical link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', window.location.href);
 
     // Cleanup function to restore original title when component unmounts
     return () => {
