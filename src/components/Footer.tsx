@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8 mt-8 text-center">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
             <Link 
-              to="/signup" 
+              to="/signup2026" 
               className="text-green-400 hover:text-green-300 transition-colors font-medium"
             >
               Subscribe to Newsletter

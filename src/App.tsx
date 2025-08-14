@@ -857,7 +857,7 @@ function App() {
           element={<ProgrammePage />}
         />
         <Route
-          path="/signup"
+          path="/signup2026"
           element={<NewsletterSignupPage />}
         />
         <Route
