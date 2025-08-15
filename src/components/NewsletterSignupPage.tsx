@@ -28,14 +28,14 @@ const NewsletterSignupPage: React.FC = () => {
 
     // Update the existing meta tags for signup page with cache busting
     updateMetaTag('og:title', 'Subscribe to Newsletter - Farmers Bash 2026');
-    updateMetaTag('og:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
+    updateMetaTag('og:description', "Be first to know - subscribe for exclusive Farmer's Bash 2026 news and announcements!");
     updateMetaTag('og:image', imageUrl);
     updateMetaTag('og:url', `${window.location.href}?reset=1`);
     updateMetaTag('fb:app_id', '123456789012345');
     
     // Update Twitter meta tags
     updateMetaTag('twitter:title', 'Subscribe to Newsletter - Farmers Bash 2026');
-    updateMetaTag('twitter:description', 'Stay updated with exclusive updates, artist announcements, and special offers from Farmers Bash 2026!');
+    updateMetaTag('twitter:description', "Be first to know - subscribe for exclusive Farmer's Bash 2026 news and announcements!");
     updateMetaTag('twitter:image', imageUrl);
     updateMetaTag('twitter:url', `${window.location.href}?reset=1`);
 
@@ -126,8 +126,7 @@ const NewsletterSignupPage: React.FC = () => {
                 Stay Updated!
               </h1>
               <p className="text-gray-600 text-lg">
-                Subscribe to our newsletter for exclusive updates, artist announcements,
-                and special offers for Farmers Bash 2026!
+                Be first to know - subscribe for exclusive Farmer's Bash 2026 news and announcements!
               </p>
             </div>
 

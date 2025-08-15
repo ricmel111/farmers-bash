@@ -63,8 +63,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
 
         <h2 className="text-xl md:text-2xl font-bold mb-3 font-['Rosebay_Slab']">Stay Updated!</h2>
         <p className="text-gray-600 mb-6">
-          Subscribe to our newsletter for exclusive updates, artist announcements,
-          and special offers!
+        Be first to know - subscribe for exclusive Farmer's Bash 2026 news and announcements!
         </p>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
