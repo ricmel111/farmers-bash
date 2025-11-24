@@ -770,7 +770,7 @@ function App() {
   };
 
   const ComingSoonPage = () => (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#181a3d] text-white overflow-hidden">
       <div className="absolute inset-0">
         <img
           src="/images/bg3.jpg"
