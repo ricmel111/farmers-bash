@@ -60,6 +60,11 @@ function App() {
   const [showFAQ, setShowFAQ] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [comingSoonEmail, setComingSoonEmail] = useState("");
+  const [comingSoonStatus, setComingSoonStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [comingSoonError, setComingSoonError] = useState("");
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   useEffect(() => {
@@ -764,6 +769,116 @@ function App() {
     setActiveSection(id);
   };
 
+  const ComingSoonPage = () => (
+    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src="/images/bg3.jpg"
+          alt=""
+          className="h-full w-full object-cover opacity-80"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/15 to-black" />
+      </div>
+      <div className="relative flex min-h-screen flex-col">
+        {/* <header className="flex items-center justify-between px-6 py-6">
+          <img
+            src="/images/farmers-bash-logo-sm.svg"
+            alt="Farmers Bash"
+            className="h-10 w-auto drop-shadow-lg"
+            loading="lazy"
+          />
+        </header> */}
+        <main className="flex flex-1 flex-col items-center justify-center gap-8 px-6 text-center">
+          <div className="space-y-4">
+            <div className="flex justify-center">
+              <img
+                src="/images/farmers-bash-logo.svg"
+                alt="Farmers Bash Logo"
+                className="h-48 w-auto drop-shadow-xl"
+                loading="lazy"
+              />
+            </div>
+            <h1 className="text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
+              Something big is coming.
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-white/80 md:text-xl">
+              We’re rebuilding our online home to get ready 
+              for Farmers Bash 2026. Check back soon or join the list to be
+              first in line for news and updates.
+            </p>
+          </div>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              if (!comingSoonEmail) {
+                return;
+              }
+              setComingSoonStatus("loading");
+              setComingSoonError("");
+              try {
+                const res = await fetch(
+                  "/.netlify/functions/subscribe-newsletter",
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email: comingSoonEmail }),
+                  }
+                );
+                const data = await res.json();
+                if (res.ok) {
+                  setComingSoonStatus("success");
+                  setComingSoonEmail("");
+                } else {
+                  setComingSoonStatus("error");
+                  setComingSoonError(data.error || "Failed to subscribe.");
+                }
+              } catch {
+                setComingSoonStatus("error");
+                setComingSoonError(
+                  "Something went wrong. Please try again shortly."
+                );
+              }
+            }}
+            className="w-full max-w-lg space-y-3"
+          >
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <input
+                type="email"
+                required
+                value={comingSoonEmail}
+                onChange={(event) => setComingSoonEmail(event.target.value)}
+                placeholder="Enter your email"
+                className="flex-1 rounded-full border border-white/30 bg-black/40 px-6 py-4 text-base text-white placeholder:text-white/50 focus:border-green-400 focus:outline-none focus:ring-1 focus:ring-green-400"
+                disabled={comingSoonStatus === "loading"}
+              />
+              <button
+                type="submit"
+                className="rounded-full bg-green-500 px-8 py-4 text-base font-semibold text-white shadow-lg shadow-green-500/40 transition hover:bg-green-400 disabled:opacity-60"
+                disabled={comingSoonStatus === "loading"}
+              >
+                {comingSoonStatus === "loading" ? "Submitting..." : "Sign up to Newsletter"}
+              </button>
+            </div>
+            {comingSoonStatus === "success" && (
+              <p className="text-sm text-green-300">
+                Thanks! Please check your inbox to confirm your subscription.
+              </p>
+            )}
+            {comingSoonStatus === "error" && (
+              <p className="text-sm text-red-300">{comingSoonError}</p>
+            )}
+          </form>
+        </main>
+        <footer className="px-6 py-8 text-center text-xs text-white/60">
+          <p>Follow @farmersbash for live updates and lineup drops.</p>
+        </footer>
+      </div>
+    </div>
+  );
+
   const HomePage = () => (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <Navbar 
@@ -861,8 +976,12 @@ function App() {
           element={<NewsletterSignupPage />}
         />
         <Route
-          path="*"
+          path="/weekender"
           element={<HomePage />}
+        />
+        <Route
+          path="*"
+          element={<ComingSoonPage />}
         />
       </Routes>
     </BrowserRouter>
