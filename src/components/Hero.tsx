@@ -73,28 +73,46 @@ const Hero = () => {
         {/* Desktop Logo and Lineup */}
         <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-24">
           <motion.img
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            initial={{ opacity: 0, scale: 0.8, y: -30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 1,
+              delay: 0.2,
+              type: "spring",
+              stiffness: 100,
+              damping: 15
+            }}
             src="/images/FB26-Logo-[V1].png"
             alt="FB26 Logo"
             className="max-w-[25%] h-auto mb-6"
           />
           <motion.img
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 1,
+              delay: 0.5,
+              type: "spring",
+              stiffness: 80,
+              damping: 15
+            }}
             src="/images/FB26-Lineup-B-[V1].png"
             alt="Farmers Bash Lineup"
             className="max-w-4xl w-full h-auto"
           />
           <motion.img
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 1,
+              delay: 0.8,
+              type: "spring",
+              stiffness: 80,
+              damping: 15
+            }}
             src="/images/FB26-Footer-[V1].png"
-            alt="Farmers Bash Lineup"
-            className="max-w-4xl w-full h-auto"
+            alt="Farmers Bash Footer"
+            className="max-w-4xl w-full h-auto mt-4"
           />
         </div>
       </div>
@@ -118,28 +136,75 @@ const Hero = () => {
         </div> */}
 
         <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-16">
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              delay: 0.2,
+              type: "spring",
+              stiffness: 120,
+              damping: 15
+            }}
             src="/images/FB26-Logo-[V1].png"
             alt="FB26 Logo"
             className="max-w-[90%] h-auto mb-4"
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              delay: 0.4,
+              type: "spring",
+              stiffness: 100,
+              damping: 15
+            }}
             src="/images/FB26-Lineup-B-[V1].png"
             alt="Farmers Bash Lineup"
             className="max-w-full w-full h-auto mb-4"
           />
-          <div className="flex flex-col items-center gap-2">
-            <img
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ 
+              duration: 0.8,
+              delay: 0.6,
+              type: "spring",
+              stiffness: 100,
+              damping: 15
+            }}
+            className="flex flex-col items-center gap-2"
+          >
+            <motion.img
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.6,
+                delay: 0.8,
+                type: "spring",
+                stiffness: 100,
+                damping: 12
+              }}
               src="/images/FB26-Venue-[V1].png"
               alt="Venue"
               className="max-w-[60%] h-auto"
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ 
+                duration: 0.6,
+                delay: 1.0,
+                type: "spring",
+                stiffness: 100,
+                damping: 12
+              }}
               src="/images/FB26-Date-[V1].png"
               alt="Date"
               className="max-w-[50%] h-auto"
             />
-          </div>
+          </motion.div>
         </div>
 
         {/* keep gradient overlay */}
