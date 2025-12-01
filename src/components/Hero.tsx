@@ -71,7 +71,7 @@ const Hero = () => {
         <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
         
         {/* Desktop Logo and Lineup */}
-        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-16">
+        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-24">
           <motion.img
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
