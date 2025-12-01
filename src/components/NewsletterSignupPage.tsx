@@ -80,7 +80,7 @@ const NewsletterSignupPage: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/images/bg6.jpg)',
+          backgroundImage: 'url(/images/bg6.png)',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
         }}

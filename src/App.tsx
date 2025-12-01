@@ -91,7 +91,7 @@ function App() {
       padding: "pt-4 pb-24 md:pb-48",
       background: {
         color: "bg-gray-100",
-        image: "url(/images/bg6.jpg)",
+        image: "url(/images/bg6.png)",
         position: "center bottom",
         backgroundSize: "cover",
         overlay: "bg-black/40",

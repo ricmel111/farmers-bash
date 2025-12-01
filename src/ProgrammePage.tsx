@@ -7,7 +7,7 @@ const ProgrammePage: React.FC = () => (
       justifyContent: "center",
       alignItems: "center",
       minHeight: "100vh",
-      backgroundImage: "url('/images/bg6.jpg')",
+      backgroundImage: "url('/images/bg6.png')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
