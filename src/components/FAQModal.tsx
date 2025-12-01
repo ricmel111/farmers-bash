@@ -37,15 +37,11 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
   const faqs = [
     {
       question: "What time does the event start?",
-      answer: "3pm each day"
+      answer: "5:30 pm on Friday 12th June 2026"
     },
     {
       question: "Are there still tickets available?",
       answer: <>Yes - you can get tickets <a href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline">here</a></>
-    },
-    {
-      question: "Can I buy a ticket for just one day instead of a weekend?",
-      answer: "Yes, you can buy either a day ticket or weekend ticket."
     },
     {
       question: "Can I bring children?",
@@ -70,7 +66,7 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
       answer: "There is no camping on site."
     },
     {
-      question: "Is there a line up for each day?",
+      question: "Is there a line up for the event?",
       answer: "Yes, a full line up can be found on our website."
     },
     {

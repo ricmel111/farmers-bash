@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Music2,
-  Calendar,
   Users,
   Info,
   Mail,
@@ -109,40 +108,38 @@ function App() {
               className="border-l-4 border-green-400 pl-6"
             >
               <p className="text-3xl text-white/90 leading-relaxed">
-                Tickets for the Farmer's Bash Weekender are selling fast, 
+                Tickets for the Farmer's Bash are selling fast, 
                 so grab yours early to avoid disappointment.
               </p>
             </motion.div>
 
-            {/* Ticket Types & Event Details */}
-            <div className="grid md:grid-cols-5 gap-12">
-              {/* Ticket Types */}
+            {/* Ticket Purchase & Event Details */}
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Ticket Purchase */}
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="space-y-6 md:col-span-3 border-l-4 border-green-400 pl-6"
+                className="space-y-6 border-l-4 border-green-400 pl-6"
               >
                 <h3 className="text-3xl font-semibold text-white border-b border-white/20 pb-4">
-                  Available Ticket Types
+                  Get Your Tickets
                 </h3>
                 <div className="space-y-4">
-                  <div className="space-y-2">
-                    <div className="text-xl text-white/90">
-                      Day, Weekend, and VIF (Very Important Farmer) Tickets available here:
-                    </div>
-                    <a 
-                      href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
-                    >
-                      Book on Ticketmaster
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </a>
+                  <div className="text-xl text-white/90">
+                    Tickets available here:
                   </div>
+                  <a 
+                    href="https://www.ticketmaster.ie/artist/5229164?venueId=461698"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors"
+                  >
+                    Book on Ticketmaster
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </a>
                 </div>
               </motion.div>
 
@@ -151,7 +148,7 @@ function App() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="space-y-6 md:col-span-2 border-l-4 border-green-400 pl-6"
+                className="space-y-6 border-l-4 border-green-400 pl-6"
               >
                 <h3 className="text-3xl font-semibold text-white border-b border-white/20 pb-4">
                   Event Details
@@ -164,10 +161,10 @@ function App() {
                     className="flex items-center gap-4"
                   >
                     <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
-                      <span className="text-2xl">🕐</span>
+                      <span className="text-2xl">📅</span>
                     </div>
                     <div className="text-xl">
-                      <span className="font-semibold">Gates Open:</span> 2pm
+                      <span className="font-semibold">Date:</span> Friday 12th June 2026
                     </div>
                   </motion.div>
                   <motion.div 
@@ -177,10 +174,10 @@ function App() {
                     className="flex items-center gap-4"
                   >
                     <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center">
-                      <span className="text-2xl">🎵</span>
+                      <span className="text-2xl">🕐</span>
                     </div>
                     <div className="text-xl">
-                      <span className="font-semibold">Show Starts:</span> 3pm
+                      <span className="font-semibold">Time:</span> 5:30 pm
                     </div>
                   </motion.div>
                 </div>
@@ -215,7 +212,7 @@ function App() {
               <p className="text-lg text-white/90">
                 For more details, visit{' '}
                 <a 
-                  href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164"
+                  href="https://www.ticketmaster.ie/artist/5229164?venueId=461698"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:text-green-300 underline font-semibold inline-flex items-center gap-1"
@@ -234,119 +231,6 @@ function App() {
                 View FAQs
               </button>
             </motion.div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: "lineup",
-      title: "LINEUP",
-      icon: <Calendar className="w-6 h-6" />,
-      titleStyle: 'large',
-      padding: "pt-4",
-      background: {
-        color: "bg-blue-100",
-        image: "url(/images/hero-bg.jpg)",
-        position: "center bottom",
-        backgroundSize: "cover",
-      },
-      useContainer: false,
-      content: (
-        <div className="w-full overflow-hidden">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative flex flex-col items-center justify-center container mx-auto px-4"
-          >
-            <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              src="/images/hero-logo.webp"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.onerror = null;
-                target.src = "/images/hero-lo.png";
-              }}
-              alt="Farmers Bash Banner"
-              className="max-w-full h-auto"
-            />
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex flex-col items-center space-y-4 px-4"
-          >
-            <motion.img
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              src="/images/Banner-A.png"
-              alt="Farmers Bash Banner"
-              className="max-w-full h-auto"
-            />
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative flex flex-col items-center justify-center container mx-auto px-4"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-32 md:p-12 justify-items-center">
-              <motion.img
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                whileHover={{ scale: 1.02 }}
-                src="/images/Lineup-Saturday.png"
-                alt="Lineup Saturday"
-                className="max-w-full h-auto mb-12 md:mb-0"
-              />
-              <motion.img
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                whileHover={{ scale: 1.02 }}
-                src="/images/Lineup-Sunday.png"
-                alt="Lineup Sunday"
-                className="max-w-full h-auto mb-4 md:mb-0"
-              />
-            </div>
-          </motion.div>
-
-          <div className="relative flex flex-col items-center w-full">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="relative flex flex-col items-center justify-center container mx-auto px-4"
-            >
-              <motion.img
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.6 }}
-                src="/images/Plus.png"
-                alt="Plus"
-                className="max-w-full h-auto mb-16 md:mb-0"
-              />
-            </motion.div>
-            <img
-              src="/images/hero-fg.png"
-              alt="Lineup Footer"
-              className="h-auto -mt-24 w-full object-cover"
-              style={{ maxWidth: '100%' }}
-            />
           </div>
         </div>
       ),
@@ -429,7 +313,7 @@ function App() {
               >
                 <h3 className="text-4xl md:text-5xl text-white mb-6">Accommodation</h3>
                 <p className="text-xl text-white/90 leading-relaxed">
-                  Planning to stay in Belfast for the Weekender? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
+                  Planning to stay in Belfast for the event? The city offers a range of accommodation options to suit every budget and preference, from luxury hotels to budget-friendly stays. Here are some top 
                   recommendations:
                 </p>
               </motion.div>
@@ -604,7 +488,7 @@ function App() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
                 <h3 className="text-2xl font-bold [color:#00adef] mb-4">Accessibility Parking</h3>
                 <p className="text-lg text-white/90 leading-relaxed">
-                  Blue Badge holders can park close the main entrance on Balmoral Road (indicated on the map). When arriving via car please enter from Stockman's Lane onto Boucher Road. We are enforcing a Road Closure from 9pm on each show night. When turning into Balmoral Road from Boucher Road you will encounter our Security staff simply show them your event tickets and your Blue Badge. Security will advise you to drive at a Maximum of 10 miles per hour and engage your hazard warning lights. This will help protect other customers who are on foot. On the map below you will see the Blue Badge Accessible Parking sign. Please Continue on Balmoral Road and security will direct you to the accessible parking spaces. Our Parking Area if large enough for wheelchair accessible vehicles to full open doors and back loading. Alternatively, if you are travelling by taxi or are being dropped off at the event they can also entrance through Stockman's Lane onto Boucher Road and Drop off at the Accessibility Parking area. Please note for collections, cars will need to be on the Boucher Road from 10:20pm at the latest as no cars will be permitted to drive through the road closure for at least 15 minutes after the show is finished to allow for a safe customer egress.
+                  Blue Badge holders can park close the main entrance on Balmoral Road (indicated on the map). When arriving via car please enter from Stockman's Lane onto Boucher Road. We are enforcing a Road Closure from 9pm on the show night. When turning into Balmoral Road from Boucher Road you will encounter our Security staff simply show them your event tickets and your Blue Badge. Security will advise you to drive at a Maximum of 10 miles per hour and engage your hazard warning lights. This will help protect other customers who are on foot. On the map below you will see the Blue Badge Accessible Parking sign. Please Continue on Balmoral Road and security will direct you to the accessible parking spaces. Our Parking Area if large enough for wheelchair accessible vehicles to full open doors and back loading. Alternatively, if you are travelling by taxi or are being dropped off at the event they can also entrance through Stockman's Lane onto Boucher Road and Drop off at the Accessibility Parking area. Please note for collections, cars will need to be on the Boucher Road from 10:20pm at the latest as no cars will be permitted to drive through the road closure for at least 15 minutes after the show is finished to allow for a safe customer egress.
                 </p>
               </div>
 
@@ -713,7 +597,7 @@ function App() {
                   Since launching at the SSE Arena in 2017, it has grown into an annual must-attend celebration. In 2019, Farmer's Bash: Live at the Beach drew nearly 20,000 to Portrush, and in 2020, it adapted to host the UK's biggest drive-in concerts. After returning to the SSE in 2022, it moved to Belsonic in 2024, selling out at 22,000. In 2023, it expanded to Scotland with the Royal Highland Hoolie at the Royal Highland Show.
                   </p>
                   <p>
-                  Now, in 2025, Farmer's Bash evolves into a two-day festival—the Weekender—at Boucher Road Playing Fields. With multiple stages, an unbeatable lineup, and an electric atmosphere, it's set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, the Farmer's Bash Weekender promises an unforgettable experience of music, dancing, and entertainment.
+                  Now, in 2026, Farmer's Bash continues at Boucher Road Playing Fields as a day event on Friday 12th June. With an unbeatable lineup and an electric atmosphere, it's set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, Farmer's Bash promises an unforgettable experience of music, dancing, and entertainment.
                   </p>
                 </div>
               </motion.div>
@@ -741,8 +625,8 @@ function App() {
 
   // Create menu items with Scotland between Info and About
   const menuItems = [
-    ...sections.slice(0, 3), // tickets, lineup, artists
-    sections[3], // info
+    ...sections.slice(0, 2), // tickets, artists
+    sections[2], // info
     // {
     //   id: "scotland",
     //   title: "SCOTLAND",
@@ -976,13 +860,13 @@ function App() {
           element={<NewsletterSignupPage />}
         />
         <Route
-          path="/weekender"
+          path="*"
           element={<HomePage />}
         />
-        <Route
+        {/* <Route
           path="*"
           element={<ComingSoonPage />}
-        />
+        /> */}
       </Routes>
     </BrowserRouter>
   );
