@@ -41,7 +41,7 @@ export const artists = [
   {
     name: "Hugo Duncan",
     image: "/images/artists/HugoDuncan.webp",
-    imageFallback: "/images/artists/HugoDuncan.png",
+    imageFallback: "/images/artists/HugoDuncan.jpg",
     website: "https://en.wikipedia.org/wiki/Hugo_Duncan",
   },
   {
@@ -53,7 +53,7 @@ export const artists = [
   {
     name: "Colin Graham",
     image: "/images/artists/ColinGraham.webp",
-    imageFallback: "/images/artists/ColinGraham.jpeg",
+    imageFallback: "/images/artists/ColinGraham.jpg",
     website: "https://www.facebook.com/cmgmusic123/",
   },
   {
