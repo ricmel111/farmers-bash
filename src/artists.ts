@@ -32,7 +32,7 @@ export const artists = [
   {
     name: "Boyzlife",
     image: "/images/artists/Boyzlife.webp",
-    imageFallback: "/images/artists/Boyzlife.png",
+    imageFallback: "/images/artists/Boyzlife.jpg",
     website: "https://www.facebook.com/BoyzlifeTour",
   },
   {
