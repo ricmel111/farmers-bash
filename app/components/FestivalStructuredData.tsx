@@ -11,7 +11,7 @@ export default function FestivalStructuredData() {
     endDate: '2025-08-10', // Update with actual date
     location: {
       '@type': 'Place',
-      name: 'Boucher Playing Fields'
+      name: 'Ormeau Park'
     },
     performer: [
       {

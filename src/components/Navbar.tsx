@@ -45,19 +45,9 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       {/* Regular Navbar */}
-      <nav className="absolute top-0 left-0 right-0 z-40">
+      <nav className="absolute top-4 left-0 right-0 z-40">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <div className={`h-32 w-28 relative transition-opacity duration-300 ${
-              scrolled ? 'opacity-0' : 'opacity-100'
-            }`}>
-              <img
-                src="/images/farmers-bash-logo.svg"
-                alt="Farmers Bash Logo"
-                className="absolute top-0 left-0 h-full w-full object-contain"
-              />
-            </div>
-
+          <div className="flex justify-center items-center">
             {/* Desktop Menu - Hide when scrolled */}
             <div className={`hidden md:flex items-center space-x-2 transition-opacity duration-300 ${
               scrolled ? 'opacity-0' : 'opacity-100'
@@ -137,12 +127,7 @@ const Navbar: React.FC<NavbarProps> = ({
             >
               <div className="flex flex-col h-full">
                 {/* Menu Header with Close Button */}
-                <div className="p-6 border-b border-white/10 flex justify-between items-center bg-white/5">
-                  <img
-                    src="/images/farmers-bash-logo.svg"
-                    alt="Farmers Bash Logo"
-                    className="h-12 w-auto object-contain"
-                  />
+                <div className="p-6 border-b border-white/10 flex justify-end items-center bg-white/5">
                   <motion.button
                     onClick={toggleMenu}
                     className="p-2 rounded-full hover:bg-white/10 transition-colors"

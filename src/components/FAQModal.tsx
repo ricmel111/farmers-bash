@@ -37,15 +37,11 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
   const faqs = [
     {
       question: "What time does the event start?",
-      answer: "3pm each day"
+      answer: "5:30 pm on Friday 12th June 2026"
     },
     {
       question: "Are there still tickets available?",
       answer: <>Yes - you can get tickets <a href="https://www.ticketmaster.ie/the-farmer-s-bash-tickets/artist/5229164" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 underline">here</a></>
-    },
-    {
-      question: "Can I buy a ticket for just one day instead of a weekend?",
-      answer: "Yes, you can buy either a day ticket or weekend ticket."
     },
     {
       question: "Can I bring children?",
@@ -57,22 +53,22 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
         </>
       ),
     },
-    {
-      question: "Can you tell me more about public transport?",
-      answer: "Train: Balmoral train station is the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
-    },
-    {
-      question: "Is there any camper van parking in or near the event?",
-      answer: "Unfortunately, there is no space for Camper Vans at Farmers Bash."
-    },
-    {
-      question: "Is there any camping facilities?",
-      answer: "There is no camping on site."
-    },
-    {
-      question: "Is there a line up for each day?",
-      answer: "Yes, a full line up can be found on our website."
-    },
+    // {
+    //   question: "Can you tell me more about public transport?",
+    //   answer: "Train: Balmoral train station is the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
+    // },
+    // {
+    //   question: "Is there any camper van parking in or near the event?",
+    //   answer: "Unfortunately, there is no space for Camper Vans at Farmers Bash."
+    // },
+    // {
+    //   question: "Is there any camping facilities?",
+    //   answer: "There is no camping on site."
+    // },
+    // {
+    //   question: "Is there a line up for the event?",
+    //   answer: "Yes, a full line up can be found on our website."
+    // },
     {
       question: "Lost Property - who do I contact if I lose something?",
       answer: "For lost property, you can contact lostproperty@farmersbash.com"
