@@ -53,22 +53,22 @@ const FAQModal: React.FC<FAQModalProps> = ({ isOpen, onClose }) => {
         </>
       ),
     },
-    {
-      question: "Can you tell me more about public transport?",
-      answer: "Train: Balmoral train station is the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
-    },
-    {
-      question: "Is there any camper van parking in or near the event?",
-      answer: "Unfortunately, there is no space for Camper Vans at Farmers Bash."
-    },
-    {
-      question: "Is there any camping facilities?",
-      answer: "There is no camping on site."
-    },
-    {
-      question: "Is there a line up for the event?",
-      answer: "Yes, a full line up can be found on our website."
-    },
+    // {
+    //   question: "Can you tell me more about public transport?",
+    //   answer: "Train: Balmoral train station is the closest, with regular services from Belfast city centre.\nBus: Translink Metro services operate routes that stop near Boucher Road."
+    // },
+    // {
+    //   question: "Is there any camper van parking in or near the event?",
+    //   answer: "Unfortunately, there is no space for Camper Vans at Farmers Bash."
+    // },
+    // {
+    //   question: "Is there any camping facilities?",
+    //   answer: "There is no camping on site."
+    // },
+    // {
+    //   question: "Is there a line up for the event?",
+    //   answer: "Yes, a full line up can be found on our website."
+    // },
     {
       question: "Lost Property - who do I contact if I lose something?",
       answer: "For lost property, you can contact lostproperty@farmersbash.com"

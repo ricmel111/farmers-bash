@@ -33,7 +33,7 @@ const Hero = () => {
   return (
     <>
       {/* Desktop: static image instead of video */}
-      <div className="hidden md:block w-full aspect-[16/9]" style={{ position: 'relative', background: 'black' }}>
+      <div className="hidden md:block w-full aspect-[3/2]" style={{ position: 'relative', background: 'black' }}>
         <AnimatePresence>
           {placeholderVisible && (
             <motion.div
@@ -44,7 +44,7 @@ const Hero = () => {
               className="absolute inset-0 z-10"
             >
               <img
-                src="/images/FB26-Belsonic-Cover-Image-[V1].png"
+                src="/images/FB26-BG-E.jpg"
                 alt="Farmer's Bash"
                 className="w-full h-full object-cover"
               />
@@ -70,13 +70,29 @@ const Hero = () => {
 
         <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
         
-        {/* Desktop Lineup Image */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 px-4 pt-32">
+        {/* Desktop Logo and Lineup */}
+        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-16">
+          <motion.img
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            src="/images/FB26-Logo-[V1].png"
+            alt="FB26 Logo"
+            className="max-w-[25%] h-auto mb-6"
+          />
           <motion.img
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             src="/images/FB26-Lineup-B-[V1].png"
+            alt="Farmers Bash Lineup"
+            className="max-w-4xl w-full h-auto"
+          />
+          <motion.img
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            src="/images/FB26-Footer-[V1].png"
             alt="Farmers Bash Lineup"
             className="max-w-4xl w-full h-auto"
           />
@@ -101,11 +117,11 @@ const Hero = () => {
           />
         </div> */}
 
-        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-6 pt-16">
+        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-16">
           <img
             src="/images/FB26-Logo-[V1].png"
             alt="FB26 Logo"
-            className="max-w-[75%] h-auto mb-4"
+            className="max-w-[90%] h-auto mb-4"
           />
           <img
             src="/images/FB26-Lineup-B-[V1].png"

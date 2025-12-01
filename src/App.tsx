@@ -563,7 +563,7 @@ function App() {
                   </p>
                 </motion.div>
 
-                <motion.div 
+                {/* <motion.div 
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -582,7 +582,7 @@ function App() {
                     <div className="text-3xl md:text-4xl font-bold text-green-400 mb-1 md:mb-2">40+</div>
                     <div className="text-sm md:text-base text-white/90">Top Artists</div>
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
 
               <motion.div 
@@ -597,7 +597,7 @@ function App() {
                   Since launching at the SSE Arena in 2017, it has grown into an annual must-attend celebration. In 2019, Farmer's Bash: Live at the Beach drew nearly 20,000 to Portrush, and in 2020, it adapted to host the UK's biggest drive-in concerts. After returning to the SSE in 2022, it moved to Belsonic in 2024, selling out at 22,000. In 2023, it expanded to Scotland with the Royal Highland Hoolie at the Royal Highland Show.
                   </p>
                   <p>
-                  Now, in 2026, Farmer's Bash continues at Boucher Road Playing Fields as a day event on Friday 12th June. With an unbeatable lineup and an electric atmosphere, it's set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, Farmer's Bash promises an unforgettable experience of music, dancing, and entertainment.
+                  Now, in 2026, Farmer's Bash continues at Ormeau Park on Friday 12th June. With an unbeatable lineup and an electric atmosphere, it's set to be the music event of the year. Whether you love country, folk, rock, or high-energy live music, Farmer's Bash promises an unforgettable experience of music, dancing, and entertainment.
                   </p>
                 </div>
               </motion.div>
@@ -623,10 +623,10 @@ function App() {
     },
   ];
 
-  // Create menu items with Scotland between Info and About
+  // Create menu items - hiding info and accessibility sections for now
   const menuItems = [
     ...sections.slice(0, 2), // tickets, artists
-    sections[2], // info
+    // sections[2], // info - hidden
     // {
     //   id: "scotland",
     //   title: "SCOTLAND",
@@ -643,8 +643,9 @@ function App() {
     //   useContainer: false,
     //   content: null
     // },
-    sections[4], // accessibility
-    ...sections.slice(5) // about, getintouch
+    // sections[3], // accessibility - hidden
+    sections[4], // about
+    sections[5] // getintouch
   ];
 
   const [activeSection, setActiveSection] = useState("tickets");
@@ -776,7 +777,7 @@ function App() {
         <Hero />
       </div>
 
-      {sections.map((section) => (
+      {sections.filter(section => section.id !== "info" && section.id !== "accessibility").map((section) => (
         <div
           key={section.id}
           className={`${section.background.color} relative ${section.padding} overflow-hidden`}
