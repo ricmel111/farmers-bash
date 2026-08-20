@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
+import { subscribeNewsletterUrl } from '../api';
 
 interface NewsletterPopupProps {
   onClose: () => void;
@@ -17,7 +18,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/.netlify/functions/subscribe-newsletter', {
+      const response = await fetch(subscribeNewsletterUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +35,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ onClose }) => {
         setStatus('error');
         setErrorMessage(data.error || 'Failed to subscribe');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setErrorMessage('Something went wrong. Please try again later.');
     }

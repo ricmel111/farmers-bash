@@ -32,8 +32,8 @@ const Hero = () => {
 
   return (
     <>
-      {/* Desktop: static image instead of video */}
-      <div className="hidden md:block w-full aspect-[3/2]" style={{ position: 'relative', background: 'black' }}>
+      {/* Desktop/tablet: static image instead of video */}
+      <div className="hidden md:block w-full relative bg-black min-h-[min(100svh,calc(100vw*2/3))]">
         <AnimatePresence>
           {placeholderVisible && (
             <motion.div
@@ -68,10 +68,9 @@ const Hero = () => {
         ></iframe>
         */}
 
-        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
-        
-        {/* Desktop Logo and Lineup */}
-        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-24">
+        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-20" />
+
+        <div className="relative z-20 flex flex-col items-center px-4 pt-24 pb-10">
           <motion.img
             initial={{ opacity: 0, scale: 0.8, y: -30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}

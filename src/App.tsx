@@ -14,13 +14,13 @@ import Hero from "./components/Hero";
 import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { artists } from "./artists"; // Import the artists array
-import ContactForm from "./components/ContactForm";
 import GDPRPopup from "./components/GDPRPopup";
 import FAQModal from "./components/FAQModal";
 import Image from "./components/Image";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProgrammePage from "./ProgrammePage";
 import NewsletterSignupPage from "./components/NewsletterSignupPage";
+import { subscribeNewsletterUrl } from "./api";
 
 interface Artist {
   name: string;
@@ -612,7 +612,16 @@ function App() {
         backgroundSize: "cover",
       },
       useContainer: true,
-      content: <ContactForm />
+      content: (
+        <div className="max-w-2xl mx-auto text-center">
+          <a
+            href="mailto:info@farmersbash.com"
+            className="inline-block text-2xl md:text-4xl font-bold text-green-600 hover:text-green-700 drop-shadow"
+          >
+            info@farmersbash.com
+          </a>
+        </div>
+      )
     },
   ];
 
@@ -696,7 +705,7 @@ function App() {
               setComingSoonError("");
               try {
                 const res = await fetch(
-                  "/.netlify/functions/subscribe-newsletter",
+                  subscribeNewsletterUrl,
                   {
                     method: "POST",
                     headers: {

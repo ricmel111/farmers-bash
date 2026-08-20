@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { subscribeNewsletterUrl } from '../api';
 
 const NewsletterSignupPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -51,7 +52,7 @@ const NewsletterSignupPage: React.FC = () => {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/.netlify/functions/subscribe-newsletter', {
+      const response = await fetch(subscribeNewsletterUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
