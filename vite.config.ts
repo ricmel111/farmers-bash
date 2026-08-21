@@ -5,6 +5,11 @@ import { cloudflare } from '@cloudflare/vite-plugin';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), cloudflare()],
+  resolve: {
+    alias: {
+      'punycode/': 'node:punycode',
+    },
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
