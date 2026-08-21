@@ -32,8 +32,8 @@ const Hero = () => {
 
   return (
     <>
-      {/* Desktop: static image instead of video */}
-      <div className="hidden md:block w-full aspect-[3/2]" style={{ position: 'relative', background: 'black' }}>
+      {/* Desktop/tablet: static image instead of video */}
+      <div className="hidden md:block w-full relative bg-black">
         <AnimatePresence>
           {placeholderVisible && (
             <motion.div
@@ -68,10 +68,10 @@ const Hero = () => {
         ></iframe>
         */}
 
-        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10" />
         
-        {/* Desktop Logo and Lineup */}
-        <div className="absolute inset-0 flex flex-col items-center justify-start z-20 px-4 pt-24">
+        {/* In-flow content so the hero grows on tablet instead of overlapping the next section */}
+        <div className="relative z-20 flex flex-col items-center justify-start px-4 pt-20 pb-8 min-h-[66.67vw] lg:pt-24 lg:pb-10">
           <motion.img
             initial={{ opacity: 0, scale: 0.8, y: -30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -84,7 +84,7 @@ const Hero = () => {
             }}
             src="/images/FB26-Logo-[V1].png"
             alt="FB26 Logo"
-            className="max-w-[25%] h-auto mb-6"
+            className="max-w-[22%] lg:max-w-[25%] h-auto mb-4 lg:mb-6"
           />
           <motion.img
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
@@ -98,7 +98,7 @@ const Hero = () => {
             }}
             src="/images/FB26-Lineup-B-[V1].png"
             alt="Farmers Bash Lineup"
-            className="max-w-4xl w-full h-auto"
+            className="max-w-4xl w-[92%] lg:w-full h-auto"
           />
           <motion.img
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -112,7 +112,7 @@ const Hero = () => {
             }}
             src="/images/FB26-Footer-[V1].png"
             alt="Farmers Bash Footer"
-            className="max-w-4xl w-full h-auto mt-4"
+            className="max-w-4xl w-[92%] lg:w-full h-auto mt-3 lg:mt-4"
           />
         </div>
       </div>
